@@ -1,0 +1,55 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Model binaries, checkpoints, and local caches
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.gguf
+models/
+checkpoints/
+.cache/
+hf_cache/
+
+# Secrets and credentials
+.env
+.env.*
+*.key
+*.pem
+*secret*
+*credentials*
+*.token
+
+# Hidden or private evaluation data (must remain outside workspace)
+data/test/
+data/heldout/
+data/hidden/
+*hidden_test*
+*private_eval*
+
+# Copyrighted literature PDFs
+docs/literature/*.pdf
+
+# Large raw logs and temporary artifacts
+runs/logs/*.jsonl
+runs/logs/*.log
+runs/logs/*.txt
+*.tmp
+
+# macOS and editor metadata
+.DS_Store
+.AppleDouble
+.vscode/
+.idea/
