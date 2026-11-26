@@ -80,3 +80,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 - **Status:** `APPROVED (2026-11-25)`
 - **Context:** Literature review (`goworek2026replicating`) highlighted that frontier LLMs often rely on shallow input-layer weight cues when donor execution is unavailable.
 - **Decision:** Implement and evaluate **both** `T1` (weights-only, zero donor forward passes, paired with `C4_weights`) and `T2` (activation-assisted on `data/development/`, paired with `C4_act`) in Stage 1, strictly unpooled and under separate manifests.
+
+### D009 — H002 within-arm development selection
+
+The researcher submitted the H002 implementation handoff on 2026-11-26. Codex fixed two equal pre-round edit radii per arm and screened each on the existing first 20 carry and 20 GSM8K development problems. Total correct selects the finalist, with ties going to the smaller radius. The remaining 280 carry and 480 GSM8K development items are reserved for measuring each frozen choice and the common unedited recipient. The validation and isolated-test plan remains governed by the frozen protocol. [H002 design](../runs/codex_h002/report.md)

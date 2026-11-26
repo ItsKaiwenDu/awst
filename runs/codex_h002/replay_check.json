@@ -1,0 +1,48 @@
+{
+  "c1": {
+    "selected_radius": 0.03125,
+    "checkpoint_shard_sha256": "b11f16df6de7bfb5f060789477a4e67764946f111feccd3a871d2440227ad11a",
+    "file_bit_exact": true,
+    "changed_params": 9097,
+    "overall_relative_frobenius_norm": 3.961378765963135e-05,
+    "donor_weight_bytes": 0,
+    "donor_forward_passes": 0,
+    "recipient_forward_passes": 0,
+    "patch_wall_seconds": 4.646300291002262,
+    "replay_and_hash_seconds": 6.4613563750026515
+  },
+  "t1": {
+    "selected_radius": 0.03125,
+    "checkpoint_shard_sha256": "da9ad05f9c4931477197b46581ed83653485f16763eeb7197bb9aaead2f81414",
+    "file_bit_exact": true,
+    "changed_params": 9050,
+    "overall_relative_frobenius_norm": 3.9525869099494756e-05,
+    "donor_weight_bytes": 163840,
+    "donor_forward_passes": 0,
+    "recipient_forward_passes": 0,
+    "patch_wall_seconds": 1.9120335830011754,
+    "replay_and_hash_seconds": 3.6179469160051667
+  },
+  "pristine_recipient_shard_sha256_after": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+  "runtime_topology_check": {
+    "compared": [
+      "c0",
+      "c1_low",
+      "t1_low"
+    ],
+    "identical": true,
+    "class": "Qwen3_5ForConditionalGeneration",
+    "module_count": 517,
+    "module_tree_sha256": "036dd4ab233e19d200ebcc6626af73cbcb5b17db77968fd31bc326ea1209f3fa",
+    "parameters_sha256": "937d6f935fc71c8c623bf8003f258a3527411c1fc9e6e2185a510a80f3dccd08",
+    "buffers_sha256": "2699cade972a1aa7de62c892891430b1e703ef0fa915b7180f6e00ca3cfee755",
+    "aliases": [
+      [
+        "model.language_model.embed_tokens.weight",
+        "lm_head.weight"
+      ]
+    ],
+    "runtime_parameters": 852985920,
+    "text_layers": 24
+  }
+}

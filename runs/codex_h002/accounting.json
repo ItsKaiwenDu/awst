@@ -1,0 +1,82 @@
+{
+  "handoff": "H002",
+  "source_commit": "2dda64524e9bc324cb6aaca5cf6fdef84be30b2b",
+  "harness": "Codex Desktop",
+  "turns": [
+    [
+      "gpt-6.2-astra",
+      "max"
+    ],
+    [
+      "gpt-6.2-astra",
+      "max"
+    ]
+  ],
+  "task_start_utc": "2026-11-26T18:24:40.753Z",
+  "meter_as_of_utc": "2026-11-26T21:48:07.251Z",
+  "elapsed_from_handoff_to_meter_seconds": 12206.498,
+  "meter_scope": "H002 and its Resume turn through the last provider usage event before writing this file. Later delivery tokens are outside this snapshot.",
+  "usage": {
+    "input_tokens": 5223861,
+    "cached_input_tokens": 5055488,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 43379,
+    "reasoning_output_tokens": 18196,
+    "total_tokens": 5267240,
+    "uncached_input_tokens": 168373
+  },
+  "rates_usd_per_million": {
+    "uncached_input": 8,
+    "cached_input": 0.4,
+    "output_including_reasoning": 40
+  },
+  "shadow_usd": 5.1043392,
+  "direct_api_and_cloud_usd": 0,
+  "shared_h002_h003_cap_usd": 12,
+  "balance_at_meter_usd": 6.8956608,
+  "orchestration_calls_by_name_at_meter": {
+    "exec": 56
+  },
+  "evaluation": {
+    "c0": {
+      "prompt_generations": 800,
+      "recipient_forward_passes": 350191,
+      "donor_forward_passes": 0,
+      "generated_tokens": 349471,
+      "dev_trials": 0,
+      "eval_wall_seconds": 3229.339655167005
+    },
+    "c1": {
+      "prompt_generations": 840,
+      "recipient_forward_passes": 372021,
+      "donor_forward_passes": 0,
+      "generated_tokens": 371273,
+      "dev_trials": 3,
+      "eval_wall_seconds": 3425.347899583998
+    },
+    "t1": {
+      "prompt_generations": 840,
+      "recipient_forward_passes": 366653,
+      "donor_forward_passes": 0,
+      "generated_tokens": 365894,
+      "dev_trials": 3,
+      "eval_wall_seconds": 3343.055859541004
+    }
+  },
+  "eval_wall_seconds": 9997.743414292006,
+  "candidate_patch_wall_seconds": 12.33662370899765,
+  "replay_patch_wall_seconds": 6.558333874003438,
+  "donor_weight_bytes_accessed": 491520,
+  "donor_metadata_audit_bytes": 12808107,
+  "total_charged_donor_bytes": 13299627,
+  "donor_cap_bytes": 200000000,
+  "max_donor_weight_payload_per_slice": 4096,
+  "donor_forward_passes": 0,
+  "gradient_steps": 0,
+  "pre_generation_baseline_assertion_failures": 1,
+  "hardware": "Apple M4 Max, MPS, 36 GiB unified memory",
+  "python": "3.11.16",
+  "torch": "2.15.0",
+  "transformers": "5.24.1",
+  "safetensors": "0.8.0"
+}

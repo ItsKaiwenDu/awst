@@ -1,0 +1,38 @@
+{
+  "label": "c0",
+  "phase": "screen",
+  "datasets": {
+    "carry_add_sub": {
+      "n": 20,
+      "correct": 7,
+      "truncated": 3,
+      "loop": 3,
+      "unparsed": 0,
+      "generated_tokens": 8353,
+      "recipient_forward_passes": 8370
+    },
+    "gsm8k_dev": {
+      "n": 20,
+      "correct": 10,
+      "truncated": 2,
+      "loop": 0,
+      "unparsed": 0,
+      "generated_tokens": 9652,
+      "recipient_forward_passes": 9670
+    }
+  },
+  "device": "mps",
+  "dtype": "bfloat16",
+  "enable_thinking": false,
+  "do_sample": false,
+  "max_new_tokens": 1024,
+  "model_class": "Qwen3_5ForConditionalGeneration",
+  "tied_embeddings": true,
+  "runtime_parameters": 852985920,
+  "runtime_schema_sha256": "937d6f935fc71c8c623bf8003f258a3527411c1fc9e6e2185a510a80f3dccd08",
+  "recipient_forward_passes": 18040,
+  "donor_forward_passes": 0,
+  "dev_trials": 0,
+  "load_seconds": 1.2841106670020963,
+  "wall_seconds": 168.42406045900134
+}
