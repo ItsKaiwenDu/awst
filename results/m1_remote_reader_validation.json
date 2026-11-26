@@ -1,0 +1,102 @@
+{
+  "repo_id": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "filename": "model.safetensors-00001-of-00001.safetensors",
+  "header_tensor_count": 488,
+  "targets_verified": [
+    {
+      "tensor": "model.language_model.layers.15.input_layernorm.weight",
+      "mode": "full_tensor",
+      "shape": [
+        1024
+      ],
+      "dtype": "torch.bfloat16",
+      "bit_exact_match": true
+    },
+    {
+      "tensor": "model.language_model.layers.15.mlp.down_proj.weight",
+      "mode": "row_slice[0:16]",
+      "shape": [
+        16,
+        3584
+      ],
+      "dtype": "torch.bfloat16",
+      "bit_exact_match": true
+    }
+  ],
+  "bytes_read": 176584,
+  "total_file_bytes": 1746942600,
+  "byte_reduction_ratio": 9892.98,
+  "cache_hits": 1,
+  "requests": [
+    {
+      "range": [
+        0,
+        7
+      ],
+      "nbytes": 8,
+      "cache_hit": false,
+      "http_status": 206,
+      "content_range": "bytes 0-7/1746942600",
+      "total_file_bytes": 1746942600,
+      "latency_ms": 292.56,
+      "sha256": "10169325609ac1c334a8fd7edcd164da9df0297cd9f599614c04ccb8353fc666",
+      "partial_hash_only": true
+    },
+    {
+      "range": [
+        8,
+        59847
+      ],
+      "nbytes": 59840,
+      "cache_hit": false,
+      "http_status": 206,
+      "content_range": "bytes 8-59847/1746942600",
+      "total_file_bytes": 1746942600,
+      "latency_ms": 330.71,
+      "sha256": "c894b6055113f9d5a9c5c68e703662de8ba27df5a9631b47f10b75ac3fe0b083",
+      "partial_hash_only": true
+    },
+    {
+      "range": [
+        803997448,
+        803999495
+      ],
+      "nbytes": 2048,
+      "cache_hit": false,
+      "http_status": 206,
+      "content_range": "bytes 803997448-803999495/1746942600",
+      "total_file_bytes": 1746942600,
+      "latency_ms": 266.89,
+      "sha256": "670e6a67aacfe530ec25cc0ab3dd9dd679e4fb6f00d9ae45f6b1cc8e6a26c513",
+      "partial_hash_only": true
+    },
+    {
+      "range": [
+        803999496,
+        804114183
+      ],
+      "nbytes": 114688,
+      "cache_hit": false,
+      "http_status": 206,
+      "content_range": "bytes 803999496-804114183/1746942600",
+      "total_file_bytes": 1746942600,
+      "latency_ms": 359.81,
+      "sha256": "43b8158e1278857dfbaf9e7cfd455e8e1376555c9d25a34ab03f99d83de2694b",
+      "partial_hash_only": true
+    },
+    {
+      "range": [
+        803997448,
+        803999495
+      ],
+      "nbytes": 2048,
+      "cache_hit": true,
+      "http_status": null,
+      "content_range": null,
+      "latency_ms": 0.0,
+      "sha256": "670e6a67aacfe530ec25cc0ab3dd9dd679e4fb6f00d9ae45f6b1cc8e6a26c513",
+      "partial_hash_only": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+repo_id: Qwen/Qwen3.5-2B
+revision: 15852e8c16360a2fea060d615a32b45270f8a8fc
+used_preferred_revision: false
+license: apache-2.0
+local_dir: /Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_2b
+primary_safetensors_file: model.safetensors-00001-of-00001.safetensors
+architectures:
+- Qwen3_5ForConditionalGeneration
+model_type: qwen3_5
+text_config:
+  num_hidden_layers: 24
+  hidden_size: 2048
+  intermediate_size: 6144
+  num_attention_heads: 8
+  num_key_value_heads: 2
+  head_dim: 256
+  full_attention_interval: 4
+  layer_types:
+  - linear_attention
+  - linear_attention
+  - linear_attention
+  - full_attention
+  - linear_attention
+  - linear_attention
+  - linear_attention
+  - full_attention
+  - linear_attention
+  - linear_attention
+  - linear_attention
+  - full_attention
+  - linear_attention
+  - linear_attention
+  - linear_attention
+  - full_attention
+  - linear_attention
+  - linear_attention
+  - linear_attention
+  - full_attention
+  - linear_attention
+  - linear_attention
+  - linear_attention
+  - full_attention
+  linear_conv_kernel_dim: 4
+  linear_key_head_dim: 128
+  linear_value_head_dim: 128
+  linear_num_key_heads: 16
+  linear_num_value_heads: 16
+  vocab_size: 248320
+  tie_word_embeddings: true
+  dtype: bfloat16
+total_params: 2274069824
+group_params:
+  embed_lm_head: 508559360
+  other: 8388608
+  text_full_attn: 102764032
+  text_linear_attn: 379112256
+  text_mlp: 943718400
+  text_norm: 110592
+  vision: 331416576
+total_safetensors_bytes: 4548221488
+shards:
+- filename: model.safetensors-00001-of-00001.safetensors
+  size_bytes: 4548221488
+  sha256: aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1
+  tensor_count: 632
+  total_params: 2274069824

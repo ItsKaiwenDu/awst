@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-25  
-**Current Milestone:** `M0: Literature and research setup` — **Completed; Ready for Exit Gate Review & Human Approvals**  
+**Current Milestone:** `M1: Baseline and infrastructure` — **In Progress (M0 Approved & Pushed at `5f4009d`)**  
 **Branch:** `main`  
-**Base Commit SHA (at start of M0):** `39a4573`  
+**Latest Commit SHA:** `5f4009d` (`Commit: Complete Milestone M0 Setup & Literature Review`, pushed to `origin/main`)  
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoff only; not yet invoked)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoff only; held until `D008` ToS resolution before M2)
 
 ---
 
@@ -13,12 +13,12 @@
 
 | Category | Authorized | Spent to Date | Notes |
 |---|---:|---:|---|
-| Paid Pilot Gate (`D005`) | **\$0.00** (proposed \$20.00) | \$0.00 | **Awaiting explicit researcher approval** |
-| Gemini API | \$0.00 (protocol cap \$30.00) | \$0.00 | No paid API calls made |
-| Astra API / Codex | \$0.00 (protocol cap \$60.00) | \$0.00 | No Codex handoffs submitted |
+| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines remain \$0.00 |
+| Gemini API | \$5.00 (within \$20 pilot / \$30 protocol cap) | \$0.00 | `D001` Option A matched check in M2 |
+| Astra API / Codex | \$12.00 (within \$20 pilot / \$60 protocol cap) | \$0.00 | Held until `D008` ToS resolution before M2 |
 | Cloud GPU | \$0.00 (protocol cap \$40.00) | \$0.00 | Local M4 Max first |
 | Storage & Misc | \$0.00 (protocol cap \$10.00) | \$0.00 | Local 580 GiB free |
-| **Total Initial Study** | **\$0.00 authorized / \$200.00 hard ceiling** | **\$0.00** | Zero paid work executed |
+| **Total Initial Study** | **\$20.00 pilot authorized / \$200.00 hard ceiling** | **\$0.00** | Zero paid work executed |
 
 - **Local Hardware Verified:** Apple M4 Max, 36 GiB unified memory (`38,654,705,664` bytes), 14 CPU cores, macOS `27.2.1` (`26B131`), `580 GiB` free disk space on `/`.
 - **Software Gap Identified:** Python `3.14.5` and `3.11` are installed (`huggingface_hub 1.29.0`, `numpy 2.5.1`), but `torch`, `transformers` (`>=5.2`), `safetensors`, `datasets`, `scipy`, and `pytest` are **not installed yet** (deferred to M1 `.venv` setup).
@@ -44,10 +44,11 @@
 - [x] Verify checkpoint candidates, licenses, provider ToS, live pricing, local compute, and storage in [`docs/permissions.md`](permissions.md); prepare approval gates in [`docs/decisions.md`](decisions.md).
 - [x] Define narrow arithmetic diagnostic (`D004`), controls, statistical plan, feasibility criteria, and proposed \$20 pilot (`D005`) in [`docs/preregistration.md`](preregistration.md).
 
-### M1: Baseline and infrastructure *(Blocked pending M0 Human Approval Gate)*
-- [ ] Set up pinned `.venv` (`torch` MPS, `transformers>=5.2`, `safetensors`, `datasets`, `pytest`), reproducible configs, weight reader, evaluation harness, and unit tests.
-- [ ] Isolate final held-out test data outside workspace (`/Users/kaiwendu/.awst_isolated_eval/`); verify scoring, tokenization, thinking-mode config, and baseline reproducibility (`C0_raw` & `C0_loopfixed`). Freeze pilot protocol and checkpoint revisions.
-- [ ] Validate selective tensor retrieval on small Safetensors files via HTTP `Range` (`206 Partial Content`); measure download bytes, storage, and M4 Max throughput. Replicate permitted WSP baseline or document failure/block.
+### M1: Baseline and infrastructure *(Approved & Active — \$0.00 local execution; `D008` held before M2)*
+- [x] Set up pinned `.venv` (Python `3.11.16`, `torch 2.15.0`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`), `requirements.txt`, `configs/environment.json`, `configs/models/` pinned SHAs (`Qwen/Qwen3.5-0.8B` at `2fc06364715b967f1860aea9cf38778875588b17`, `Qwen/Qwen3.5-2B` at `15852e8c16360a2fea060d615a32b45270f8a8fc`, `5.9G` total in `hf_cache/`), `src/` harness, and `7/7` passing unit tests (`pytest -q`).
+- [x] Isolate final held-out test data outside workspace (`/Users/kaiwendu/.awst_isolated_eval/`: `synthetic_test` 300, `synthetic_ood_test` 100, `gsm8k_test` 1319; in-repo dev/val splits recorded in `data/dataset_manifest.json`).
+- [x] Validate selective tensor retrieval on `Qwen/Qwen3.5-0.8B` via HTTP `206` `Range` requests (`results/m1_remote_reader_validation.json`: `176,584 / 1,746,942,600` bytes = `9892.98x` reduction, bit-exact match verified).
+- [ ] Run M4 Max MPS micro-benchmark, replicate Stage 0 loop-suppression edit (`C0_loopfixed`) deterministically from `RikiyaT/lm_understand-logs`, run validation baselines (`C0_raw`, `C0_loopfixed`, `Qwen3.5-2B`), and freeze pilot protocol v1.0.
 
 ### M2: Agent pilot and main experiments
 - [ ] Run approved small competency comparisons and measure actual cost; select programmer(s) using pilot evidence.
@@ -69,22 +70,17 @@
 
 ---
 
-## 4. Pending Human Approvals (M0 Exit Gate)
+## 4. M0 Exit Gate Decisions (Recorded 2026-11-25)
 
-Before M1 begins, researcher review and approval are required on:
-1. **Provider Terms Compliance (`D008` / `docs/permissions.md`):** Resolve competing-model clause for OpenAI Codex (`GPT-6.2 Astra`) and Google (`Gemini 4`) before any actual LLM weight-improvement experiment (Stage 0 WSP replication, `C1`, `T1`, `T2`), or designate an open-weight fallback programmer.
-2. **Checkpoint Downloads & `.venv` Setup (`D007`):** Authorize installing ML packages into `.venv` and downloading pinned `Qwen/Qwen3.5-0.8B` (~1.75 GB) and `Qwen/Qwen3.5-2B` (~4.25 GB) within the 30 GB local cache cap.
-3. **\$20.00 Pilot Budget Gate (`D005`):** Authorize up to \$20.00 paid spend for M2 competency + Stage 1 pilot (local M1 work remains \$0.00).
-4. **Scientific Design Choices (`D001`, `D002`, `D003`, `D004`, `D006`):**
-   - `D001`: Keep small matched Astra-vs-Neon competency check for RQ6 (Option A) vs. drop RQ6 (Option B)?
-   - `D002`: Evaluate Stage 1 primarily on `C0_loopfixed` (after Stage 0 loop-repair check) to eliminate the Takehi et al. loop-repair confound?
-   - `D003`: Freeze multimodal vision encoder; focus AWST on text backbone?
-   - `D004` & `D006`: Approve 3-tier synthetic arithmetic diagnostic and `/Users/kaiwendu/.awst_isolated_eval/` external test-isolation path?
+1. **Provider Terms Compliance (`D008` — HELD BEFORE M2):** M1 local setup, checkpoint downloads, and baselines approved to proceed now; researcher will confirm ToS compliance (or select an open-weight fallback programmer) before M2 agent weight edits.
+2. **Checkpoint Downloads & `.venv` Setup (`D007` — APPROVED):** Local `.venv` ML stack installation and pinned `Qwen/Qwen3.5-0.8B` & `Qwen/Qwen3.5-2B` downloads (~6 GB within 30 GB cap) approved.
+3. **\$20.00 Pilot Budget Gate (`D005` — APPROVED FOR M2):** Up to \$20.00 authorized for M2 pilot (M1 remains \$0.00).
+4. **Scientific Design (`D001`–`D004`, `D006` — APPROVED):** `D001` Option A (Astra primary + bounded Astra-vs-Neon RQ6 check), `D002` Option A (Stage 0 `C0_raw` + `C0_loopfixed`; Stage 1 primary on `C0_loopfixed`), `D003` (freeze vision tower), `D004` (3-tier synthetic arithmetic diagnostic), `D006` (`/Users/kaiwendu/.awst_isolated_eval/`).
 
 ---
 
-## 5. Exact Next Action (Once Approved)
+## 5. Exact Next Action (M1 Active)
 
-1. Create `.venv` on M4 Max with PyTorch MPS + `transformers>=5.2` + `safetensors` + `pytest`, and benchmark `Qwen3.5-0.8B` & `Qwen3.5-2B` on a 10-problem micro-batch.
-2. Pin exact Hugging Face commit SHAs for `Qwen3.5-0.8B` and `Qwen3.5-2B` in `configs/models/`.
-3. Build `src/data/`, `src/evaluation/`, and `src/weight_io/` (including HTTP `206` Safetensors Range reader tests) and isolate frozen test splits externally.
+1. Install ML stack in `.venv` (PyTorch MPS + `transformers>=5.2` + `safetensors` + `datasets` + `pytest`) and freeze `requirements.txt` + `configs/environment.json`.
+2. Pin exact HF commit SHAs and download `Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B` into `hf_cache/`.
+3. Implement and test `src/` (`weight_io`, `interventions`, `data`, `evaluation`), isolate test splits externally, validate HTTP `206` Safetensors Range reads, and run M4 Max micro-benchmark + Stage 0 baselines.

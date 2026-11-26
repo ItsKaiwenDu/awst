@@ -1,0 +1,42 @@
+{
+  "in_repo": {
+    "synthetic_dev": {
+      "path": "/Users/kaiwendu/Documents/GitHub/awst/data/development/synthetic_dev.jsonl",
+      "count": 900,
+      "sha256": "c2e41927daabc5ad734fe67fa1e2262ef2b7631e00226bcfea1815d42d7bbd5e"
+    },
+    "synthetic_val": {
+      "path": "/Users/kaiwendu/Documents/GitHub/awst/data/validation/synthetic_val.jsonl",
+      "count": 300,
+      "sha256": "cd5e3b7fbe69003acc40b24f3d08352c359f28b97e5393b63bc4efb9ec7bb0c6"
+    },
+    "gsm8k_dev": {
+      "path": "/Users/kaiwendu/Documents/GitHub/awst/data/development/gsm8k_dev.jsonl",
+      "count": 500,
+      "sha256": "6e2fbfa175bf52e49f96318d7ceea642e1e13aa9b9e80d8e4fe02d998614b13f"
+    },
+    "gsm8k_val": {
+      "path": "/Users/kaiwendu/Documents/GitHub/awst/data/validation/gsm8k_val.jsonl",
+      "count": 200,
+      "sha256": "4aa4ef287324ff65e9887bff46fd60df61ed4f9d6a4341330371583c24694ae1"
+    }
+  },
+  "isolated_external": {
+    "isolated_dir": "/Users/kaiwendu/.awst_isolated_eval",
+    "synthetic_test": {
+      "path": "/Users/kaiwendu/.awst_isolated_eval/synthetic_test.jsonl",
+      "count": 300,
+      "sha256": "c81c74146cf3029586fd5d7602ad7e9f882c9a2b40f07bfa002391d1c3c023d3"
+    },
+    "synthetic_ood_test": {
+      "path": "/Users/kaiwendu/.awst_isolated_eval/synthetic_ood_test.jsonl",
+      "count": 100,
+      "sha256": "4904d73b73c91bc3d8022a38c0493d99cb1e2263f4aa8c6257ebbbc33eb8281e"
+    },
+    "gsm8k_test": {
+      "path": "/Users/kaiwendu/.awst_isolated_eval/gsm8k_test.jsonl",
+      "count": 1319,
+      "sha256": "5315f256fccc1e33b51a13a820133a08959cb4ba77248917a157bdcabfe7c414"
+    }
+  }
+}

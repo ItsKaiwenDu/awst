@@ -18,8 +18,9 @@ build/
 *.pth
 *.onnx
 *.gguf
-models/
-checkpoints/
+models_cache/
+/models/
+/checkpoints/
 .cache/
 hf_cache/
 

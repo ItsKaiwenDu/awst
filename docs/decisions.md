@@ -5,7 +5,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ---
 
 ### D001 — Agent Division of Labor vs. RQ6 Comparison
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED — Option A (2026-11-25)`
 - **Context:** The launch instructions designate **GPT-6.2 Astra via Codex** as the primary weight-space programmer for core AWST weight transplantation experiments, while **Antigravity (Gemini 4 Neon)** handles research coordination, infrastructure, experimental design, baselines/controls, independent verification, documentation, and paper writing. Meanwhile, `AWST_Research_Protocol_v0.3.md` includes `RQ6` (matched competency/cost comparison of Astra vs. Neon) and Section 14.2 M2 calls for small competency comparisons before final selection.
 - **Options:**
   - **Option A (Recommended):** Keep Gemini 4 Neon as coordinator/verifier/infra/paper lead and GPT-6.2 Astra (Codex) as primary AWST programmer, **and** run one small, strictly bounded matched competency comparison (~5–10 synthetic/diagnostic items, ~\$4–\$6 total) in early M2 to preserve empirical evidence for `RQ6`.
@@ -15,7 +15,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ---
 
 ### D002 — Disentangling Qwen3.5-0.8B Loop Repair from Math Transfer (Critical Scientific Challenge)
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED — Option A (2026-11-25)`
 - **Context:** Literature verification (`takehi2026sparks`) confirmed that raw `Qwen3.5-0.8B` suffers from severe reasoning loops, and Takehi et al. raised its GSM8K accuracy from `13.8%` to `67.1%` (and MATH-500 `7.9% -> 48.1%`) by subtracting a single direction across `131,072` MLP weights (`0.016%`) in layers 15 and 19.
 - **Scientific Risk:** If Stage 1 (`Qwen3.5-2B -> Qwen3.5-0.8B`) starts from raw `Qwen3.5-0.8B` (`C0_raw`), any intervention that incidentally disrupts the loop mechanism could produce a massive apparent gain without transferring any mathematical reasoning from the `2B` donor. Even worse, `C1` (donor-free WSP) could saturate the easy loop-repair gains (`~67%`), leaving little signal unless loop repair and math transfer are explicitly separated.
 - **Options:**
@@ -26,7 +26,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ---
 
 ### D003 — Hybrid Multimodal Architecture Scope for Qwen3.5
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED (2026-11-25)`
 - **Context:** M0 verification showed `Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B` are both `Qwen3_5ForConditionalGeneration` multimodal checkpoints containing a vision encoder alongside a 24-layer hybrid text backbone (`3:1` Gated DeltaNet linear attention + Full Attention, `full_attention_interval: 4`, SwiGLU MLPs).
 - **Decision Proposal:**
   1. Treat the **vision tower as strictly frozen** across all math experiments (verify bit-exact SHA-256 unchanged after every edit).
@@ -36,7 +36,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ---
 
 ### D004 — Narrow Synthetic Arithmetic Diagnostic Specification
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED (2026-11-25)`
 - **Context:** Protocol Section 5A & 9 call for a narrow, measurable grade-school arithmetic skill verified to be neither at ceiling nor floor before freezing.
 - **Proposal:** Construct a deterministic, seeded generator (`src/data/`) covering three graded sub-skills:
   - **Sub-skill A (Multi-digit carry/borrow arithmetic):** 3- to 5-digit addition and subtraction requiring >=2 carries/borrows.
@@ -47,7 +47,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ---
 
 ### D005 — Proposed \$20.00 Pilot Plan and Spending Gate
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED FOR M2 (2026-11-25; M1 local setup remains $0.00)`
 - **Context:** Protocol v0.3 enforces a hard \$200 initial study ceiling and requires explicit authorization for a \$20 pilot before any paid work.
 - **Proposed \$20.00 Allocation:**
   - **M1 local setup, Stage 0 baselines, synthetic eval, and Safetensors HTTP Range validation on M4 Max:** **\$0.00** (local compute).
@@ -60,20 +60,20 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ---
 
 ### D006 — Hidden Evaluation Data Isolation
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED (2026-11-25)`
 - **Context:** Protocol Section 12 requires hidden tests and labels to live **outside** the agent-readable workspace, not merely in a folder named `test/`.
 - **Proposal:** Store frozen GSM8K test and synthetic test splits in `/Users/kaiwendu/.awst_isolated_eval/` (outside `/Users/kaiwendu/Documents/GitHub/awst`), with `data/test/` and `*hidden_test*` also gitignored as defense in depth. Only the researcher (or an approved frozen evaluator invocation during M3) runs evaluations against that directory; neither Antigravity nor Codex reads files inside `.awst_isolated_eval/` during M1–M2.
 
 ---
 
 ### D007 — M1 Local Runtime Environment on Apple M4 Max
-- **Status:** `PROPOSED / NEEDS APPROVAL`
+- **Status:** `APPROVED (2026-11-25)`
 - **Context:** M0 audit found Apple M4 Max (36 GiB unified memory, 580 GiB free disk), Python 3.14.5, and Python 3.11, with **no** `torch`, `transformers`, `safetensors`, `mlx`, or `pytest` installed yet. `Qwen3.5` requires `transformers >= 5.2.0` (with Gated DeltaNet support).
 - **Proposal:** In M1 (after approval), create a gitignored `.venv` using a Python version with verified binary wheels for PyTorch MPS + `transformers >= 5.2` + `safetensors` + `datasets` + `scipy` + `pytest`. Run a 10-problem micro-benchmark on `Qwen3.5-0.8B` and `Qwen3.5-2B` before running full dev/val evaluations.
 
 ---
 
 ### D008 — Provider Terms of Service Compliance Gate
-- **Status:** `BLOCKED / NEEDS RESEARCHER RESOLUTION`
+- **Status:** `HELD BEFORE M2 (2026-11-25 — M1 local setup & baselines approved; ToS compliance or open-weight fallback to be resolved before M2 agent weight edits)`
 - **Context:** Both OpenAI Terms of Use and Google Gemini API Additional Terms prohibit using outputs/services to develop competing models (`docs/permissions.md` Section 2).
 - **Action Required:** Before authorizing any Stage 0 WSP replication (`takehi2026sparks`) or AWST weight-editing run (`C1`, `T1`, `T2`) using GPT-6.2 Astra or Gemini 4, the researcher must either (1) confirm permissible academic/non-competing status or institutional agreement, (2) record an explicit compliance determination, or (3) select a permissively licensed open-weight fallback programmer.
