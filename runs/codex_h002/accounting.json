@@ -78,5 +78,20 @@
   "python": "3.11.16",
   "torch": "2.15.0",
   "transformers": "5.24.1",
-  "safetensors": "0.8.0"
+  "safetensors": "0.8.0",
+  "post_submission_meter": {
+    "submission_commit_verified_on_origin_main": "60286c9bb0da1d491c2766e83382cdcd674bd0b7",
+    "as_of_utc": "2026-11-26T21:50:25.502Z",
+    "usage": {
+      "input_tokens": 6295871,
+      "cached_input_tokens": 6125184,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 47650,
+      "reasoning_output_tokens": 19236,
+      "total_tokens": 6343521,
+      "uncached_input_tokens": 170687
+    },
+    "shadow_usd": 5.7215696,
+    "shared_cap_balance_at_snapshot_usd": 6.2784304
+  }
 }

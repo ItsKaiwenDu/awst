@@ -75,7 +75,7 @@ The forward calls include prefill and autoregressive decoding, measured with a t
 
 All stored shapes and dtypes matched. Each finalist retained 873,438,784 stored parameters, all 153 frozen vision tensors, the configuration, tokenizer and chat template. Reloads of the base and both finalists had identical 517-module trees, runtime parameter and buffer schemas, and tied embedding aliases. The default CLI recreated each entire finalist shard byte for byte. The pristine recipient shard also matched its pinned hash after both replays. The retained checkpoints are `hf_cache/edited/h002_c1_low` and `hf_cache/edited/h002_t1_low`. [Replay hashes and exact edit norms](replay_check.json)
 
-At 1:48:07 PM PST on November 26, the two H002 chat turns used 5,223,861 input tokens (5,055,488 cached) and 43,379 output tokens (18,196 reasoning). The measured shadow cost was $5.1043392 at the handoff rates, with $0.00 direct API or cloud spend. The meter excludes later delivery tokens. [Detailed accounting](accounting.json)
+At 1:48:07 PM PST on November 26, the two H002 chat turns used 5,223,861 input tokens (5,055,488 cached) and 43,379 output tokens (18,196 reasoning). The measured shadow cost was $5.1043392 at the handoff rates, with $0.00 direct API or cloud spend. The meter excludes later delivery tokens. The post-push reading at 1:50:25 PM PST was $5.7215696 shadow on 6,295,871 input tokens (6,125,184 cached) and 47,650 output tokens, including 19,236 reasoning tokens. Direct spend remained $0.00. [Detailed accounting](accounting.json)
 
 ## Checkpoint provenance and reproduction
 
