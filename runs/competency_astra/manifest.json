@@ -1,0 +1,202 @@
+{
+  "handoff": "docs/handoffs/H001_rq6_competency_pilot.md",
+  "solver_sha256": "6765852c35e501092ed1d680bd12e862c42d37d50d565deb2ad1a99a9a9c002d",
+  "fixture_checkout": "5a12b77dcae43ef2e755911015b58c34c25a0e71",
+  "source_sha256": {
+    "data/competency_pilot/suite_manifest.json": "d933c299b73b8cdcaba59f2e54c1c4a20c16a7077035d1ddfe9b0001fe65078e",
+    "data/competency_pilot/task_a_read_mlp/model.safetensors": "6bf0863426007b24b5bbcec16c9b467ada3e6a4ba92c2d9b0887ae644128c714",
+    "data/competency_pilot/task_b_transplant_rotated/donor.safetensors": "85f1817f993fa5b73f324847f6e50227b02648a00ce51b59121af5f77f13376f",
+    "data/competency_pilot/task_b_transplant_rotated/recipient.safetensors": "20e08af9dc837bf247557008f82f52f2ccc35f5eb326f99378c7d7dd118aad17",
+    "data/competency_pilot/task_c_localize_corruption/corrupted.safetensors": "a8ea2de2ed56501fbe61a14553479cb46549cfcea86048bfe301b8ccf6e60be0"
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "safetensors": "0.8.0"
+  },
+  "task_a": {
+    "task_a_active_neurons": [
+      0,
+      3
+    ],
+    "nonzero_fc1_rows": [
+      0,
+      3
+    ],
+    "fc2_bias": [
+      0.0,
+      0.0
+    ],
+    "active_paths": [
+      {
+        "neuron": 0,
+        "x0_x1": [
+          1.0,
+          1.0
+        ],
+        "bias": 0.0,
+        "to_outputs": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "neuron": 3,
+        "x0_x1": [
+          1.0,
+          1.0
+        ],
+        "bias": -9.0,
+        "to_outputs": [
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "task_b": {
+    "path": "runs/competency_astra/task_b_patched.safetensors",
+    "sha256": "3aa495ccb0e19e2905d35b34d9bed138349db8d5fa574e67e0bbb2a15e6d4551",
+    "whole_checkpoint": {
+      "changed_parameters": 192,
+      "parameters": 212,
+      "delta_frobenius": 12.554923509462277,
+      "relative_frobenius": 18.890403420537545
+    },
+    "by_tensor": {
+      "fc1.bias": {
+        "changed_parameters": 0,
+        "parameters": 16,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": null
+      },
+      "fc1.weight": {
+        "changed_parameters": 128,
+        "parameters": 128,
+        "delta_frobenius": 2.9204430986546956,
+        "relative_frobenius": 5.200882188122824
+      },
+      "fc2.bias": {
+        "changed_parameters": 0,
+        "parameters": 4,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": null
+      },
+      "fc2.weight": {
+        "changed_parameters": 64,
+        "parameters": 64,
+        "delta_frobenius": 12.210533011951966,
+        "relative_frobenius": 34.34420476136586
+      }
+    },
+    "matrix_max_abs_error": 2.1006399464340575e-07,
+    "offset_max_abs_error": 0.0,
+    "recipient": "data/competency_pilot/task_b_transplant_rotated/recipient.safetensors",
+    "donor": "data/competency_pilot/task_b_transplant_rotated/donor.safetensors",
+    "slot_rules": {
+      "fc1.weight": "[I_8; 0]",
+      "fc1.bias": "0",
+      "fc2.weight": "[donor.fc2.weight @ donor.fc1.weight, 0]",
+      "fc2.bias": "donor.fc2.weight @ donor.fc1.bias + donor.fc2.bias"
+    }
+  },
+  "task_c": {
+    "path": "runs/competency_astra/task_c_repaired.safetensors",
+    "sha256": "8712f778f06bf9bc0b746893bb71612aa26fe90b48524d91242684e24faa960c",
+    "whole_checkpoint": {
+      "changed_parameters": 128,
+      "parameters": 1732,
+      "delta_frobenius": 125.46128222191872,
+      "relative_frobenius": 1.0312751493537609
+    },
+    "by_tensor": {
+      "fc1.bias": {
+        "changed_parameters": 0,
+        "parameters": 32,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": null
+      },
+      "fc1.weight": {
+        "changed_parameters": 0,
+        "parameters": 512,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": 0.0
+      },
+      "fc2.bias": {
+        "changed_parameters": 0,
+        "parameters": 32,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": null
+      },
+      "fc2.weight": {
+        "changed_parameters": 128,
+        "parameters": 1024,
+        "delta_frobenius": 125.46128222191872,
+        "relative_frobenius": 1.0352065576624996
+      },
+      "fc3.bias": {
+        "changed_parameters": 0,
+        "parameters": 4,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": null
+      },
+      "fc3.weight": {
+        "changed_parameters": 0,
+        "parameters": 128,
+        "delta_frobenius": 0.0,
+        "relative_frobenius": 0.0
+      }
+    },
+    "source": "data/competency_pilot/task_c_localize_corruption/corrupted.safetensors",
+    "task_c_tensor_name": "fc2.weight",
+    "task_c_cols": [
+      5,
+      11,
+      19,
+      27
+    ],
+    "fourth_to_fifth_column_norm_ratio": {
+      "fc1.weight": 1.002120839417006,
+      "fc2.weight": 20.330343304391555,
+      "fc3.weight": 1.0034390723984925
+    },
+    "slot_rule": "Divide selected columns by -25 in float32",
+    "unchanged_complement_bit_exact": true,
+    "recorruption_bit_exact": true
+  },
+  "resources": {
+    "harness": "Codex",
+    "handoff_target": "GPT-6.2 Astra",
+    "codex_user_turns": 1,
+    "analysis_scripts": 1,
+    "forward_passes": 0,
+    "training_steps": 0,
+    "paid_api_calls": 0,
+    "network_calls": 0,
+    "direct_api_usd": 0,
+    "full_turn_tokens": null,
+    "full_turn_shadow_usd": null,
+    "shadow_cap_usd": 4,
+    "in_turn_usage": {
+      "model": "gpt-6.2-astra",
+      "reasoning_effort": "max",
+      "as_of_utc": "2026-11-26T17:53:57.665Z",
+      "input_tokens": 473222,
+      "cached_input_tokens": 444416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 17301,
+      "reasoning_output_tokens": 10439,
+      "total_tokens": 490523,
+      "tool_calls_at_sample": {
+        "exec": 10
+      },
+      "rates_usd_per_million": {
+        "uncached_input": 8,
+        "cached_input": 0.4,
+        "output": 40
+      },
+      "shadow_usd": 1.1002544
+    }
+  },
+  "verification": "Local weight-space checks passed. Independent scoring pending."
+}

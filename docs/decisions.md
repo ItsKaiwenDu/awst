@@ -11,6 +11,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
   - **Option A (Recommended):** Keep Gemini 4 Neon as coordinator/verifier/infra/paper lead and GPT-6.2 Astra (Codex) as primary AWST programmer, **and** run one small, strictly bounded matched competency comparison (~5–10 synthetic/diagnostic items, ~\$4–\$6 total) in early M2 to preserve empirical evidence for `RQ6`.
   - **Option B:** Skip the Astra-vs-Neon competency comparison altogether, pre-assign GPT-6.2 Astra as sole AWST programmer (subject to ToS), mark `RQ6` as `dropped / out-of-scope`, and reallocate the \$30 Gemini API budget to reserve.
 - **Recommendation:** **Option A**, operating under the non-commercial academic research scope stated in `README.md`.
+- **2026-11-26 H001 submission.** Codex returned its three synthetic-task answers and two checkpoints. Programmer selection remains open pending independent scoring and cost reconciliation. [H001 report](../runs/competency_astra/report.md)
 
 ---
 
