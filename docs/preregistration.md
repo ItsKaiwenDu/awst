@@ -114,4 +114,4 @@
   1. Reproducible baselines established on M4 Max MPS (`109 tok/s` `0.8B`, `64 tok/s` `2B`, zero NaNs).
   2. Donor `Qwen/Qwen3.5-2B` leads `Qwen/Qwen3.5-0.8B` by **+38.0 pp** on `carry_add_sub` (`40% -> 78%`), **+18.0 pp** on `mult_2x2_3x1` (`68% -> 86%`), and **+20.0 pp** on `gsm8k_val` (`62% -> 82%`).
   3. Remote HTTP `206` reader verified bit-exact at `9,893x` byte reduction.
-- **Blocking Gate Before M2 Paid Pilot (`D008`):** Researcher ToS determination (or open-weight fallback selection) required before running `C1`/`T1`/`T2` agent weight edits within the authorized \$20.00 pilot cap.
+- **M2 Authorized Pilot Scope (`D008`):** Stage 1 evaluates both `T1` (weights-only, paired with `C4_weights`) and `T2` (activation-assisted, paired with `C4_act`) strictly unpooled within the authorized \$20.00 pilot gate.

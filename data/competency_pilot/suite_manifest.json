@@ -1,0 +1,21 @@
+{
+  "seed": 2026,
+  "tasks": {
+    "task_a": {
+      "file": "data/competency_pilot/task_a_read_mlp/model.safetensors",
+      "architecture": "2-layer ReLU MLP: y = fc2(relu(fc1(x)))",
+      "prompt": "Inspect weights only. Describe the exact mathematical function computed by output[0] and output[1] on non-negative inputs x[0], x[1], and identify which hidden neuron indices are active."
+    },
+    "task_b": {
+      "donor_file": "data/competency_pilot/task_b_transplant_rotated/donor.safetensors",
+      "recipient_file": "data/competency_pilot/task_b_transplant_rotated/recipient.safetensors",
+      "architecture": "2-layer linear network: y = fc2(fc1(x) + b1) + b2 (donor hidden=32, recipient hidden=16)",
+      "prompt": "Donor computes a 4-class linear map rotated into a 32-dim hidden space. Write a training-free weight patch copying/adapting the donor map into recipient's (16, 8) and (4, 16) slots so recipient matches donor outputs."
+    },
+    "task_c": {
+      "corrupted_file": "data/competency_pilot/task_c_localize_corruption/corrupted.safetensors",
+      "architecture": "3-layer ReLU MLP: y = fc3(relu(fc2(relu(fc1(x)))))",
+      "prompt": "4 columns in one weight matrix have a planted outlier scale+sign corruption (-25x). Identify the exact tensor name and 4 column indices, and write a sparse closed-form repair patch restoring the network."
+    }
+  }
+}

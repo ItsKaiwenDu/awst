@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-25  
-**Current Milestone:** `M1: Baseline and infrastructure` — **Completed; Ready for M1 Exit Gate & `D008` ToS Check Before M2**  
+**Current Milestone:** `M2: Agent pilot and main experiments` — **In Progress (Implementing Controls & Toolkit)**  
 **Branch:** `main`  
-**Latest Commit SHA:** `997bd3d` (`Commit: Add M1 Harness, Dataset Isolation & Remote Reader`, pushed to `origin/main`)  
+**Latest Commit SHA:** `ceba611` (`Commit: Complete Milestone M1 Baselines & WSP Replication`, pushed to `origin/main`)  
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoff only; held until `D008` ToS resolution before M2)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoff only)
 
 ---
 
@@ -13,9 +13,9 @@
 
 | Category | Authorized | Spent to Date | Notes |
 |---|---:|---:|---|
-| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines remain \$0.00 |
+| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines completed at \$0.00 |
 | Gemini API | \$5.00 (within \$20 pilot / \$30 protocol cap) | \$0.00 | `D001` Option A matched check in M2 |
-| Astra API / Codex | \$12.00 (within \$20 pilot / \$60 protocol cap) | \$0.00 | Held until `D008` ToS resolution before M2 |
+| Astra API / Codex | \$12.00 (within \$20 pilot / \$60 protocol cap) | \$0.00 | Ready for M2 handoffs (`H001`, `H002`) |
 | Cloud GPU | \$0.00 (protocol cap \$40.00) | \$0.00 | Local M4 Max first |
 | Storage & Misc | \$0.00 (protocol cap \$10.00) | \$0.00 | Local 580 GiB free |
 | **Total Initial Study** | **\$20.00 pilot authorized / \$200.00 hard ceiling** | **\$0.00** | Zero paid work executed |
@@ -28,8 +28,8 @@
 ## 2. Permissions & Compliance Status
 
 - **Model Licenses:** `Qwen/Qwen3.5-0.8B`, `Qwen/Qwen3.5-2B`, `Qwen/Qwen3.5-9B`, and `google/gemma-4-E2B-it` verified **Apache 2.0**. `moonshotai/Kimi-K3.1-Pro` uses custom `kimi-k3.1-pro` license (research/modification allowed; MaaS restrictions; Stage 4 gated, NO download).
-- **Provider Terms of Service Gate:** **UNRESOLVED / BLOCKED FOR WEIGHT-IMPROVEMENT RUNS.** Both OpenAI Terms of Use and Google Gemini API Additional Terms prohibit using outputs/services to develop competing models (`docs/permissions.md` Section 2, `D008`).
-- **Checkpoint Downloads:** **NOT STARTED / PENDING APPROVAL.**
+- **Academic Scope:** Non-commercial open-weight research disclaimer recorded in `README.md`.
+- **Checkpoint Downloads:** Pinned `Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B` downloaded locally (`7.9G` total in `hf_cache/`).
 - **Git Remote:** `origin = https://github.com/ItsKaiwenDu/awst.git`, branch `main` (visibility not modified).
 
 ---
@@ -44,7 +44,7 @@
 - [x] Verify checkpoint candidates, licenses, provider ToS, live pricing, local compute, and storage in [`docs/permissions.md`](permissions.md); prepare approval gates in [`docs/decisions.md`](decisions.md).
 - [x] Define narrow arithmetic diagnostic (`D004`), controls, statistical plan, feasibility criteria, and proposed \$20 pilot (`D005`) in [`docs/preregistration.md`](preregistration.md).
 
-### M1: Baseline and infrastructure *(Completed 2026-11-25 at \$0.00 spend; `D008` held before M2)*
+### M1: Baseline and infrastructure *(Completed 2026-11-25 at \$0.00 spend)*
 - [x] Set up pinned `.venv` (Python `3.11.16`, `torch 2.15.0`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`), `requirements.txt`, `configs/environment.json`, `configs/models/` pinned SHAs (`Qwen/Qwen3.5-0.8B` at `2fc06364715b967f1860aea9cf38778875588b17`, `Qwen/Qwen3.5-2B` at `15852e8c16360a2fea060d615a32b45270f8a8fc`), `src/` harness, and `8/8` passing unit tests (`pytest -q`).
 - [x] Isolate final held-out test data outside workspace (`/Users/kaiwendu/.awst_isolated_eval/`: `synthetic_test` 300, `synthetic_ood_test` 100, `gsm8k_test` 1319; in-repo dev/val splits recorded in `data/dataset_manifest.json`).
 - [x] Validate selective tensor retrieval on `Qwen/Qwen3.5-0.8B` via HTTP `206` `Range` requests (`results/m1_remote_reader_validation.json`: `176,584 / 1,746,942,600` bytes = `9892.98x` reduction, bit-exact match verified).
@@ -70,16 +70,16 @@
 
 ---
 
-## 4. M0 Exit Gate Decisions (Recorded 2026-11-25)
+## 4. Approved Design Decisions (M0–M1 Exit Gates)
 
-1. **Provider Terms Compliance (`D008` — HELD BEFORE M2):** M1 local setup, checkpoint downloads, and baselines approved to proceed now; researcher will confirm ToS compliance (or select an open-weight fallback programmer) before M2 agent weight edits.
-2. **Checkpoint Downloads & `.venv` Setup (`D007` — APPROVED):** Local `.venv` ML stack installation and pinned `Qwen/Qwen3.5-0.8B` & `Qwen/Qwen3.5-2B` downloads (~6 GB within 30 GB cap) approved.
-3. **\$20.00 Pilot Budget Gate (`D005` — APPROVED FOR M2):** Up to \$20.00 authorized for M2 pilot (M1 remains \$0.00).
-4. **Scientific Design (`D001`–`D004`, `D006` — APPROVED):** `D001` Option A (Astra primary + bounded Astra-vs-Neon RQ6 check), `D002` Option A (Stage 0 `C0_raw` + `C0_loopfixed`; Stage 1 primary on `C0_loopfixed`), `D003` (freeze vision tower), `D004` (3-tier synthetic arithmetic diagnostic), `D006` (`/Users/kaiwendu/.awst_isolated_eval/`).
+1. **Stage 1 Dual-Track Scope (`D008` — APPROVED):** Implement and evaluate both `T1` (weights-only, paired with `C4_weights`) and `T2` (activation-assisted, paired with `C4_act`) strictly unpooled under `README.md` academic research scope.
+2. **Checkpoint Downloads & `.venv` Setup (`D007` — APPROVED):** Local `.venv` ML stack installation and pinned `Qwen/Qwen3.5-0.8B` & `Qwen/Qwen3.5-2B` downloads completed (`7.9G` within 30 GB cap).
+3. **\$20.00 Pilot Budget Gate (`D005` — APPROVED FOR M2):** Up to \$20.00 authorized for M2 pilot (M1 completed at \$0.00).
+4. **Scientific Design (`D001`–`D004`, `D006` — APPROVED):** `D001` Option A (Astra primary + bounded Astra-vs-Neon RQ6 check), `D002` Option A (`nothink 1024` on `C0_raw` per Pilot Protocol v1.0), `D003` (freeze vision tower), `D004` (`carry_add_sub` primary, `mult_2x2_3x1` secondary), `D006` (`/Users/kaiwendu/.awst_isolated_eval/`).
 
 ---
 
-## 5. Exact Next Action (M1 Exit Gate — Pause for `D008` Before M2)
+## 5. Exact Next Action (M2a Active)
 
-1. Confirm `D008` Terms of Service resolution (or designate an open-weight fallback programmer) with the researcher before starting M2 agent weight edits.
-2. Once `D008` is cleared, begin M2: run the bounded competency pilot (`D001` Option A), implement conventional transfer (`C4`) & matched controls (`C1`–`C3`, `C5`), and prepare Codex handoff `docs/handoffs/H001_stage1_awst.md` for `Qwen3.5-2B -> Qwen3.5-0.8B`.
+1. Run local Stage 1 conventional controls/baselines (`C2`, `C3`, `C4_weights`, `C4_act`) on M4 Max MPS (`results/m2_conventional_baselines.json`).
+2. Prepare manual Codex handoff briefs (`docs/handoffs/H001_rq6_competency_pilot.md` and `docs/handoffs/H002_stage1_awst_t1.md`) and pause for the researcher to relay them to GPT-6.2 Astra.

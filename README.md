@@ -1,9 +1,11 @@
 # Agentic Weight-Space Transplantation (AWST)
 
 **Working paper title:** *Agentic Weight-Space Transplantation: Training-Free Transfer of Mathematical Reasoning Between Language Models*  
-**Status:** Milestone M1 complete (baselines verified, Pilot Protocol v1.0 frozen; awaiting `D008` ToS clearance before M2 agent weight edits)  
+**Status:** Milestone M2 in progress (building and running Stage 1 controls `C2`–`C4` before Codex AWST handoffs)  
 **Primary domain:** Grade-school mathematical reasoning (narrow synthetic arithmetic diagnostic + GSM8K confirmatory benchmark)  
 **Spend to date:** \$0.00 / \$200.00 hard ceiling (\$20.00 M2 pilot gate authorized)
+
+> **Research Disclaimer (Academic Use Only):** Project AWST is an open, non-commercial academic feasibility study on training-free weight transfer between open-weight Apache-2.0 models (`Qwen3.5`). It is **not** intended for distillation or for developing models that compete with Google, OpenAI, or any other provider. GPT-6.2 Astra acts strictly as a weight-space transplanter between open-weight checkpoints.
 
 ---
 

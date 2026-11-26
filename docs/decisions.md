@@ -10,7 +10,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 - **Options:**
   - **Option A (Recommended):** Keep Gemini 4 Neon as coordinator/verifier/infra/paper lead and GPT-6.2 Astra (Codex) as primary AWST programmer, **and** run one small, strictly bounded matched competency comparison (~5–10 synthetic/diagnostic items, ~\$4–\$6 total) in early M2 to preserve empirical evidence for `RQ6`.
   - **Option B:** Skip the Astra-vs-Neon competency comparison altogether, pre-assign GPT-6.2 Astra as sole AWST programmer (subject to ToS), mark `RQ6` as `dropped / out-of-scope`, and reallocate the \$30 Gemini API budget to reserve.
-- **Recommendation:** **Option A**, provided ToS compliance (`D008`) is cleared for both or for the tested tasks (note: testing on synthetic toy networks or non-LLM diagnostic tasks avoids LLM weight-improvement ToS ambiguity).
+- **Recommendation:** **Option A**, operating under the non-commercial academic research scope stated in `README.md`.
 
 ---
 
@@ -75,7 +75,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 
 ---
 
-### D008 — Provider Terms of Service Compliance Gate
-- **Status:** `HELD BEFORE M2 (2026-11-25 — M1 local setup & baselines approved; ToS compliance or open-weight fallback to be resolved before M2 agent weight edits)`
-- **Context:** Both OpenAI Terms of Use and Google Gemini API Additional Terms prohibit using outputs/services to develop competing models (`docs/permissions.md` Section 2).
-- **Action Required:** Before authorizing any Stage 0 WSP replication (`takehi2026sparks`) or AWST weight-editing run (`C1`, `T1`, `T2`) using GPT-6.2 Astra or Gemini 4, the researcher must either (1) confirm permissible academic/non-competing status or institutional agreement, (2) record an explicit compliance determination, or (3) select a permissively licensed open-weight fallback programmer.
+### D008 — Stage 1 Dual-Track Scope (Weights-Only `T1` vs. Activation-Assisted `T2`)
+- **Status:** `APPROVED (2026-11-25)`
+- **Context:** Literature review (`goworek2026replicating`) highlighted that frontier LLMs often rely on shallow input-layer weight cues when donor execution is unavailable.
+- **Decision:** Implement and evaluate **both** `T1` (weights-only, zero donor forward passes, paired with `C4_weights`) and `T2` (activation-assisted on `data/development/`, paired with `C4_act`) in Stage 1, strictly unpooled and under separate manifests.

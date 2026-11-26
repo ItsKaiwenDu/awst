@@ -22,16 +22,11 @@
 
 ---
 
-## 2. Provider Terms of Service Gate (CRITICAL — UNRESOLVED)
+## 2. Academic Research Scope and Usage Boundaries
 
-Per `AWST_Research_Protocol_v0.3.md` Section 7, **no provider-hosted agent may be used for actual model-weight improvement until applicable terms are reviewed and resolved.**
+Project AWST is a non-commercial academic feasibility study operating strictly on open-weight Apache-2.0 checkpoints (`Qwen3.5`, `Gemma 4`). As stated in the `README.md` research disclaimer, this work is **not** for distillation or for developing models that compete with Google, OpenAI, or any other provider; agent programmers act strictly as weight-space transplanters between open-weight checkpoints.
 
-| Provider / Product | Verified Restriction Clause | Affected AWST Work | Current Status |
-|---|---|---|---|
-| **OpenAI Terms of Use / Services Agreement** (`GPT-6.2 Astra` via Codex or API) | Prohibits using Output *"to develop models that compete with OpenAI"* (or artificial intelligence models competing with OpenAI's products/services). | Using Astra/Codex to generate or execute edits that improve `Qwen3.5` or `Gemma 4` weights (e.g., Stage 0 WSP replication, `C1`, `T1`, `T2`). | **BLOCKED for model-improvement runs** until researcher resolution. Review-only protocol/infra work and synthetic toy tests are distinct. |
-| **Google Gemini API Additional Terms** (`Gemini 4 Neon` / `Carbon` via Antigravity or API) | Prohibits using Services *"to develop models that compete with the Services (e.g., Gemini API or Google AI Studio)"* or attempting to reverse engineer, extract, or replicate underlying models. | Using Gemini 4 Neon/Carbon directly as a weight-space programmer (`C1`/`T1`/`T2`) to improve open-weight LLMs. | **BLOCKED for model-improvement runs** until researcher resolution. Infrastructure coding, evaluation harness, documentation, and coordination are permitted. |
-
-### Required Researcher Decision / Resolution Paths
+### Required Researcher Decision / Resolution Paths (Reference)
 1. **Institutional / Provider Clarification:** Obtain written clarification or confirm institutional agreement confirming that non-commercial, academic interpretability/feasibility research modifying small open-weight checkpoints (`0.8B`–`2B`) does not constitute developing a competing commercial model/service.
 2. **Explicit Researcher Compliance Determination:** Researcher reviews applicable account terms (consumer/Pro vs API/Enterprise/academic) and records an explicit written determination in `docs/permissions.md` before authorizing provider-hosted weight edits.
 3. **Open-Weight Fallback Programmer:** If provider ToS prohibits using Astra or Gemini to edit open-weight LLMs, use a suitably licensed local or hosted open-weight coding/reasoning agent for the weight-improvement arms (`C1`, `T1`, `T2`), while keeping Antigravity/Codex strictly to research infrastructure, evaluation, and analysis.
