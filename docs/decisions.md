@@ -84,3 +84,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
 ### D009 — H002 within-arm development selection
 
 The researcher submitted the H002 implementation handoff on 2026-11-26. Codex fixed two equal pre-round edit radii per arm and screened each on the existing first 20 carry and 20 GSM8K development problems. Total correct selects the finalist, with ties going to the smaller radius. The remaining 280 carry and 480 GSM8K development items are reserved for measuring each frozen choice and the common unedited recipient. The validation and isolated-test plan remains governed by the frozen protocol. [H002 design](../runs/codex_h002/report.md)
+
+### D010 — H003 activation localization and development selection
+
+The researcher submitted the H003 implementation handoff on November 26, 2026. Within the authorized T2 arm, Codex froze the head-matching rule, two-head ablation shortlist and two strengths before any model forward. The pilot reserves 16 calibration, 20 selection and 64 disjoint follow-up examples from each development family. Equal-family total correct, then carry correct, then smaller strength selects one edit. C0 and the archived C4 activation baseline are measured on the same development prompts. [Frozen design](../runs/codex_h003/design.md)

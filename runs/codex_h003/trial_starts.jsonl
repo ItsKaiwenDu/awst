@@ -1,0 +1,7 @@
+{"utc": "2026-11-26T23:53:21.620104+00:00", "label": "c0", "phase": "screen", "candidate_trial": false, "resume_completed_rows": 0, "checkpoint_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696"}
+{"utc": "2026-11-26T23:56:05.633535+00:00", "label": "c4", "phase": "screen", "candidate_trial": false, "resume_completed_rows": 0, "checkpoint_sha256": "2814219eb02445e4e74afad31d38fb0f8536be93d07b597dd2444698b6792491"}
+{"utc": "2026-11-26T23:58:44.084127+00:00", "label": "half", "phase": "screen", "candidate_trial": true, "resume_completed_rows": 0, "checkpoint_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732"}
+{"utc": "2026-11-27T00:01:43.929823+00:00", "label": "full", "phase": "screen", "candidate_trial": true, "resume_completed_rows": 0, "checkpoint_sha256": "b07d7149a82f38ee5dca8496dc576f9ec52d93743a14140b8029a1a1dd9b7420"}
+{"utc": "2026-11-27T00:04:38.570800+00:00", "label": "c0", "phase": "followup", "candidate_trial": false, "resume_completed_rows": 0, "checkpoint_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696"}
+{"utc": "2026-11-27T00:13:16.267301+00:00", "label": "c4", "phase": "followup", "candidate_trial": false, "resume_completed_rows": 0, "checkpoint_sha256": "2814219eb02445e4e74afad31d38fb0f8536be93d07b597dd2444698b6792491"}
+{"utc": "2026-11-27T00:21:41.175982+00:00", "label": "half", "phase": "followup", "candidate_trial": true, "resume_completed_rows": 0, "checkpoint_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732"}

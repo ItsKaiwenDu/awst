@@ -1,0 +1,11 @@
+{
+  "total_params": 873438784,
+  "changed_params": 168325062,
+  "frozen_tensors_verified": 153,
+  "changed_tensor_count": 48,
+  "overall_relative_frobenius_norm": 0.004408709544288523,
+  "shard_sha256": "2814219eb02445e4e74afad31d38fb0f8536be93d07b597dd2444698b6792491",
+  "source_manifest_sha256": "bbcaa6e88afca36eaeff475d5663a33bce6239812d36e133e4fc1217af90df41",
+  "source_manifest": "runs/manifests/m2_c4_act_patch.json",
+  "alpha": 0.02
+}

@@ -1,0 +1,64 @@
+{
+  "harness": "Codex desktop",
+  "model": "gpt-6.2-astra",
+  "reasoning_effort": "max",
+  "task_turn_count_at_cutoff": 2,
+  "started_utc": "2026-11-26T23:45:06.312Z",
+  "cutoff_utc": "2026-11-27T03:04:36.451Z",
+  "elapsed_seconds_to_meter_cutoff": 11970.139,
+  "h003_usage": {
+    "input_tokens": 7456785,
+    "cached_input_tokens": 7264000,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 38514,
+    "reasoning_output_tokens": 11929,
+    "total_tokens": 7495299,
+    "uncached_input_tokens": 192785
+  },
+  "h003_start_cumulative_counter": {
+    "input_tokens": 7815501,
+    "cached_input_tokens": 7609216,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 72949,
+    "reasoning_output_tokens": 33001,
+    "total_tokens": 7888450
+  },
+  "snapshot_cumulative_counter": {
+    "input_tokens": 15272286,
+    "cached_input_tokens": 14873216,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 111463,
+    "reasoning_output_tokens": 44930,
+    "total_tokens": 15383749
+  },
+  "h002_closed_usage": {
+    "input_tokens": 6847490,
+    "cached_input_tokens": 6675840,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 49950,
+    "reasoning_output_tokens": 20166,
+    "total_tokens": 6897440,
+    "uncached_input_tokens": 171650
+  },
+  "h002_closed_usd": 6.041536,
+  "h002_handoff_snapshot_usd": 5.7215696,
+  "h003_opening_balance_usd": 5.958464,
+  "usd_per_million_tokens": {
+    "uncached_input": 8,
+    "cached_input": 0.4,
+    "output_including_reasoning": 40
+  },
+  "h003_shadow_usd": 5.98844,
+  "combined_shadow_usd": 12.029976,
+  "shared_cap_usd": 12,
+  "remaining_at_cutoff_usd": -0.029976,
+  "direct_api_usd": 0,
+  "cloud_gpu_usd": 0,
+  "tool_calls_by_name_at_cutoff": {
+    "exec": 49,
+    "wait": 27
+  },
+  "scope": "Local session counters from the H003 turn boundary. Subsequent chat operations fall after this snapshot.",
+  "submission_status": "Budget gate reached upon resuming the chat. Numerical work is complete. Final results commit and push pending.",
+  "over_cap_at_cutoff_usd": 0.029976
+}

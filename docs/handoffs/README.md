@@ -8,7 +8,7 @@ Per [`AWST_Research_Protocol_v0.3.md`](../../AWST_Research_Protocol_v0.3.md) Sec
 |---|---|---|---|
 | [`H001_rq6_competency_pilot.md`](H001_rq6_competency_pilot.md) | RQ6 synthetic toy-network competency pilot (Tasks A, B, C) | GPT-6.2 Astra (Codex) | **COMPLETED & VERIFIED** (`3/3`, `\$1.10` in-turn shadow / `\$0.00` direct API; [`results/m2_rq6_competency_comparison.json`](../../results/m2_rq6_competency_comparison.json)) |
 | [`H002_stage1_awst_t1.md`](H002_stage1_awst_t1.md) | Stage 1 `C1` (donor-free) + `T1` (weights-only AWST, `2B -> 0.8B`) | GPT-6.2 Astra (Codex) | **RETURNED.** Independent controls and blinded validation pending. [Results and artifacts](../../runs/codex_h002/report.md) |
-| [`H003_stage1_awst_t2.md`](H003_stage1_awst_t2.md) | Stage 1 `T2` (activation-assisted AWST, `2B -> 0.8B`) | GPT-6.2 Astra (Codex) | **READY FOR SUBMISSION** |
+| [`H003_stage1_awst_t2.md`](H003_stage1_awst_t2.md) | Stage 1 `T2` (activation-assisted AWST, `2B -> 0.8B`) | GPT-6.2 Astra (Codex) | **RETURNED.** Development and local replay complete. Independent controls and blinded validation pending. [Report and artifacts](../../runs/codex_h003/report.md) |
 
 ## Required Handoff Procedure
 

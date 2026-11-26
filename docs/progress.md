@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-26  
-**Current Milestone:** `M2: Agent pilot and main experiments` — **H002 independently verified (negative on blinded validation); H003 (`T2`) awaiting researcher submission.**
+**Current Milestone:** `M2: Agent pilot and main experiments` — **H002 independently verified (negative on blinded validation); H003 (`T2`) development complete, independent verification pending.**
 **Branch:** `main`  
 **H002 verified commit:** `f1b6e4a` on `main`
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001` verified `3/3`; `H002` verified; awaiting `H003`)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001` verified `3/3`; `H002` verified; `H003` returned)
 
 ---
 
@@ -15,9 +15,9 @@
 |---|---:|---:|---|
 | Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines completed at \$0.00 |
 | Gemini API | \$5.00 (within \$20 pilot / \$30 protocol cap) | \$0.00 | `D001` Option A matched check in M2 |
-| Astra API / Codex | \$12.00 (within \$20 pilot / \$60 protocol cap) | \$0.00 direct | `H001` \$1.1003 + `H002` \$5.7216 = \$6.8218 shadow (`\$6.2784` left in \$12.00 shared `H002`+`H003` Astra cap). [H002 metering](../runs/codex_h002/accounting.json) |
+| Astra API / Codex | $12.00 shared H002+H003 | $0.00 direct | H002 closed at $6.041536. H003 used $5.988440 through the recorded cutoff, exceeding the shared cap by $0.029976 at that time. H001 used a separate pilot allowance. [H003 meter](../runs/codex_h003/accounting.json) |
 | Cloud GPU | \$0.00 (protocol cap \$40.00) | \$0.00 | Local M4 Max first |
-| Storage & Misc | \$0.00 (protocol cap \$10.00) | \$0.00 | `15G` in `hf_cache/` (`< 30 GB` cap); 580 GiB free |
+| Storage & Misc | \$0.00 (protocol cap \$10.00) | \$0.00 | `18G` in `hf_cache/` (`< 30 GB` cap); 580 GiB free |
 | **Total Initial Study** | **\$20.00 pilot authorized / \$200.00 hard ceiling** | **\$0.00** | Zero paid work executed |
 
 - **Local Hardware Verified:** Apple M4 Max, 36 GiB unified memory (`38,654,705,664` bytes), 14 CPU cores, macOS `27.2.1` (`26B131`), `580 GiB` free disk space on `/`.
@@ -50,11 +50,12 @@
 - [x] Validate selective tensor retrieval on `Qwen/Qwen3.5-0.8B` via HTTP `206` `Range` requests (`results/m1_remote_reader_validation.json`: `176,584 / 1,746,942,600` bytes = `9892.98x` reduction, bit-exact match verified).
 - [x] Run M4 Max MPS micro-benchmark (`results/m1_micro_benchmark.json`: `109 tok/s` `0.8B`, `64–65 tok/s` `2B`, zero NaNs), reproduce Stage 0 `C0_loopfixed` (`runs/manifests/stage0_c0_loopfixed_patch.json`: `130,188` entries in L15/L19 `down_proj`, `153/153` vision tensors SHA-256 unchanged, `reversion_verified: true`), run validation baselines (`results/m1_stage0_baselines.json`: `nothink 1024` `C0_raw` `62.0%` GSM8K / `40.0%` `carry_add_sub` vs `2B` `82.0%` GSM8K / `78.0%` `carry_add_sub`; `think` check `95% -> 75%` loops without `presence_penalty=1.5`), and freeze [`docs/preregistration.md`](preregistration.md) v1.0.
 
-### M2: Agent pilot and main experiments *(M2a & H001 complete; H002 `T1` independently verified; H003 `T2` pending)*
+### M2: Agent pilot and main experiments *(M2a & H001 complete; H002 `T1` independently verified; H003 `T2` development complete)*
 - [x] Run approved small competency comparisons and measure actual cost; select programmer(s) using pilot evidence. *(Verified `3/3` for both Gemini 4 Neon and GPT-6.2 Astra in [`results/m2_rq6_competency_comparison.json`](../results/m2_rq6_competency_comparison.json); Astra `$1.10` in-turn shadow / `$0.00` direct API; caveat: `docs/progress.md` disclosed Neon's aggregate `3/3` score prior to Astra run, zero task answers exposed. Confirmed **GPT-6.2 Astra (Codex)** for Stage 1 `H002` & `H003`.)*
 - [x] Implement and test conventional transfer (`C4`) and matched controls (`C1`–`C5`); establish immutable patch & provenance logs. *(Evaluated in `results/m2_conventional_baselines.json` and `results/m2_h002_verification.json`: `C4_weights` `60.0%` GSM8K / `40.0%` `carry_add_sub`; `C4_act` `62.0%` / `34.0%`; `C2` `63.0%` / `36.0%`; `C3` `55.0%` / `40.0%`; `C5_elem` `56.0%` / `32.0%`; `C5_rowperm` `59.0%` / `40.0%` vs. `C0_raw` `62.0%` / `40.0%` and `2B` `82.0%` / `78.0%`. `12/12` unit tests pass; `hf_cache` = `15G`.)*
 - [x] Complete H002 donor-free C1 and weights-only T1 trials and Antigravity independent verification (`C1`, `T1`, `C5_elem`, `C5_rowperm` on blinded `data/validation/`). *(Dev `+4.0 pp` GSM8K gain did **not** generalize to validation: `T1` `57.0%` GSM8K vs `C0_raw` `62.0%`, `C1` `59.0%`, `C5_rowperm` `59.0%`. See section 8 and [`results/m2_h002_verification.json`](../results/m2_h002_verification.json).)*
-- [ ] Run the separately authorized H003 activation-assisted pilot (`T2`) after researcher submission and independently verify Stage 1 `T2` controls and blinded outcomes. [H003 handoff](handoffs/H003_stage1_awst_t2.md)
+- [x] Complete H003 activation-assisted development trials and return the frozen T2 checkpoint. [H003 report](../runs/codex_h003/report.md)
+- [ ] Independently verify Stage 1 T2, shuffled-donor controls and blinded outcomes.
 - [ ] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`).
 - [ ] Run approved second donor experiment if justified (Stage 3/4 gated separately).
 
@@ -82,8 +83,8 @@
 
 ## 5. Next actions
 
-1. **Pause for manual researcher submission of `H003` (`T2`, activation-assisted AWST):** [H003 handoff](handoffs/H003_stage1_awst_t2.md) (remaining balance `\$6.28` under the `\$12.00` shared Astra cap).
-2. Once `runs/codex_h003/` returns, Antigravity will independently verify `T2` invariants, `float64` reversion, `C5` shuffled-donor control, and blinded `data/validation/` evaluation, then review Stage 1 results before the Stage 2 (`Qwen3.5-9B`) gate.
+1. H003 development is complete. [H003 submission](../runs/codex_h003/report.md)
+2. Antigravity will independently verify `T2` invariants, `float64` reversion, `C5` shuffled-donor control, and blinded `data/validation/` evaluation, then review Stage 1 results before the Stage 2 (`Qwen3.5-9B`) gate.
 
 ## 8. Antigravity Independent Verification of H002 (`T1` / `C1` / `C5`), 2026-11-26
 
@@ -121,3 +122,12 @@
 - The scoring processes generated 1,086,638 tokens across 2,480 prompts in 9,997.74 seconds on local MPS. Each arm used 3/12 candidate evaluations. Two CLI replays regenerated both finalist shards byte for byte. Discarded candidates were removed. Direct API and cloud spend was $0.00. [Resource accounting](../runs/codex_h002/accounting.json) · [Replay evidence](../runs/codex_h002/replay_check.json)
 - H002 Codex shadow usage through 1:48:07 PM PST was $5.1043392 across two chat turns at the handoff rates. [Meter and token counts](../runs/codex_h002/accounting.json)
 - H002 submission `60286c9` was pushed and matched `origin/main`. Post-push shadow metering through 1:50:25 PM PST was $5.7215696, with $0.00 direct spend. [Meter receipt](../runs/codex_h002/accounting.json)
+
+## 9. H003 activation-assisted pilot, November 26, 2026
+
+- The researcher submitted the H003 implementation brief at starting commit `cb8d828`. Codex froze the twelve-layer head search, causal shortlist, two interpolation strengths and disjoint development slices before the first forward. H002 had closed at $6.041536 shadow cost, superseding its $5.7215696 in-turn receipt. H003 opened with $5.958464 of shared headroom and $0 direct spend. [Design](../runs/codex_h003/design.md)
+- Calibration used 32 development prompts per model. Two candidate head ablations used another 24 forwards per model. The signed causal ranking selected layer 13, head 12. The donor's margin increased slightly under ablation, so this result does not establish a necessary arithmetic head. No additional donor forward is required for the edit or its controls. [Localization and margins](../runs/codex_h003/localization.json)
+- Both checkpoints modify two recurrent decay scalars. The 0.5 and 1.0 strengths have relative Frobenius norms 0.000176949 and 0.000353898. Both preserved all 873,438,784 stored entries, 153 frozen vision tensors and the loaded runtime signature. Twelve repository tests passed. The development evaluator is scoring the fixed screen and follow-up on local MPS. [Half-strength patch](../runs/codex_h003/half_patch.json) · [Full-strength patch](../runs/codex_h003/full_patch.json)
+- Frozen-method commit `939e4ee` was pushed to `origin/main`. The 0.5 finalist scored 23/40 on the screen, compared with 19/40 for strength 1.0. On 64 disjoint prompts per family it solved 27 carry and 38 GSM8K, versus 26 and 36 for C0 and 22 and 36 for C4_act. All four paired 95% intervals include zero. The donor dependence and generalization of this small development difference are unresolved. [Trial log, comparisons and reproduction](../runs/codex_h003/report.md)
+- H003 used 56/64 donor forwards, 246,175 recipient forwards including probing, 3/12 candidate trials, four reference evaluations and 245,639 generated tokens. Evaluation took 2,240.48 seconds. The ordinary and identical-value override reproduced the finalist SHA-256. A shuffled source changed the edit and had 13.3 times its norm. Float64 reversion restored the pristine shard digest. All seven development evaluations completed, with $0 direct spend. Codex shadow usage through 2026-11-27T03:04:36.451Z was $5.988440. Independent C5 behavioral scoring and blinded validation remain with Antigravity. [Replay](../runs/codex_h003/replay.json) · [Resources](../runs/codex_h003/accounting.json)
+- The first fresh meter after the resumed chat showed $12.029976 combined shadow usage at 7:04:36 PM PST on November 26, $0.029976 above the shared $12 cap. The development runs and local verification had already finished. The final results are in the working tree. The final results commit and push are pending a budget decision. The published localization commit is `939e4ee`. The meter is a cutoff snapshot.

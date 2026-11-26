@@ -1,0 +1,20 @@
+{
+  "track": "T2",
+  "label": "half",
+  "strength": 0.5,
+  "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+  "checkpoint_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732",
+  "selection_keys": {
+    "half": [
+      23,
+      7,
+      -0.5
+    ],
+    "full": [
+      19,
+      6,
+      -1.0
+    ]
+  },
+  "rule": "total correct, then carry correct, then smaller strength"
+}

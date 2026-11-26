@@ -1,0 +1,165 @@
+{
+  "track": "T2",
+  "selection": "half",
+  "donor_vectors_read_for_test_bytes": 96,
+  "permutation_new_head_to_original": [
+    6,
+    3,
+    0,
+    7,
+    10,
+    15,
+    2,
+    12,
+    14,
+    9,
+    8,
+    5,
+    4,
+    13,
+    11,
+    1
+  ],
+  "replays": {
+    "regular": {
+      "shard_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732",
+      "equals_finalist": true,
+      "changed_params": 2,
+      "overall_relative_frobenius_norm": 0.00017694898799879393,
+      "sources": {
+        "model.language_model.layers.13.linear_attn.A_log": {
+          "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+          "source_head": 12,
+          "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+          "recipient_head": 12,
+          "source_dtype": "torch.float32",
+          "source_vector_sha256": "5dfe0d4a32753e3e28b7047a6801ea0cc631aa24f960fe91f0b5b9883e1a27b4",
+          "donor_value": -1.546875,
+          "activation_offset": 0.0,
+          "recipient_before": -1.3359375,
+          "recipient_after": -1.44140625
+        },
+        "model.language_model.layers.13.linear_attn.dt_bias": {
+          "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+          "source_head": 12,
+          "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+          "recipient_head": 12,
+          "source_dtype": "torch.bfloat16",
+          "source_vector_sha256": "9c724d53b30733d09bb1751b642b040bcf5a2f5194802e76adcb537628271a37",
+          "donor_value": -0.6796875,
+          "activation_offset": 0.06416821479797363,
+          "recipient_before": -0.875,
+          "recipient_after": -0.74609375
+        }
+      },
+      "runtime": {
+        "graph_sha256": "13236418e10d4656fc8cb6c4677507a2993a4f47febf0109d3d32f26d31ff066",
+        "modules": 517,
+        "text_layers": 24,
+        "runtime_parameters": 852985920,
+        "tied_embeddings": true
+      },
+      "donor_bytes_sliced": 96,
+      "override_bytes_after_storage_cast": 0,
+      "frozen_vision_tensors": 153,
+      "wall_seconds": 6.8478369590011425
+    },
+    "identical_override": {
+      "shard_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732",
+      "equals_finalist": true,
+      "changed_params": 2,
+      "overall_relative_frobenius_norm": 0.00017694898799879393,
+      "sources": {
+        "model.language_model.layers.13.linear_attn.A_log": {
+          "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+          "source_head": 12,
+          "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+          "recipient_head": 12,
+          "source_dtype": "torch.float32",
+          "source_vector_sha256": "5dfe0d4a32753e3e28b7047a6801ea0cc631aa24f960fe91f0b5b9883e1a27b4",
+          "donor_value": -1.546875,
+          "activation_offset": 0.0,
+          "recipient_before": -1.3359375,
+          "recipient_after": -1.44140625
+        },
+        "model.language_model.layers.13.linear_attn.dt_bias": {
+          "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+          "source_head": 12,
+          "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+          "recipient_head": 12,
+          "source_dtype": "torch.bfloat16",
+          "source_vector_sha256": "9c724d53b30733d09bb1751b642b040bcf5a2f5194802e76adcb537628271a37",
+          "donor_value": -0.6796875,
+          "activation_offset": 0.06416821479797363,
+          "recipient_before": -0.875,
+          "recipient_after": -0.74609375
+        }
+      },
+      "runtime": {
+        "graph_sha256": "13236418e10d4656fc8cb6c4677507a2993a4f47febf0109d3d32f26d31ff066",
+        "modules": 517,
+        "text_layers": 24,
+        "runtime_parameters": 852985920,
+        "tied_embeddings": true
+      },
+      "donor_bytes_sliced": 0,
+      "override_bytes_after_storage_cast": 96,
+      "frozen_vision_tensors": 153,
+      "wall_seconds": 3.667974874995707
+    },
+    "shuffled_override": {
+      "shard_sha256": "f47af66b18e02bf65920f47b750616cf2301da02c9a1ea31cb9972471926708c",
+      "equals_finalist": false,
+      "changed_params": 2,
+      "overall_relative_frobenius_norm": 0.0023574503311008153,
+      "sources": {
+        "model.language_model.layers.13.linear_attn.A_log": {
+          "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+          "source_head": 12,
+          "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+          "recipient_head": 12,
+          "source_dtype": "torch.float32",
+          "source_vector_sha256": "1b10812db9c073c4e7481196f744ec8deb4b41afb6585f0afdd9b1618afdabc9",
+          "donor_value": -1.3984375,
+          "activation_offset": 0.0,
+          "recipient_before": -1.3359375,
+          "recipient_after": -1.3671875
+        },
+        "model.language_model.layers.13.linear_attn.dt_bias": {
+          "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+          "source_head": 12,
+          "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+          "recipient_head": 12,
+          "source_dtype": "torch.bfloat16",
+          "source_vector_sha256": "b9061f9383df818cdd34c6361160ab6446b7c89e54848ebfefaae77d7dda58b7",
+          "donor_value": -5.375,
+          "activation_offset": 0.06416821479797363,
+          "recipient_before": -0.875,
+          "recipient_after": -3.09375
+        }
+      },
+      "runtime": {
+        "graph_sha256": "13236418e10d4656fc8cb6c4677507a2993a4f47febf0109d3d32f26d31ff066",
+        "modules": 517,
+        "text_layers": 24,
+        "runtime_parameters": 852985920,
+        "tied_embeddings": true
+      },
+      "donor_bytes_sliced": 0,
+      "override_bytes_after_storage_cast": 96,
+      "frozen_vision_tensors": 153,
+      "wall_seconds": 3.6479948749984032
+    }
+  },
+  "float64_delta_reversion": {
+    "changed_params_vs_pristine": 0,
+    "stored_params": 873438784,
+    "frozen_vision_tensors": 153,
+    "pristine_tensor_contents_restored": true,
+    "reverted_shard_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+    "original_shard_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696"
+  },
+  "donor_forward_passes": 0,
+  "recipient_forward_passes": 0,
+  "wall_seconds": 18.17177087500022
+}
