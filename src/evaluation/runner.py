@@ -91,6 +91,29 @@ def format_prompt(tokenizer: Any, problem: str, enable_thinking: bool) -> str:
     )
 
 
+def load_dataset_rows(
+    dataset_path: str | Path,
+    limit: int | None = None,
+    per_subskill_limit: int | None = None,
+) -> list[dict[str, Any]]:
+    """Load JSONL rows safely (preserving Unicode line separators inside JSON strings)."""
+    with Path(dataset_path).open("r", encoding="utf-8") as df:
+        rows = [json.loads(line) for line in df if line.strip()]
+
+    if per_subskill_limit is not None and any("subskill" in r and r["subskill"] for r in rows):
+        counts: dict[str, int] = {}
+        selected: list[dict[str, Any]] = []
+        for r in rows:
+            sk = r.get("subskill") or "_default"
+            if counts.get(sk, 0) < per_subskill_limit:
+                selected.append(r)
+                counts[sk] = counts.get(sk, 0) + 1
+        rows = selected
+    elif limit is not None:
+        rows = rows[:limit]
+    return rows
+
+
 def evaluate_jsonl(
     model_path: str | Path,
     dataset_path: str | Path,
@@ -100,17 +123,24 @@ def evaluate_jsonl(
     enable_thinking: bool = False,
     max_new_tokens: int = 512,
     limit: int | None = None,
+    per_subskill_limit: int | None = None,
     device: str = "auto",
     dtype_name: str = "bfloat16",
+    do_sample: bool = False,
+    temperature: float | None = None,
+    top_p: float | None = None,
+    top_k: int | None = None,
+    seed: int = 42,
 ) -> dict[str, Any]:
-    """Evaluate a local checkpoint deterministically (greedy decoding) on a JSONL dataset."""
-    rows = [
-        json.loads(line)
-        for line in Path(dataset_path).read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
-    if limit is not None:
-        rows = rows[:limit]
+    """Evaluate a local checkpoint deterministically (or with seeded sampling) on a JSONL dataset."""
+    rows = load_dataset_rows(
+        dataset_path=dataset_path,
+        limit=limit,
+        per_subskill_limit=per_subskill_limit,
+    )
+
+    if do_sample:
+        torch.manual_seed(seed)
 
     model, tokenizer, dev, load_sec = load_model_and_tokenizer(
         model_path=model_path, device=device, dtype_name=dtype_name
@@ -126,6 +156,19 @@ def evaluate_jsonl(
     log_file = Path(output_log_path)
     log_file.parent.mkdir(parents=True, exist_ok=True)
 
+    gen_kwargs: dict[str, Any] = {
+        "max_new_tokens": max_new_tokens,
+        "do_sample": do_sample,
+        "pad_token_id": tokenizer.pad_token_id,
+    }
+    if do_sample:
+        if temperature is not None:
+            gen_kwargs["temperature"] = temperature
+        if top_p is not None:
+            gen_kwargs["top_p"] = top_p
+        if top_k is not None:
+            gen_kwargs["top_k"] = top_k
+
     with log_file.open("w", encoding="utf-8") as lf, torch.inference_mode():
         for item in rows:
             prompt_text = format_prompt(tokenizer, item["prompt"], enable_thinking=enable_thinking)
@@ -133,12 +176,7 @@ def evaluate_jsonl(
             input_len = int(inputs["input_ids"].shape[1])
 
             t0 = time.perf_counter()
-            out_ids = model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                do_sample=False,
-                pad_token_id=tokenizer.pad_token_id,
-            )
+            out_ids = model.generate(**inputs, **gen_kwargs)
             elapsed = time.perf_counter() - t0
 
             gen_ids = out_ids[0][input_len:]
@@ -190,7 +228,11 @@ def evaluate_jsonl(
         "dtype": dtype_name,
         "enable_thinking": enable_thinking,
         "max_new_tokens": max_new_tokens,
-        "do_sample": False,
+        "do_sample": do_sample,
+        "temperature": temperature if do_sample else None,
+        "top_p": top_p if do_sample else None,
+        "top_k": top_k if do_sample else None,
+        "seed": seed if do_sample else None,
         "load_sec": round(load_sec, 3),
         "eval_sec": round(eval_sec, 3),
         "total_generated_tokens": total_gen_tokens,

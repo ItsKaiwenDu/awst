@@ -1,0 +1,55 @@
+{
+  "timestamp_utc": "2026-11-26T05:39:14.328023+00:00",
+  "provenance": {
+    "source": "RikiyaT/lm_understand-logs (exp8_math/runs/p50c/edit)",
+    "base_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "method": "deterministic_published_baseline_replication",
+    "formula": "sparse bf16 replacement across 64 down_proj columns in layers 15 and 19",
+    "expected_changed_entries_total": 130188
+  },
+  "invariants": {
+    "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+    "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/qwen3.5_0.8b_loopfixed",
+    "tensor_count": 488,
+    "total_params": 873438784,
+    "frozen_prefixes": [
+      "model.visual.",
+      "visual."
+    ],
+    "frozen_tensors_verified": 153,
+    "changed_tensor_count": 2,
+    "changed_params": 130188,
+    "changed_fraction": 0.00014905223169022914,
+    "overall_delta_frobenius_norm": 2.2394521955790605,
+    "overall_relative_frobenius_norm": 0.0023792107051318614,
+    "changed_tensors": [
+      {
+        "name": "model.language_model.layers.15.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 65260,
+        "delta_frobenius_norm": 1.7488875940712048,
+        "base_frobenius_norm": 16.442814537126658,
+        "relative_frobenius_norm": 0.10636181476853285
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 64928,
+        "delta_frobenius_norm": 1.398763139201097,
+        "base_frobenius_norm": 17.255311010139476,
+        "relative_frobenius_norm": 0.08106276023533643
+      }
+    ]
+  },
+  "reversion_verified": true
+}

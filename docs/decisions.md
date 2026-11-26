@@ -22,6 +22,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
   - **Option A (Recommended):** In Stage 0, establish **both** `C0_raw` (unmodified `Qwen3.5-0.8B`) and `C0_loopfixed` (loop-suppressed `Qwen3.5-0.8B`, reproducing Takehi et al.'s `0.016%` edit or verifying thinking/non-thinking prompt settings). Run Stage 1 primary AWST trials starting from **`C0_loopfixed`** as the clean recipient baseline (where loop failure is already controlled), while also recording `C0_raw` and `C1` on `C0_raw` as reference points.
   - **Option B:** Run Stage 1 only on `C0_raw` and rely solely on `C1` (donor-free WSP) at matched edit budget to control for loop repair.
 - **Recommendation:** **Option A.** Also check in M1 whether `Qwen3.5-0.8B` exhibits different loop rates under standard vs. non-thinking chat templates so prompt configuration is frozen cleanly before M2.
+- **Empirical M1 Addendum (2026-11-25):** Stage 0 replication cleanly built `C0_loopfixed` (`exp8_math/runs/p50c/edit`, bit-exact `base_sha256` & `edited_sha256` verified). Under local HF `generate` (`enable_thinking=True, temp=0.6, max_new_tokens=2048`, without vLLM `presence_penalty=1.5` or `32K` token budget), `p50c` reduced `0.8B` GSM8K looping from `95% -> 75%` (`25% -> 30%` pass@1, `100%` truncated at 2048). Meanwhile, **`enable_thinking=False` (`max_new_tokens=1024`, greedy)** naturally eliminated loops on unmodified `C0_raw` (`2.0%` GSM8K loops, `62.0%` pass@1) while `p50c` slightly hurt `nothink` accuracy (`56.0%` GSM8K, `30.0%` `carry_add_sub` vs `40.0%` raw). Therefore, Pilot Protocol v1.0 freezes **`nothink 1024` greedy on `C0_raw`** as the primary Stage 1 baseline (cleanly loop-free, ~5x faster, and +20 pp GSM8K / +38 pp `carry_add_sub` donor lead), retaining `C0_loopfixed` as Stage 0 reference.
 
 ---
 
@@ -43,6 +44,7 @@ Statuses: `SETTLED` (agreed in protocol or verified fact), `PROPOSED / NEEDS APP
   - **Sub-skill B (Multi-digit multiplication):** 2x2-digit and 3x1-digit integer multiplication.
   - **Sub-skill C (2-step arithmetic word problems):** Template-varied word problems using operations from A/B, with **disjoint held-out phrasings/templates** reserved for OOD generalization evaluation.
 - **Split Design:** Fixed disjoint `60/20/20` split generated with separate seeds: e.g., `300` dev / `100` validation / `100` isolated test per sub-skill (plus `100` isolated OOD template items). Exact difficulty tier selected for M2 pilot will be frozen in M1 after checking `C0_loopfixed` (`0.8B`) is in the non-degenerate range (`15%–80%`) and `Qwen3.5-2B` leads by `>= 15` percentage points.
+- **Empirical M1 Addendum (2026-11-25):** On `synthetic_val.jsonl` (`nothink 1024`, `n=50`/subskill): `carry_add_sub` (`40.0%` `0.8B_raw` vs `78.0%` `2B`, **+38.0 pp**) is frozen as the primary synthetic diagnostic; `mult_2x2_3x1` (`68.0%` vs `86.0%`, **+18.0 pp**) is frozen as secondary; `word_2step` (`90.0%` vs `100.0%`) is at ceiling and demoted to sanity/retention checking only.
 
 ---
 

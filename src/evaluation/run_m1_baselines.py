@@ -16,6 +16,7 @@ def run_suite(
     thinking_modes: list[tuple[bool, int]],
     output_summary_path: str | Path,
     limit: int | None = None,
+    per_subskill_limit: int | None = None,
     device: str = "auto",
     dtype_name: str = "bfloat16",
     tag: str = "stage0",
@@ -38,6 +39,7 @@ def run_suite(
                     enable_thinking=enable_thinking,
                     max_new_tokens=max_new_tokens,
                     limit=limit,
+                    per_subskill_limit=per_subskill_limit,
                     device=device,
                     dtype_name=dtype_name,
                 )
@@ -71,6 +73,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--tag", default="micro")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--per-subskill-limit", type=int, default=None)
     parser.add_argument("--device", default="auto")
     parser.add_argument("--dtype", default="bfloat16")
     parser.add_argument("--output", required=True)
@@ -106,6 +109,7 @@ def main() -> None:
         thinking_modes=modes,
         output_summary_path=args.output,
         limit=args.limit,
+        per_subskill_limit=args.per_subskill_limit,
         device=args.device,
         dtype_name=args.dtype,
         tag=args.tag,

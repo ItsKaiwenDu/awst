@@ -2,8 +2,12 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from src.evaluation.metrics import compute_eval_metrics, detect_repetition_loop
 from src.evaluation.parser import answers_match, extract_numeric_answer
+from src.evaluation.runner import load_dataset_rows
 
 
 def test_extract_numeric_answer_formats() -> None:
@@ -49,3 +53,21 @@ def test_repetition_loop_and_metrics() -> None:
     assert m["invalid_parse_rate"] == 0.5
     assert m["completed_only_accuracy"] == 1.0
     assert m["matched_token_budget"]["pass_at_1_le_256_tok"] == 0.5
+
+
+def test_load_dataset_rows_unicode_separator_and_stratification(tmp_path: Path) -> None:
+    p = tmp_path / "sample.jsonl"
+    rows = [
+        {"id": "1", "subskill": "a", "prompt": "Line1\u2028Line2", "answer": "1"},
+        {"id": "2", "subskill": "a", "prompt": "A2", "answer": "2"},
+        {"id": "3", "subskill": "b", "prompt": "B1", "answer": "3"},
+        {"id": "4", "subskill": "b", "prompt": "B2", "answer": "4"},
+    ]
+    p.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
+
+    loaded_all = load_dataset_rows(p)
+    assert len(loaded_all) == 4
+    assert "\u2028" in loaded_all[0]["prompt"]
+
+    strat = load_dataset_rows(p, per_subskill_limit=1)
+    assert [r["id"] for r in strat] == ["1", "3"]

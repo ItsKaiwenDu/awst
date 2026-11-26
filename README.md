@@ -1,9 +1,9 @@
 # Agentic Weight-Space Transplantation (AWST)
 
 **Working paper title:** *Agentic Weight-Space Transplantation: Training-Free Transfer of Mathematical Reasoning Between Language Models*  
-**Status:** Pre-experimental feasibility study — Milestone M0 complete (awaiting human approval gates before M1, checkpoint downloads, or paid work)  
+**Status:** Milestone M1 complete (baselines verified, Pilot Protocol v1.0 frozen; awaiting `D008` ToS clearance before M2 agent weight edits)  
 **Primary domain:** Grade-school mathematical reasoning (narrow synthetic arithmetic diagnostic + GSM8K confirmatory benchmark)  
-**Spend to date:** \$0.00 / \$200.00 hard ceiling (proposed \$20.00 pilot gate pending approval)
+**Spend to date:** \$0.00 / \$200.00 hard ceiling (\$20.00 M2 pilot gate authorized)
 
 ---
 

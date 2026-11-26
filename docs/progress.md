@@ -1,9 +1,9 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-25  
-**Current Milestone:** `M1: Baseline and infrastructure` — **In Progress (M0 Approved & Pushed at `5f4009d`)**  
+**Current Milestone:** `M1: Baseline and infrastructure` — **Completed; Ready for M1 Exit Gate & `D008` ToS Check Before M2**  
 **Branch:** `main`  
-**Latest Commit SHA:** `5f4009d` (`Commit: Complete Milestone M0 Setup & Literature Review`, pushed to `origin/main`)  
+**Latest Commit SHA:** `997bd3d` (`Commit: Add M1 Harness, Dataset Isolation & Remote Reader`, pushed to `origin/main`)  
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
 **Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoff only; held until `D008` ToS resolution before M2)
 
@@ -44,11 +44,11 @@
 - [x] Verify checkpoint candidates, licenses, provider ToS, live pricing, local compute, and storage in [`docs/permissions.md`](permissions.md); prepare approval gates in [`docs/decisions.md`](decisions.md).
 - [x] Define narrow arithmetic diagnostic (`D004`), controls, statistical plan, feasibility criteria, and proposed \$20 pilot (`D005`) in [`docs/preregistration.md`](preregistration.md).
 
-### M1: Baseline and infrastructure *(Approved & Active — \$0.00 local execution; `D008` held before M2)*
-- [x] Set up pinned `.venv` (Python `3.11.16`, `torch 2.15.0`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`), `requirements.txt`, `configs/environment.json`, `configs/models/` pinned SHAs (`Qwen/Qwen3.5-0.8B` at `2fc06364715b967f1860aea9cf38778875588b17`, `Qwen/Qwen3.5-2B` at `15852e8c16360a2fea060d615a32b45270f8a8fc`, `5.9G` total in `hf_cache/`), `src/` harness, and `7/7` passing unit tests (`pytest -q`).
+### M1: Baseline and infrastructure *(Completed 2026-11-25 at \$0.00 spend; `D008` held before M2)*
+- [x] Set up pinned `.venv` (Python `3.11.16`, `torch 2.15.0`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`), `requirements.txt`, `configs/environment.json`, `configs/models/` pinned SHAs (`Qwen/Qwen3.5-0.8B` at `2fc06364715b967f1860aea9cf38778875588b17`, `Qwen/Qwen3.5-2B` at `15852e8c16360a2fea060d615a32b45270f8a8fc`), `src/` harness, and `8/8` passing unit tests (`pytest -q`).
 - [x] Isolate final held-out test data outside workspace (`/Users/kaiwendu/.awst_isolated_eval/`: `synthetic_test` 300, `synthetic_ood_test` 100, `gsm8k_test` 1319; in-repo dev/val splits recorded in `data/dataset_manifest.json`).
 - [x] Validate selective tensor retrieval on `Qwen/Qwen3.5-0.8B` via HTTP `206` `Range` requests (`results/m1_remote_reader_validation.json`: `176,584 / 1,746,942,600` bytes = `9892.98x` reduction, bit-exact match verified).
-- [ ] Run M4 Max MPS micro-benchmark, replicate Stage 0 loop-suppression edit (`C0_loopfixed`) deterministically from `RikiyaT/lm_understand-logs`, run validation baselines (`C0_raw`, `C0_loopfixed`, `Qwen3.5-2B`), and freeze pilot protocol v1.0.
+- [x] Run M4 Max MPS micro-benchmark (`results/m1_micro_benchmark.json`: `109 tok/s` `0.8B`, `64–65 tok/s` `2B`, zero NaNs), reproduce Stage 0 `C0_loopfixed` (`runs/manifests/stage0_c0_loopfixed_patch.json`: `130,188` entries in L15/L19 `down_proj`, `153/153` vision tensors SHA-256 unchanged, `reversion_verified: true`), run validation baselines (`results/m1_stage0_baselines.json`: `nothink 1024` `C0_raw` `62.0%` GSM8K / `40.0%` `carry_add_sub` vs `2B` `82.0%` GSM8K / `78.0%` `carry_add_sub`; `think` check `95% -> 75%` loops without `presence_penalty=1.5`), and freeze [`docs/preregistration.md`](preregistration.md) v1.0.
 
 ### M2: Agent pilot and main experiments
 - [ ] Run approved small competency comparisons and measure actual cost; select programmer(s) using pilot evidence.
@@ -79,8 +79,7 @@
 
 ---
 
-## 5. Exact Next Action (M1 Active)
+## 5. Exact Next Action (M1 Exit Gate — Pause for `D008` Before M2)
 
-1. Install ML stack in `.venv` (PyTorch MPS + `transformers>=5.2` + `safetensors` + `datasets` + `pytest`) and freeze `requirements.txt` + `configs/environment.json`.
-2. Pin exact HF commit SHAs and download `Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B` into `hf_cache/`.
-3. Implement and test `src/` (`weight_io`, `interventions`, `data`, `evaluation`), isolate test splits externally, validate HTTP `206` Safetensors Range reads, and run M4 Max micro-benchmark + Stage 0 baselines.
+1. Confirm `D008` Terms of Service resolution (or designate an open-weight fallback programmer) with the researcher before starting M2 agent weight edits.
+2. Once `D008` is cleared, begin M2: run the bounded competency pilot (`D001` Option A), implement conventional transfer (`C4`) & matched controls (`C1`–`C3`, `C5`), and prepare Codex handoff `docs/handoffs/H001_stage1_awst.md` for `Qwen3.5-2B -> Qwen3.5-0.8B`.

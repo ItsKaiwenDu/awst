@@ -1,0 +1,58 @@
+{
+  "run_id": "stage0_qwen3.5_0.8b_loopfixed_synthetic_nothink_bfloat16",
+  "timestamp_utc": "2026-11-26T06:41:09.959212+00:00",
+  "model_path": "hf_cache/edited/qwen3.5_0.8b_loopfixed",
+  "dataset_path": "data/validation/synthetic_val.jsonl",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "enable_thinking": false,
+  "max_new_tokens": 1024,
+  "do_sample": false,
+  "load_sec": 1.119,
+  "eval_sec": 602.766,
+  "total_generated_tokens": 66273,
+  "tokens_per_sec": 109.95,
+  "peak_mps_allocated_mb": 2369.78,
+  "peak_rss_mb": 759.19,
+  "metrics": {
+    "n": 150,
+    "pass_at_1": 0.6133333333333333,
+    "correct_count": 92,
+    "completion_rate": 0.84,
+    "truncation_rate": 0.16,
+    "repetition_loop_rate": 0.02,
+    "invalid_parse_rate": 0.0,
+    "completed_only_accuracy": 0.7142857142857143,
+    "avg_output_tokens": 441.82,
+    "median_output_tokens": 317.0,
+    "matched_token_budget": {
+      "pass_at_1_le_256_tok": 0.2,
+      "pass_at_1_le_512_tok": 0.56,
+      "pass_at_1_le_1024_tok": 0.6133333333333333
+    },
+    "by_subskill": {
+      "carry_add_sub": {
+        "n": 50,
+        "pass_at_1": 0.3,
+        "completion_rate": 0.8,
+        "repetition_loop_rate": 0.02,
+        "avg_output_tokens": 457.82
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "pass_at_1": 0.62,
+        "completion_rate": 0.72,
+        "repetition_loop_rate": 0.04,
+        "avg_output_tokens": 595.5
+      },
+      "word_2step": {
+        "n": 50,
+        "pass_at_1": 0.92,
+        "completion_rate": 1.0,
+        "repetition_loop_rate": 0.0,
+        "avg_output_tokens": 272.14
+      }
+    }
+  },
+  "log_path": "runs/logs/stage0_qwen3.5_0.8b_loopfixed_synthetic_nothink_bfloat16.jsonl"
+}

@@ -22,7 +22,9 @@ def test_patch_apply_and_exact_reversion(tmp_path: Path) -> None:
     save_file(
         {
             "model.visual.enc.weight": torch.ones((2, 2), dtype=torch.bfloat16),
-            "model.language_model.layers.15.mlp.down_proj.weight": torch.zeros((4, 4), dtype=torch.bfloat16),
+            "model.language_model.layers.15.mlp.down_proj.weight": torch.tensor(
+                [[0.1234, -0.5678, 1.0, 2.0]] * 4, dtype=torch.bfloat16
+            ),
         },
         str(base / "model.safetensors"),
     )
@@ -30,7 +32,7 @@ def test_patch_apply_and_exact_reversion(tmp_path: Path) -> None:
     def patch_fn(name: str, tensor: torch.Tensor) -> torch.Tensor | None:
         if name.endswith("down_proj.weight"):
             out = tensor.clone()
-            out[:, 1] = 2.5
+            out[:, 1] = 2.5123
             return out
         return None
 

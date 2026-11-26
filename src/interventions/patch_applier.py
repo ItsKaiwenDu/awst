@@ -138,8 +138,8 @@ def verify_exact_reversion(
                     base_tensor = f.get_tensor(name)
                     if torch.equal(base_tensor, edited_tensor):
                         return None
-                    delta = edited_tensor - base_tensor
-                    return edited_tensor - delta
+                    delta_f64 = edited_tensor.to(torch.float64) - base_tensor.to(torch.float64)
+                    return (edited_tensor.to(torch.float64) - delta_f64).to(edited_tensor.dtype)
         return None
 
     _ = apply_tensor_patches(

@@ -1,0 +1,36 @@
+{
+  "run_id": "micro_qwen3.5_0.8b_loopfixed_gsm8k_nothink_bfloat16",
+  "timestamp_utc": "2026-11-26T05:56:57.952887+00:00",
+  "model_path": "hf_cache/edited/qwen3.5_0.8b_loopfixed",
+  "dataset_path": "data/development/gsm8k_dev.jsonl",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "enable_thinking": false,
+  "max_new_tokens": 512,
+  "do_sample": false,
+  "load_sec": 1.152,
+  "eval_sec": 36.982,
+  "total_generated_tokens": 4023,
+  "tokens_per_sec": 108.78,
+  "peak_mps_allocated_mb": 2353.78,
+  "peak_rss_mb": 845.73,
+  "metrics": {
+    "n": 10,
+    "pass_at_1": 0.2,
+    "correct_count": 2,
+    "completion_rate": 0.7,
+    "truncation_rate": 0.3,
+    "repetition_loop_rate": 0.0,
+    "invalid_parse_rate": 0.0,
+    "completed_only_accuracy": 0.2857142857142857,
+    "avg_output_tokens": 402.3,
+    "median_output_tokens": 413.0,
+    "matched_token_budget": {
+      "pass_at_1_le_256_tok": 0.0,
+      "pass_at_1_le_512_tok": 0.2,
+      "pass_at_1_le_1024_tok": 0.2
+    },
+    "by_subskill": {}
+  },
+  "log_path": "runs/logs/micro_qwen3.5_0.8b_loopfixed_gsm8k_nothink_bfloat16.jsonl"
+}
