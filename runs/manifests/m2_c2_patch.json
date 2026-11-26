@@ -1,0 +1,669 @@
+{
+  "timestamp_utc": "2026-11-26T16:44:24.307006+00:00",
+  "provenance": {
+    "condition": "C2",
+    "description": "Random Gaussian recipient perturbation with matched per-tensor relative Frobenius norm",
+    "target_layers": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "target_rel_frob": 0.06457394492822739,
+    "seed": 42
+  },
+  "invariants": {
+    "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+    "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/m2_c2_random_perturb",
+    "tensor_count": 488,
+    "total_params": 873438784,
+    "frozen_prefixes": [
+      "model.visual.",
+      "visual."
+    ],
+    "frozen_tensors_verified": 153,
+    "changed_tensor_count": 48,
+    "changed_params": 171469128,
+    "changed_fraction": 0.1963149921219894,
+    "overall_delta_frobenius_norm": 9.592257886902692,
+    "overall_relative_frobenius_norm": 0.010190886278330792,
+    "changed_tensors": [
+      {
+        "name": "model.language_model.layers.10.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572979,
+        "delta_frobenius_norm": 0.9846936875623786,
+        "base_frobenius_norm": 15.241879161412275,
+        "relative_frobenius_norm": 0.06460448066373066
+      },
+      {
+        "name": "model.language_model.layers.10.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3575586,
+        "delta_frobenius_norm": 1.3702335539361377,
+        "base_frobenius_norm": 21.21075333713789,
+        "relative_frobenius_norm": 0.06460089050854204
+      },
+      {
+        "name": "model.language_model.layers.10.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3571187,
+        "delta_frobenius_norm": 1.0290077570705325,
+        "base_frobenius_norm": 15.927850172977283,
+        "relative_frobenius_norm": 0.06460430917515261
+      },
+      {
+        "name": "model.language_model.layers.11.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573065,
+        "delta_frobenius_norm": 1.001516086972903,
+        "base_frobenius_norm": 15.502618383931551,
+        "relative_frobenius_norm": 0.06460302783502517
+      },
+      {
+        "name": "model.language_model.layers.11.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3575589,
+        "delta_frobenius_norm": 1.3571123168133403,
+        "base_frobenius_norm": 21.00804565345702,
+        "relative_frobenius_norm": 0.06459964621173689
+      },
+      {
+        "name": "model.language_model.layers.11.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570909,
+        "delta_frobenius_norm": 1.0431609815970933,
+        "base_frobenius_norm": 16.147090949845367,
+        "relative_frobenius_norm": 0.06460364810214209
+      },
+      {
+        "name": "model.language_model.layers.12.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572452,
+        "delta_frobenius_norm": 0.9833474927356931,
+        "base_frobenius_norm": 15.22135411097448,
+        "relative_frobenius_norm": 0.0646031545923176
+      },
+      {
+        "name": "model.language_model.layers.12.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3576189,
+        "delta_frobenius_norm": 1.486432947780996,
+        "base_frobenius_norm": 23.009751616077775,
+        "relative_frobenius_norm": 0.06460013009190285
+      },
+      {
+        "name": "model.language_model.layers.12.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570776,
+        "delta_frobenius_norm": 1.018874442802261,
+        "base_frobenius_norm": 15.771027107341736,
+        "relative_frobenius_norm": 0.06460419070156528
+      },
+      {
+        "name": "model.language_model.layers.13.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572166,
+        "delta_frobenius_norm": 0.9914280545577661,
+        "base_frobenius_norm": 15.34673806985594,
+        "relative_frobenius_norm": 0.06460187500724528
+      },
+      {
+        "name": "model.language_model.layers.13.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3577122,
+        "delta_frobenius_norm": 1.5381825056490581,
+        "base_frobenius_norm": 23.81055448499284,
+        "relative_frobenius_norm": 0.0646008687709702
+      },
+      {
+        "name": "model.language_model.layers.13.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570735,
+        "delta_frobenius_norm": 1.0279263197176685,
+        "base_frobenius_norm": 15.91111767826146,
+        "relative_frobenius_norm": 0.06460428113872045
+      },
+      {
+        "name": "model.language_model.layers.14.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572525,
+        "delta_frobenius_norm": 0.9782059535447297,
+        "base_frobenius_norm": 15.142059541657005,
+        "relative_frobenius_norm": 0.06460190906353311
+      },
+      {
+        "name": "model.language_model.layers.14.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3580850,
+        "delta_frobenius_norm": 1.6924394442883348,
+        "base_frobenius_norm": 26.19894355798889,
+        "relative_frobenius_norm": 0.06459953015060625
+      },
+      {
+        "name": "model.language_model.layers.14.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3571893,
+        "delta_frobenius_norm": 1.04219111909481,
+        "base_frobenius_norm": 16.132162706344875,
+        "relative_frobenius_norm": 0.06460331066986512
+      },
+      {
+        "name": "model.language_model.layers.15.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572399,
+        "delta_frobenius_norm": 1.0622676146445775,
+        "base_frobenius_norm": 16.442814537126658,
+        "relative_frobenius_norm": 0.06460375820976731
+      },
+      {
+        "name": "model.language_model.layers.15.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3577413,
+        "delta_frobenius_norm": 1.7612741251823536,
+        "base_frobenius_norm": 27.263813962059903,
+        "relative_frobenius_norm": 0.06460116429907159
+      },
+      {
+        "name": "model.language_model.layers.15.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572060,
+        "delta_frobenius_norm": 1.1066993361174227,
+        "base_frobenius_norm": 17.13074614191998,
+        "relative_frobenius_norm": 0.06460310175335925
+      },
+      {
+        "name": "model.language_model.layers.16.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3571172,
+        "delta_frobenius_norm": 1.0575589122550169,
+        "base_frobenius_norm": 16.369941221212052,
+        "relative_frobenius_norm": 0.06460370858782558
+      },
+      {
+        "name": "model.language_model.layers.16.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3575110,
+        "delta_frobenius_norm": 1.9077675828949523,
+        "base_frobenius_norm": 29.530814935617993,
+        "relative_frobenius_norm": 0.06460260534814896
+      },
+      {
+        "name": "model.language_model.layers.16.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570192,
+        "delta_frobenius_norm": 1.1008621045341977,
+        "base_frobenius_norm": 17.0405319818546,
+        "relative_frobenius_norm": 0.06460256673362294
+      },
+      {
+        "name": "model.language_model.layers.17.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3571357,
+        "delta_frobenius_norm": 1.0586735318795668,
+        "base_frobenius_norm": 16.386971560177386,
+        "relative_frobenius_norm": 0.06460458712531669
+      },
+      {
+        "name": "model.language_model.layers.17.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573756,
+        "delta_frobenius_norm": 2.0775432489440284,
+        "base_frobenius_norm": 32.1582808821752,
+        "relative_frobenius_norm": 0.06460367880223275
+      },
+      {
+        "name": "model.language_model.layers.17.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570093,
+        "delta_frobenius_norm": 1.1051425519968316,
+        "base_frobenius_norm": 17.106663597941154,
+        "relative_frobenius_norm": 0.06460304463635091
+      },
+      {
+        "name": "model.language_model.layers.18.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570754,
+        "delta_frobenius_norm": 1.0615917138231206,
+        "base_frobenius_norm": 16.432165172188775,
+        "relative_frobenius_norm": 0.06460449385086822
+      },
+      {
+        "name": "model.language_model.layers.18.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572986,
+        "delta_frobenius_norm": 2.196065318854171,
+        "base_frobenius_norm": 33.99356377212733,
+        "relative_frobenius_norm": 0.06460238572146448
+      },
+      {
+        "name": "model.language_model.layers.18.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3569614,
+        "delta_frobenius_norm": 1.1224729448044315,
+        "base_frobenius_norm": 17.37501053844105,
+        "relative_frobenius_norm": 0.0646027202297826
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3569975,
+        "delta_frobenius_norm": 1.1147566806125069,
+        "base_frobenius_norm": 17.255311010139476,
+        "relative_frobenius_norm": 0.06460368520494701
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573207,
+        "delta_frobenius_norm": 2.1132780910616407,
+        "base_frobenius_norm": 32.71185644010154,
+        "relative_frobenius_norm": 0.06460281748091093
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3569373,
+        "delta_frobenius_norm": 1.1540976931806806,
+        "base_frobenius_norm": 17.864604781631925,
+        "relative_frobenius_norm": 0.06460247552564408
+      },
+      {
+        "name": "model.language_model.layers.20.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570279,
+        "delta_frobenius_norm": 1.1309736915483164,
+        "base_frobenius_norm": 17.506430180258054,
+        "relative_frobenius_norm": 0.06460333031366451
+      },
+      {
+        "name": "model.language_model.layers.20.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572310,
+        "delta_frobenius_norm": 2.1034106668481654,
+        "base_frobenius_norm": 32.55844729458662,
+        "relative_frobenius_norm": 0.06460414551764856
+      },
+      {
+        "name": "model.language_model.layers.20.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3569168,
+        "delta_frobenius_norm": 1.1787916407102028,
+        "base_frobenius_norm": 18.246573348572706,
+        "relative_frobenius_norm": 0.06460345283419536
+      },
+      {
+        "name": "model.language_model.layers.21.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570435,
+        "delta_frobenius_norm": 1.1436880084471872,
+        "base_frobenius_norm": 17.703364613890315,
+        "relative_frobenius_norm": 0.06460286128603109
+      },
+      {
+        "name": "model.language_model.layers.21.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572142,
+        "delta_frobenius_norm": 2.126183460771013,
+        "base_frobenius_norm": 32.91107403208398,
+        "relative_frobenius_norm": 0.06460389164748204
+      },
+      {
+        "name": "model.language_model.layers.21.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3568898,
+        "delta_frobenius_norm": 1.2089105685234467,
+        "base_frobenius_norm": 18.71286198349363,
+        "relative_frobenius_norm": 0.06460318948484794
+      },
+      {
+        "name": "model.language_model.layers.22.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570327,
+        "delta_frobenius_norm": 1.1318410456939572,
+        "base_frobenius_norm": 17.519772939386407,
+        "relative_frobenius_norm": 0.06460363668009944
+      },
+      {
+        "name": "model.language_model.layers.22.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573549,
+        "delta_frobenius_norm": 2.165279886069205,
+        "base_frobenius_norm": 33.516825080495956,
+        "relative_frobenius_norm": 0.06460277430421715
+      },
+      {
+        "name": "model.language_model.layers.22.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3569690,
+        "delta_frobenius_norm": 1.238595675912926,
+        "base_frobenius_norm": 19.17273932189839,
+        "relative_frobenius_norm": 0.0646019149959572
+      },
+      {
+        "name": "model.language_model.layers.23.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3571653,
+        "delta_frobenius_norm": 1.0605775045394235,
+        "base_frobenius_norm": 16.41672470676341,
+        "relative_frobenius_norm": 0.06460347745872133
+      },
+      {
+        "name": "model.language_model.layers.23.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573214,
+        "delta_frobenius_norm": 2.3371049394139862,
+        "base_frobenius_norm": 36.17702953284463,
+        "relative_frobenius_norm": 0.06460190263250223
+      },
+      {
+        "name": "model.language_model.layers.23.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570772,
+        "delta_frobenius_norm": 1.3725717083207063,
+        "base_frobenius_norm": 21.246772072160233,
+        "relative_frobenius_norm": 0.06460142292010534
+      },
+      {
+        "name": "model.language_model.layers.8.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572157,
+        "delta_frobenius_norm": 0.9947628929144406,
+        "base_frobenius_norm": 15.398101075250572,
+        "relative_frobenius_norm": 0.0646029590306643
+      },
+      {
+        "name": "model.language_model.layers.8.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3572333,
+        "delta_frobenius_norm": 1.4352817835595117,
+        "base_frobenius_norm": 22.21756806697229,
+        "relative_frobenius_norm": 0.06460121014293826
+      },
+      {
+        "name": "model.language_model.layers.8.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3570716,
+        "delta_frobenius_norm": 1.033826211059708,
+        "base_frobenius_norm": 16.002468872326094,
+        "relative_frobenius_norm": 0.06460416947584617
+      },
+      {
+        "name": "model.language_model.layers.9.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573658,
+        "delta_frobenius_norm": 1.0044131057052852,
+        "base_frobenius_norm": 15.547210168340643,
+        "relative_frobenius_norm": 0.06460407332439673
+      },
+      {
+        "name": "model.language_model.layers.9.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3573298,
+        "delta_frobenius_norm": 1.3185101910263461,
+        "base_frobenius_norm": 20.410016820696,
+        "relative_frobenius_norm": 0.06460113201324563
+      },
+      {
+        "name": "model.language_model.layers.9.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3571045,
+        "delta_frobenius_norm": 1.0430279547071293,
+        "base_frobenius_norm": 16.145102575028847,
+        "relative_frobenius_norm": 0.06460336500558068
+      }
+    ]
+  }
+}

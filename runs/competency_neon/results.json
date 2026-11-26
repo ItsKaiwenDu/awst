@@ -1,0 +1,61 @@
+{
+  "task_a": {
+    "task_a_active_neurons": [
+      0,
+      3
+    ],
+    "output_0_formula": "output[0] = relu(x[0] + x[1]) = x[0] + x[1] (for x[0], x[1] >= 0)",
+    "output_1_formula": "output[1] = relu(x[0] + x[1] - 9) = max(0, x[0] + x[1] - 9)",
+    "verification_max_abs_err": [
+      0.0,
+      0.0
+    ]
+  },
+  "task_b": {
+    "saved_path": "/Users/kaiwendu/Documents/GitHub/awst/runs/competency_neon/task_b_patched.safetensors",
+    "donor_effective_singular_values": [
+      8.388955,
+      7.449758,
+      3.932863,
+      2.372634
+    ],
+    "max_output_abs_err": 5.7220458984375e-06,
+    "effective_matrix_rel_frob_err": 1.1000047095421905e-07,
+    "argmax_agreement_1024": 1.0
+  },
+  "task_c": {
+    "task_c_tensor_name": "fc2.weight",
+    "task_c_cols": [
+      5,
+      11,
+      19,
+      27
+    ],
+    "saved_path": "/Users/kaiwendu/Documents/GitHub/awst/runs/competency_neon/task_c_repaired.safetensors",
+    "pre_repair_median_col_norm": 2.1876,
+    "pre_repair_corrupted_col_norms": [
+      57.9998,
+      60.2585,
+      54.5428,
+      67.698
+    ],
+    "pre_repair_ratios_to_median": [
+      26.51,
+      27.55,
+      24.93,
+      30.95
+    ],
+    "post_repair_col_norms_for_repaired_cols": [
+      2.32,
+      2.4103,
+      2.1817,
+      2.7079
+    ],
+    "post_repair_all_col_norms_min_med_max": [
+      1.5176,
+      2.1817,
+      2.7079
+    ],
+    "changed_param_count": 128
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "agent": "Gemini 4 Neon",
+  "harness": "Google Antigravity (isolated subagent 9e482cbc)",
+  "suite_seed": 2026,
+  "cost_usd_additional": 0.0,
+  "verification": {
+    "task_a_passed": true,
+    "task_b_agreement": 1.0,
+    "task_b_rel_l2_error": 0.0,
+    "task_b_passed": true,
+    "task_c_localized": true,
+    "task_c_agreement": 1.0,
+    "task_c_passed": true,
+    "overall_score": 3
+  }
+}

@@ -1,0 +1,672 @@
+{
+  "timestamp_utc": "2026-11-26T16:27:09.464253+00:00",
+  "provenance": {
+    "condition": "C4_act",
+    "track": "T2_activation_assisted",
+    "description": "Activation-Prune-Merge (APM) + Ridge activation alignment on data/development/ calibration prompts",
+    "donor_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_2b",
+    "target_layers": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "alpha": 0.02,
+    "donor_forward_passes": 32,
+    "used_shuffled_donor": false
+  },
+  "invariants": {
+    "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+    "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/m2_c4_act",
+    "tensor_count": 488,
+    "total_params": 873438784,
+    "frozen_prefixes": [
+      "model.visual.",
+      "visual."
+    ],
+    "frozen_tensors_verified": 153,
+    "changed_tensor_count": 48,
+    "changed_params": 168325062,
+    "changed_fraction": 0.19271535118825225,
+    "overall_delta_frobenius_norm": 4.149735140032544,
+    "overall_relative_frobenius_norm": 0.004408709544288523,
+    "changed_tensors": [
+      {
+        "name": "model.language_model.layers.10.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3502892,
+        "delta_frobenius_norm": 0.42713925142880543,
+        "base_frobenius_norm": 15.241879161412275,
+        "relative_frobenius_norm": 0.028024054442721862
+      },
+      {
+        "name": "model.language_model.layers.10.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3513462,
+        "delta_frobenius_norm": 0.5950057653740841,
+        "base_frobenius_norm": 21.21075333713789,
+        "relative_frobenius_norm": 0.028052080749639805
+      },
+      {
+        "name": "model.language_model.layers.10.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3507681,
+        "delta_frobenius_norm": 0.44830960034845047,
+        "base_frobenius_norm": 15.927850172977283,
+        "relative_frobenius_norm": 0.028146271811938513
+      },
+      {
+        "name": "model.language_model.layers.11.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504768,
+        "delta_frobenius_norm": 0.4357793213373168,
+        "base_frobenius_norm": 15.502618383931551,
+        "relative_frobenius_norm": 0.0281100463512023
+      },
+      {
+        "name": "model.language_model.layers.11.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3512482,
+        "delta_frobenius_norm": 0.5896216726025232,
+        "base_frobenius_norm": 21.00804565345702,
+        "relative_frobenius_norm": 0.028066469500721825
+      },
+      {
+        "name": "model.language_model.layers.11.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3507328,
+        "delta_frobenius_norm": 0.45534618815967753,
+        "base_frobenius_norm": 16.147090949845367,
+        "relative_frobenius_norm": 0.028199889972381566
+      },
+      {
+        "name": "model.language_model.layers.12.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504036,
+        "delta_frobenius_norm": 0.4258256066691961,
+        "base_frobenius_norm": 15.22135411097448,
+        "relative_frobenius_norm": 0.02797554038652705
+      },
+      {
+        "name": "model.language_model.layers.12.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3511607,
+        "delta_frobenius_norm": 0.6423280223423302,
+        "base_frobenius_norm": 23.009751616077775,
+        "relative_frobenius_norm": 0.027915469626082864
+      },
+      {
+        "name": "model.language_model.layers.12.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3506470,
+        "delta_frobenius_norm": 0.4440261934969584,
+        "base_frobenius_norm": 15.771027107341736,
+        "relative_frobenius_norm": 0.02815455141093855
+      },
+      {
+        "name": "model.language_model.layers.13.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3501294,
+        "delta_frobenius_norm": 0.4282319297351868,
+        "base_frobenius_norm": 15.34673806985594,
+        "relative_frobenius_norm": 0.02790377523783506
+      },
+      {
+        "name": "model.language_model.layers.13.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3511137,
+        "delta_frobenius_norm": 0.6617603113302785,
+        "base_frobenius_norm": 23.81055448499284,
+        "relative_frobenius_norm": 0.027792729973901635
+      },
+      {
+        "name": "model.language_model.layers.13.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3505264,
+        "delta_frobenius_norm": 0.4469226038193039,
+        "base_frobenius_norm": 15.91111767826146,
+        "relative_frobenius_norm": 0.028088699540567863
+      },
+      {
+        "name": "model.language_model.layers.14.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3498565,
+        "delta_frobenius_norm": 0.41752652812098184,
+        "base_frobenius_norm": 15.142059541657005,
+        "relative_frobenius_norm": 0.027573958943453717
+      },
+      {
+        "name": "model.language_model.layers.14.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3514624,
+        "delta_frobenius_norm": 0.7201213607894779,
+        "base_frobenius_norm": 26.19894355798889,
+        "relative_frobenius_norm": 0.02748665644458362
+      },
+      {
+        "name": "model.language_model.layers.14.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3507042,
+        "delta_frobenius_norm": 0.4512559721543593,
+        "base_frobenius_norm": 16.132162706344875,
+        "relative_frobenius_norm": 0.027972441164189205
+      },
+      {
+        "name": "model.language_model.layers.15.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3502448,
+        "delta_frobenius_norm": 0.45737358053320226,
+        "base_frobenius_norm": 16.442814537126658,
+        "relative_frobenius_norm": 0.027816015287436744
+      },
+      {
+        "name": "model.language_model.layers.15.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3513354,
+        "delta_frobenius_norm": 0.7554014331763632,
+        "base_frobenius_norm": 27.263813962059903,
+        "relative_frobenius_norm": 0.027707107825323835
+      },
+      {
+        "name": "model.language_model.layers.15.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3507959,
+        "delta_frobenius_norm": 0.48125432309772737,
+        "base_frobenius_norm": 17.13074614191998,
+        "relative_frobenius_norm": 0.028093015862284524
+      },
+      {
+        "name": "model.language_model.layers.16.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3499988,
+        "delta_frobenius_norm": 0.4568398066532573,
+        "base_frobenius_norm": 16.369941221212052,
+        "relative_frobenius_norm": 0.027907235614339748
+      },
+      {
+        "name": "model.language_model.layers.16.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3511617,
+        "delta_frobenius_norm": 0.8215288136607289,
+        "base_frobenius_norm": 29.530814935617993,
+        "relative_frobenius_norm": 0.02781937496312906
+      },
+      {
+        "name": "model.language_model.layers.16.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3506070,
+        "delta_frobenius_norm": 0.47953595740530053,
+        "base_frobenius_norm": 17.0405319818546,
+        "relative_frobenius_norm": 0.02814090299034845
+      },
+      {
+        "name": "model.language_model.layers.17.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3501864,
+        "delta_frobenius_norm": 0.45867160935508744,
+        "base_frobenius_norm": 16.386971560177386,
+        "relative_frobenius_norm": 0.027990016805162648
+      },
+      {
+        "name": "model.language_model.layers.17.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3510390,
+        "delta_frobenius_norm": 0.8974610039147486,
+        "base_frobenius_norm": 32.1582808821752,
+        "relative_frobenius_norm": 0.027907617549674316
+      },
+      {
+        "name": "model.language_model.layers.17.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3506097,
+        "delta_frobenius_norm": 0.4818671121706238,
+        "base_frobenius_norm": 17.106663597941154,
+        "relative_frobenius_norm": 0.02816838651276326
+      },
+      {
+        "name": "model.language_model.layers.18.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3500416,
+        "delta_frobenius_norm": 0.45986328384227676,
+        "base_frobenius_norm": 16.432165172188775,
+        "relative_frobenius_norm": 0.027985556317349426
+      },
+      {
+        "name": "model.language_model.layers.18.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3507402,
+        "delta_frobenius_norm": 0.9452723660106916,
+        "base_frobenius_norm": 33.99356377212733,
+        "relative_frobenius_norm": 0.02780739237425168
+      },
+      {
+        "name": "model.language_model.layers.18.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504842,
+        "delta_frobenius_norm": 0.4886906700270519,
+        "base_frobenius_norm": 17.37501053844105,
+        "relative_frobenius_norm": 0.028126064668902297
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3502272,
+        "delta_frobenius_norm": 0.4835498611180983,
+        "base_frobenius_norm": 17.255311010139476,
+        "relative_frobenius_norm": 0.028023248079038228
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3509368,
+        "delta_frobenius_norm": 0.9125034044803183,
+        "base_frobenius_norm": 32.71185644010154,
+        "relative_frobenius_norm": 0.02789518858861456
+      },
+      {
+        "name": "model.language_model.layers.19.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504492,
+        "delta_frobenius_norm": 0.502433991817712,
+        "base_frobenius_norm": 17.864604781631925,
+        "relative_frobenius_norm": 0.02812455119826137
+      },
+      {
+        "name": "model.language_model.layers.20.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3502357,
+        "delta_frobenius_norm": 0.4911220310817585,
+        "base_frobenius_norm": 17.506430180258054,
+        "relative_frobenius_norm": 0.02805380800225024
+      },
+      {
+        "name": "model.language_model.layers.20.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3509370,
+        "delta_frobenius_norm": 0.9103805200193894,
+        "base_frobenius_norm": 32.55844729458662,
+        "relative_frobenius_norm": 0.02796142309190387
+      },
+      {
+        "name": "model.language_model.layers.20.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504731,
+        "delta_frobenius_norm": 0.5135734957051414,
+        "base_frobenius_norm": 18.246573348572706,
+        "relative_frobenius_norm": 0.028146298260726003
+      },
+      {
+        "name": "model.language_model.layers.21.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3503865,
+        "delta_frobenius_norm": 0.49739801363109315,
+        "base_frobenius_norm": 17.703364613890315,
+        "relative_frobenius_norm": 0.028096241843249815
+      },
+      {
+        "name": "model.language_model.layers.21.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3509713,
+        "delta_frobenius_norm": 0.9209557492169961,
+        "base_frobenius_norm": 32.91107403208398,
+        "relative_frobenius_norm": 0.02798315692520958
+      },
+      {
+        "name": "model.language_model.layers.21.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504932,
+        "delta_frobenius_norm": 0.5267491131645163,
+        "base_frobenius_norm": 18.71286198349363,
+        "relative_frobenius_norm": 0.028149040677431104
+      },
+      {
+        "name": "model.language_model.layers.22.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504416,
+        "delta_frobenius_norm": 0.49123558452800314,
+        "base_frobenius_norm": 17.519772939386407,
+        "relative_frobenius_norm": 0.02803892414745003
+      },
+      {
+        "name": "model.language_model.layers.22.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3509775,
+        "delta_frobenius_norm": 0.9354708965245666,
+        "base_frobenius_norm": 33.516825080495956,
+        "relative_frobenius_norm": 0.027910486577349892
+      },
+      {
+        "name": "model.language_model.layers.22.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3505672,
+        "delta_frobenius_norm": 0.5387002584768,
+        "base_frobenius_norm": 19.17273932189839,
+        "relative_frobenius_norm": 0.028097198289318868
+      },
+      {
+        "name": "model.language_model.layers.23.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3514891,
+        "delta_frobenius_norm": 0.4609134797125334,
+        "base_frobenius_norm": 16.41672470676341,
+        "relative_frobenius_norm": 0.02807584874238921
+      },
+      {
+        "name": "model.language_model.layers.23.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3505411,
+        "delta_frobenius_norm": 1.0062591054753194,
+        "base_frobenius_norm": 36.17702953284463,
+        "relative_frobenius_norm": 0.027814862592898917
+      },
+      {
+        "name": "model.language_model.layers.23.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504156,
+        "delta_frobenius_norm": 0.5919812107358546,
+        "base_frobenius_norm": 21.246772072160233,
+        "relative_frobenius_norm": 0.027862171661902985
+      },
+      {
+        "name": "model.language_model.layers.8.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3505105,
+        "delta_frobenius_norm": 0.432775309235235,
+        "base_frobenius_norm": 15.398101075250572,
+        "relative_frobenius_norm": 0.028105758438671143
+      },
+      {
+        "name": "model.language_model.layers.8.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3510458,
+        "delta_frobenius_norm": 0.6243289683101643,
+        "base_frobenius_norm": 22.21756806697229,
+        "relative_frobenius_norm": 0.028100688897551556
+      },
+      {
+        "name": "model.language_model.layers.8.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3509058,
+        "delta_frobenius_norm": 0.4508986202934613,
+        "base_frobenius_norm": 16.002468872326094,
+        "relative_frobenius_norm": 0.028176815958269028
+      },
+      {
+        "name": "model.language_model.layers.9.mlp.down_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          1024,
+          3584
+        ],
+        "numel": 3670016,
+        "changed_elements": 3504951,
+        "delta_frobenius_norm": 0.4358341655151903,
+        "base_frobenius_norm": 15.547210168340643,
+        "relative_frobenius_norm": 0.028032950014575314
+      },
+      {
+        "name": "model.language_model.layers.9.mlp.gate_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3510452,
+        "delta_frobenius_norm": 0.5724366489074624,
+        "base_frobenius_norm": 20.410016820696,
+        "relative_frobenius_norm": 0.028046848463495866
+      },
+      {
+        "name": "model.language_model.layers.9.mlp.up_proj.weight",
+        "group": "text_mlp",
+        "shape": [
+          3584,
+          1024
+        ],
+        "numel": 3670016,
+        "changed_elements": 3508518,
+        "delta_frobenius_norm": 0.45460121804337256,
+        "base_frobenius_norm": 16.145102575028847,
+        "relative_frobenius_norm": 0.0281572207999775
+      }
+    ]
+  }
+}

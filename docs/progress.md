@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
-**Date:** 2026-11-25  
-**Current Milestone:** `M2: Agent pilot and main experiments` — **In Progress (Implementing Controls & Toolkit)**  
+**Date:** 2026-11-26  
+**Current Milestone:** `M2: Agent pilot and main experiments` — **M2a Complete; Paused for Manual Codex Handoffs (`H001`–`H003`)**  
 **Branch:** `main`  
-**Latest Commit SHA:** `ceba611` (`Commit: Complete Milestone M1 Baselines & WSP Replication`, pushed to `origin/main`)  
+**Latest Commit SHA:** `380b7b9` (`Commit: Add M2 Agent Toolkit, Competency Suite & Baselines`, pushed to `origin/main`)  
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoff only)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — manual handoffs `H001`, `H002`, `H003` ready)
 
 ---
 
@@ -50,10 +50,10 @@
 - [x] Validate selective tensor retrieval on `Qwen/Qwen3.5-0.8B` via HTTP `206` `Range` requests (`results/m1_remote_reader_validation.json`: `176,584 / 1,746,942,600` bytes = `9892.98x` reduction, bit-exact match verified).
 - [x] Run M4 Max MPS micro-benchmark (`results/m1_micro_benchmark.json`: `109 tok/s` `0.8B`, `64–65 tok/s` `2B`, zero NaNs), reproduce Stage 0 `C0_loopfixed` (`runs/manifests/stage0_c0_loopfixed_patch.json`: `130,188` entries in L15/L19 `down_proj`, `153/153` vision tensors SHA-256 unchanged, `reversion_verified: true`), run validation baselines (`results/m1_stage0_baselines.json`: `nothink 1024` `C0_raw` `62.0%` GSM8K / `40.0%` `carry_add_sub` vs `2B` `82.0%` GSM8K / `78.0%` `carry_add_sub`; `think` check `95% -> 75%` loops without `presence_penalty=1.5`), and freeze [`docs/preregistration.md`](preregistration.md) v1.0.
 
-### M2: Agent pilot and main experiments
-- [ ] Run approved small competency comparisons and measure actual cost; select programmer(s) using pilot evidence.
-- [ ] Implement and test conventional transfer (`C4`) and matched controls (`C1`–`C5`); establish immutable patch & provenance logs.
-- [ ] Run approved `Qwen3.5-2B -> Qwen3.5-0.8B` AWST trials; log all outcomes including failures.
+### M2: Agent pilot and main experiments *(M2a Complete at \$0.00 spend; M2b awaiting Codex `H001`–`H003`)*
+- [ ] Run approved small competency comparisons and measure actual cost; select programmer(s) using pilot evidence. *(Gemini 4 Neon isolated trial verified `3/3` in `results/m2_rq6_competency_neon.json`; GPT-6.2 Astra brief ready at [`docs/handoffs/H001_rq6_competency_pilot.md`](handoffs/H001_rq6_competency_pilot.md).)*
+- [x] Implement and test conventional transfer (`C4`) and matched controls (`C1`–`C5`); establish immutable patch & provenance logs. *(Evaluated in `results/m2_conventional_baselines.json`: `C4_weights` `60.0%` GSM8K / `40.0%` `carry_add_sub`; `C4_act` `62.0%` / `34.0%`; `C2` `63.0%` / `36.0%`; `C3` `55.0%` / `40.0%` vs. `C0_raw` `62.0%` / `40.0%` and `2B` `82.0%` / `78.0%`. `11/11` unit tests pass; `hf_cache` = `11G`.)*
+- [ ] Run approved `Qwen3.5-2B -> Qwen3.5-0.8B` AWST trials; log all outcomes including failures. *(Codex handoff briefs ready: [`docs/handoffs/H002_stage1_awst_t1.md`](handoffs/H002_stage1_awst_t1.md) for `C1`+`T1` and [`docs/handoffs/H003_stage1_awst_t2.md`](handoffs/H003_stage1_awst_t2.md) for `T2`.)*
 - [ ] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`).
 - [ ] Run approved second donor experiment if justified (Stage 3/4 gated separately).
 
@@ -79,7 +79,7 @@
 
 ---
 
-## 5. Exact Next Action (M2a Active)
+## 5. Exact Next Action (Paused for Researcher Codex Handoffs `H001`–`H003`)
 
-1. Run local Stage 1 conventional controls/baselines (`C2`, `C3`, `C4_weights`, `C4_act`) on M4 Max MPS (`results/m2_conventional_baselines.json`).
-2. Prepare manual Codex handoff briefs (`docs/handoffs/H001_rq6_competency_pilot.md` and `docs/handoffs/H002_stage1_awst_t1.md`) and pause for the researcher to relay them to GPT-6.2 Astra.
+1. Researcher submits [`docs/handoffs/H001_rq6_competency_pilot.md`](handoffs/H001_rq6_competency_pilot.md), [`docs/handoffs/H002_stage1_awst_t1.md`](handoffs/H002_stage1_awst_t1.md), and [`docs/handoffs/H003_stage1_awst_t2.md`](handoffs/H003_stage1_awst_t2.md) to **GPT-6.2 Astra in Codex**.
+2. Once Codex returns its scripts/reports, Antigravity independently verifies invariants (`873,438,784` params, `153/153` frozen vision tensors), runs `C5` shuffled-donor and `float64` reversion controls, and evaluates all candidate checkpoints (`C1`, `T1`, `T2`) on `data/validation/` on M4 Max MPS.
