@@ -1,7 +1,7 @@
 # Agentic Weight-Space Transplantation (AWST)
 
 **Working paper title:** *Agentic Weight-Space Transplantation: Training-Free Transfer of Mathematical Reasoning Between Language Models*  
-**Status:** Milestone M2a complete (controls `C2`–`C4` evaluated & RQ6 Neon trial verified; manual Codex handoffs `H001`–`H003` ready)  
+**Status:** Milestone M2b in progress (`H001` RQ6 pilot verified `3/3` for both Neon & Astra; awaiting Codex `H002`–`H003`)  
 **Primary domain:** Grade-school mathematical reasoning (narrow synthetic arithmetic diagnostic + GSM8K confirmatory benchmark)  
 **Spend to date:** \$0.00 / \$200.00 hard ceiling (\$20.00 M2 pilot gate authorized)
 

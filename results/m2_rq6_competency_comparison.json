@@ -1,0 +1,46 @@
+{
+  "benchmark": "RQ6 synthetic toy-network competency pilot (Tasks A, B, C)",
+  "suite_seed": 2026,
+  "gemini_4_neon": {
+    "agent": "Gemini 4 Neon",
+    "harness": "Google Antigravity (isolated subagent 9e482cbc)",
+    "suite_seed": 2026,
+    "cost_usd_additional": 0.0,
+    "verification": {
+      "task_a_passed": true,
+      "task_b_agreement": 1.0,
+      "task_b_rel_l2_error": 0.0,
+      "task_b_passed": true,
+      "task_c_localized": true,
+      "task_c_agreement": 1.0,
+      "task_c_passed": true,
+      "overall_score": 3
+    }
+  },
+  "gpt_6_2_astra": {
+    "agent": "GPT-6.2 Astra",
+    "model_id": "gpt-6.2-astra",
+    "reasoning_effort": "max",
+    "harness": "Codex",
+    "codex_user_turns": 1,
+    "forward_passes": 0,
+    "direct_api_usd": 0,
+    "in_turn_tokens": 490523,
+    "in_turn_shadow_usd": 1.1002544,
+    "isolation_caveat": "docs/progress.md exposed Neon aggregate 3/3 score prior to Astra run; zero task answers exposed",
+    "verification": {
+      "task_a_passed": true,
+      "task_b_agreement": 1.0,
+      "task_b_rel_l2_error": 0.0,
+      "task_b_passed": true,
+      "task_c_localized": true,
+      "task_c_agreement": 1.0,
+      "task_c_passed": true,
+      "overall_score": 3
+    }
+  },
+  "programmer_selection": {
+    "selected_stage1_programmer": "GPT-6.2 Astra (Codex)",
+    "rationale": "Both agents achieved 3/3 (1.0 agreement on Tasks B & C); Astra solved Task B via clean coordinate identity [I_8; 0] + [M, 0] and Task C via 4th/5th column norm ratio (20.33x) at $1.10 shadow / $0.00 direct API cost, matching protocol role assignment."
+  }
+}

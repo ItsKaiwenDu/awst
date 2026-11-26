@@ -3,7 +3,7 @@
 - **Date:** 2026-11-26
 - **Target Agent / Harness:** GPT-6.2 Astra via Codex
 - **Authorization Mode:** `AUTHORIZED IMPLEMENTATION (Academic Research — Stage 1 Pilot within $12.00 Astra Cap)`
-- **Repository Commit SHA:** `380b7b9` (or latest M2a-2 `HEAD` on `main`)
+- **Repository Commit SHA:** `f2c44bb` (or latest `HEAD` on `main`)
 - **Model / Checkpoint Revisions:**
   - **Recipient (`C0_raw`):** `Qwen/Qwen3.5-0.8B` (`2fc06364715b967f1860aea9cf38778875588b17`), local path `hf_cache/models/qwen3.5_0.8b` (`873,438,784` params, `153` vision tensors).
   - **Donor:** `Qwen/Qwen3.5-2B` (`15852e8c16360a2fea060d615a32b45270f8a8fc`), local path `hf_cache/models/qwen3.5_2b` (`2,274,069,824` params).
