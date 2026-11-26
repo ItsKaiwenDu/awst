@@ -1,0 +1,48 @@
+{
+  "run_id": "m2_devscreen_c4a_a0_05",
+  "timestamp_utc": "2026-11-26T16:07:17.220091+00:00",
+  "model_path": "hf_cache/edited/tmp_c4a_a0_05",
+  "dataset_path": "hf_cache/tmp_m2_dev_screen.jsonl",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "enable_thinking": false,
+  "max_new_tokens": 1024,
+  "do_sample": false,
+  "temperature": null,
+  "top_p": null,
+  "top_k": null,
+  "seed": null,
+  "load_sec": 0.519,
+  "eval_sec": 166.659,
+  "total_generated_tokens": 18266,
+  "tokens_per_sec": 109.6,
+  "peak_mps_allocated_mb": 2369.78,
+  "peak_rss_mb": 12633.36,
+  "metrics": {
+    "n": 40,
+    "pass_at_1": 0.425,
+    "correct_count": 17,
+    "completion_rate": 0.875,
+    "truncation_rate": 0.125,
+    "repetition_loop_rate": 0.15,
+    "invalid_parse_rate": 0.0,
+    "completed_only_accuracy": 0.45714285714285713,
+    "avg_output_tokens": 456.65,
+    "median_output_tokens": 358.5,
+    "matched_token_budget": {
+      "pass_at_1_le_256_tok": 0.075,
+      "pass_at_1_le_512_tok": 0.35,
+      "pass_at_1_le_1024_tok": 0.425
+    },
+    "by_subskill": {
+      "carry_add_sub": {
+        "n": 20,
+        "pass_at_1": 0.25,
+        "completion_rate": 0.75,
+        "repetition_loop_rate": 0.25,
+        "avg_output_tokens": 489.35
+      }
+    }
+  },
+  "log_path": "runs/logs/m2_devscreen_c4a_a0_05.jsonl"
+}
