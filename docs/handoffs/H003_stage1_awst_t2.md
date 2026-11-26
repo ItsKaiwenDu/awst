@@ -3,12 +3,12 @@
 - **Date:** 2026-11-26
 - **Target Agent / Harness:** GPT-6.2 Astra via Codex
 - **Authorization Mode:** `AUTHORIZED IMPLEMENTATION (Academic Research — Stage 1 Track T2 Pilot within $12.00 Astra Cap)`
-- **Repository Commit SHA:** `f2c44bb` (or latest `HEAD` on `main`)
+- **Repository Commit SHA:** Latest `HEAD` on `main` (post-`H002` verification; note `H002` results remain strictly isolated from `T2`)
 - **Model / Checkpoint Revisions:**
   - **Recipient (`C0_raw`):** `Qwen/Qwen3.5-0.8B` (`2fc06364715b967f1860aea9cf38778875588b17`), `hf_cache/models/qwen3.5_0.8b`.
   - **Donor:** `Qwen/Qwen3.5-2B` (`15852e8c16360a2fea060d615a32b45270f8a8fc`), `hf_cache/models/qwen3.5_2b`.
 - **Budget / Resource Limits:**
-  - Shared `$12.00` Astra pilot cap across `H002` + `H003`.
+  - Shared `$12.00` Astra pilot cap across `H002` + `H003`: **$6.28 remaining** (`$5.7216` shadow usage recorded on `H002`; `$8/M` input, `$0.40/M` cached input, `$40/M` output).
   - Max `64` donor forward passes strictly on `data/development/` prompts (logged via `AgentWeightToolbox(..., track="T2")`).
   - Max `12` candidate dev evaluation trials on `data/development/` ONLY.
 

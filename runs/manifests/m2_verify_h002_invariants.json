@@ -1,0 +1,834 @@
+{
+  "timestamp_utc": "2026-11-26T22:08:03.110283+00:00",
+  "pristine_recipient_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+  "replay_verification": {
+    "C1_sha256": "b11f16df6de7bfb5f060789477a4e67764946f111feccd3a871d2440227ad11a",
+    "C1_matches_codex_expected": true,
+    "C1_matches_codex_dir": true,
+    "T1_sha256": "da9ad05f9c4931477197b46581ed83653485f16763eeb7197bb9aaead2f81414",
+    "T1_matches_codex_expected": true,
+    "T1_matches_codex_dir": true
+  },
+  "float64_reversion": {
+    "C1": {
+      "changed_params": 0,
+      "frozen_tensors_verified": 153
+    },
+    "T1": {
+      "changed_params": 0,
+      "frozen_tensors_verified": 153
+    }
+  },
+  "arms": {
+    "C1": {
+      "provenance": {
+        "arm": "C1",
+        "radius": 0.03125,
+        "donor_tensors": [],
+        "formula": "BF16(R + radius * (R - mean_rows(R)))",
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "857d8d44203ddaaac020327fe0b1d8c64e241d30252aa36c713945809eba662f",
+        "pre_round_delta_frobenius": 0.03701915164816806,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 0
+      },
+      "invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c1",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9097,
+        "changed_fraction": 1.041515463549647e-05,
+        "overall_delta_frobenius_norm": 0.03728681262160319,
+        "overall_relative_frobenius_norm": 3.961378765963135e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9097,
+            "delta_frobenius_norm": 0.03728681262160319,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011871458656765091
+          }
+        ]
+      }
+    },
+    "T1": {
+      "provenance": {
+        "arm": "T1",
+        "radius": 0.03125,
+        "ridge": 0.125,
+        "donor_model": "Qwen/Qwen3.5-2B",
+        "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "source": "checkpoint",
+        "donor_tensor": "model.language_model.embed_tokens.weight",
+        "donor_shape": [
+          248320,
+          2048
+        ],
+        "source_dtype": "bfloat16",
+        "row_order": [
+          {
+            "token": "0",
+            "id": 15
+          },
+          {
+            "token": "1",
+            "id": 16
+          },
+          {
+            "token": "2",
+            "id": 17
+          },
+          {
+            "token": "3",
+            "id": 18
+          },
+          {
+            "token": "4",
+            "id": 19
+          },
+          {
+            "token": "5",
+            "id": 20
+          },
+          {
+            "token": "6",
+            "id": 21
+          },
+          {
+            "token": "7",
+            "id": 22
+          },
+          {
+            "token": "8",
+            "id": 23
+          },
+          {
+            "token": "9",
+            "id": 24
+          },
+          {
+            "token": " zero",
+            "id": 6942
+          },
+          {
+            "token": " one",
+            "id": 799
+          },
+          {
+            "token": " two",
+            "id": 1330
+          },
+          {
+            "token": " three",
+            "id": 2250
+          },
+          {
+            "token": " four",
+            "id": 2943
+          },
+          {
+            "token": " five",
+            "id": 4097
+          },
+          {
+            "token": " six",
+            "id": 4590
+          },
+          {
+            "token": " seven",
+            "id": 7840
+          },
+          {
+            "token": " eight",
+            "id": 7810
+          },
+          {
+            "token": " nine",
+            "id": 11292
+          },
+          {
+            "token": "+",
+            "id": 10
+          },
+          {
+            "token": "-",
+            "id": 12
+          },
+          {
+            "token": "*",
+            "id": 9
+          },
+          {
+            "token": "/",
+            "id": 14
+          },
+          {
+            "token": "=",
+            "id": 28
+          },
+          {
+            "token": " plus",
+            "id": 5346
+          },
+          {
+            "token": " minus",
+            "id": 26401
+          },
+          {
+            "token": " times",
+            "id": 2942
+          },
+          {
+            "token": " sum",
+            "id": 2542
+          },
+          {
+            "token": " total",
+            "id": 2702
+          },
+          {
+            "token": " digits",
+            "id": 17955
+          },
+          {
+            "token": " number",
+            "id": 1324
+          },
+          {
+            "token": " hundred",
+            "id": 7493
+          },
+          {
+            "token": " thousand",
+            "id": 15706
+          },
+          {
+            "token": " carry",
+            "id": 6564
+          },
+          {
+            "token": " borrow",
+            "id": 16686
+          },
+          {
+            "token": " equals",
+            "id": 16327
+          },
+          {
+            "token": " add",
+            "id": 884
+          },
+          {
+            "token": " subtract",
+            "id": 31192
+          },
+          {
+            "token": " multiply",
+            "id": 29283
+          }
+        ],
+        "source_rows_sha256_bf16": "997caa141917f0db83917d6e23ef136f910f8a6b989499bfaf9e84a844b2ec37",
+        "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+        "override_row_bytes_read": 0,
+        "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+        "similarity_error_before": 0.1854499018520413,
+        "similarity_error_after": 0.15157923580117788,
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "526580b7b7f32bfb914f78136ce1be9f4fe2ec7efb8f046208ed23280640c84c",
+        "pre_round_delta_frobenius": 0.03701915164816806,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 163840
+      },
+      "invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_t1",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9050,
+        "changed_fraction": 1.0361344338929653e-05,
+        "overall_delta_frobenius_norm": 0.0372040585334069,
+        "overall_relative_frobenius_norm": 3.9525869099494756e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9050,
+            "delta_frobenius_norm": 0.0372040585334069,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011845111225391155
+          }
+        ]
+      }
+    },
+    "C5_elem": {
+      "provenance": {
+        "arm": "C5",
+        "radius": 0.03125,
+        "ridge": 0.125,
+        "donor_model": "Qwen/Qwen3.5-2B",
+        "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "source": "override",
+        "donor_tensor": "model.language_model.embed_tokens.weight",
+        "donor_shape": [
+          248320,
+          2048
+        ],
+        "source_dtype": "bfloat16",
+        "row_order": [
+          {
+            "token": "0",
+            "id": 15
+          },
+          {
+            "token": "1",
+            "id": 16
+          },
+          {
+            "token": "2",
+            "id": 17
+          },
+          {
+            "token": "3",
+            "id": 18
+          },
+          {
+            "token": "4",
+            "id": 19
+          },
+          {
+            "token": "5",
+            "id": 20
+          },
+          {
+            "token": "6",
+            "id": 21
+          },
+          {
+            "token": "7",
+            "id": 22
+          },
+          {
+            "token": "8",
+            "id": 23
+          },
+          {
+            "token": "9",
+            "id": 24
+          },
+          {
+            "token": " zero",
+            "id": 6942
+          },
+          {
+            "token": " one",
+            "id": 799
+          },
+          {
+            "token": " two",
+            "id": 1330
+          },
+          {
+            "token": " three",
+            "id": 2250
+          },
+          {
+            "token": " four",
+            "id": 2943
+          },
+          {
+            "token": " five",
+            "id": 4097
+          },
+          {
+            "token": " six",
+            "id": 4590
+          },
+          {
+            "token": " seven",
+            "id": 7840
+          },
+          {
+            "token": " eight",
+            "id": 7810
+          },
+          {
+            "token": " nine",
+            "id": 11292
+          },
+          {
+            "token": "+",
+            "id": 10
+          },
+          {
+            "token": "-",
+            "id": 12
+          },
+          {
+            "token": "*",
+            "id": 9
+          },
+          {
+            "token": "/",
+            "id": 14
+          },
+          {
+            "token": "=",
+            "id": 28
+          },
+          {
+            "token": " plus",
+            "id": 5346
+          },
+          {
+            "token": " minus",
+            "id": 26401
+          },
+          {
+            "token": " times",
+            "id": 2942
+          },
+          {
+            "token": " sum",
+            "id": 2542
+          },
+          {
+            "token": " total",
+            "id": 2702
+          },
+          {
+            "token": " digits",
+            "id": 17955
+          },
+          {
+            "token": " number",
+            "id": 1324
+          },
+          {
+            "token": " hundred",
+            "id": 7493
+          },
+          {
+            "token": " thousand",
+            "id": 15706
+          },
+          {
+            "token": " carry",
+            "id": 6564
+          },
+          {
+            "token": " borrow",
+            "id": 16686
+          },
+          {
+            "token": " equals",
+            "id": 16327
+          },
+          {
+            "token": " add",
+            "id": 884
+          },
+          {
+            "token": " subtract",
+            "id": 31192
+          },
+          {
+            "token": " multiply",
+            "id": 29283
+          }
+        ],
+        "source_rows_sha256_bf16": "4ec59f081bfdd0c9496f703bc38934626cb15dc0706364bfa7194f5b23169f4d",
+        "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+        "override_row_bytes_read": 163840,
+        "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+        "similarity_error_before": 0.7120147194373888,
+        "similarity_error_after": 0.6920326692322045,
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "500446f70e8125f984e68f3c723b99b8bb3e8279d8886ba14563a0a104dfed91",
+        "pre_round_delta_frobenius": 0.03701915164816808,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 0
+      },
+      "invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c5_elem",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9079,
+        "changed_fraction": 1.0394546436811306e-05,
+        "overall_delta_frobenius_norm": 0.03726805309916414,
+        "overall_relative_frobenius_norm": 3.959385740316137e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9079,
+            "delta_frobenius_norm": 0.03726805309916414,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011865485958124531
+          }
+        ]
+      }
+    },
+    "C5_rowperm": {
+      "provenance": {
+        "arm": "C5",
+        "radius": 0.03125,
+        "ridge": 0.125,
+        "donor_model": "Qwen/Qwen3.5-2B",
+        "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "source": "override",
+        "donor_tensor": "model.language_model.embed_tokens.weight",
+        "donor_shape": [
+          248320,
+          2048
+        ],
+        "source_dtype": "bfloat16",
+        "row_order": [
+          {
+            "token": "0",
+            "id": 15
+          },
+          {
+            "token": "1",
+            "id": 16
+          },
+          {
+            "token": "2",
+            "id": 17
+          },
+          {
+            "token": "3",
+            "id": 18
+          },
+          {
+            "token": "4",
+            "id": 19
+          },
+          {
+            "token": "5",
+            "id": 20
+          },
+          {
+            "token": "6",
+            "id": 21
+          },
+          {
+            "token": "7",
+            "id": 22
+          },
+          {
+            "token": "8",
+            "id": 23
+          },
+          {
+            "token": "9",
+            "id": 24
+          },
+          {
+            "token": " zero",
+            "id": 6942
+          },
+          {
+            "token": " one",
+            "id": 799
+          },
+          {
+            "token": " two",
+            "id": 1330
+          },
+          {
+            "token": " three",
+            "id": 2250
+          },
+          {
+            "token": " four",
+            "id": 2943
+          },
+          {
+            "token": " five",
+            "id": 4097
+          },
+          {
+            "token": " six",
+            "id": 4590
+          },
+          {
+            "token": " seven",
+            "id": 7840
+          },
+          {
+            "token": " eight",
+            "id": 7810
+          },
+          {
+            "token": " nine",
+            "id": 11292
+          },
+          {
+            "token": "+",
+            "id": 10
+          },
+          {
+            "token": "-",
+            "id": 12
+          },
+          {
+            "token": "*",
+            "id": 9
+          },
+          {
+            "token": "/",
+            "id": 14
+          },
+          {
+            "token": "=",
+            "id": 28
+          },
+          {
+            "token": " plus",
+            "id": 5346
+          },
+          {
+            "token": " minus",
+            "id": 26401
+          },
+          {
+            "token": " times",
+            "id": 2942
+          },
+          {
+            "token": " sum",
+            "id": 2542
+          },
+          {
+            "token": " total",
+            "id": 2702
+          },
+          {
+            "token": " digits",
+            "id": 17955
+          },
+          {
+            "token": " number",
+            "id": 1324
+          },
+          {
+            "token": " hundred",
+            "id": 7493
+          },
+          {
+            "token": " thousand",
+            "id": 15706
+          },
+          {
+            "token": " carry",
+            "id": 6564
+          },
+          {
+            "token": " borrow",
+            "id": 16686
+          },
+          {
+            "token": " equals",
+            "id": 16327
+          },
+          {
+            "token": " add",
+            "id": 884
+          },
+          {
+            "token": " subtract",
+            "id": 31192
+          },
+          {
+            "token": " multiply",
+            "id": 29283
+          }
+        ],
+        "source_rows_sha256_bf16": "54bb501fdc97d2c9c30cc97d5411fd3a0a43aa72236a32b30ffb79a76db4479b",
+        "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+        "override_row_bytes_read": 163840,
+        "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+        "similarity_error_before": 0.7378492111553328,
+        "similarity_error_after": 0.7174331741430264,
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "ac1fc1faddcab5f05e500864ddfcb39b70099f831ddcb5bb80aecadf6f1b7259",
+        "pre_round_delta_frobenius": 0.03701915164816807,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 0
+      },
+      "invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c5_rowperm",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9058,
+        "changed_fraction": 1.0370503538345281e-05,
+        "overall_delta_frobenius_norm": 0.0371339741538587,
+        "overall_relative_frobenius_norm": 3.9451410932264046e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9058,
+            "delta_frobenius_norm": 0.0371339741538587,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011822797604145624
+          }
+        ]
+      }
+    }
+  },
+  "digit_delta_geometry": {
+    "delta_frobenius_norms_f64": {
+      "C1": 0.03728681307271264,
+      "T1": 0.0372040578996521,
+      "C5_elem": 0.03726805474404231,
+      "C5_rowperm": 0.03713397484263455
+    },
+    "pairwise_cosine_similarity": {
+      "C1": {
+        "C1": 1.0,
+        "T1": 0.055951,
+        "C5_elem": -0.676905,
+        "C5_rowperm": -0.635903
+      },
+      "T1": {
+        "C1": 0.055951,
+        "T1": 1.0,
+        "C5_elem": -0.057268,
+        "C5_rowperm": -0.003241
+      },
+      "C5_elem": {
+        "C1": -0.676905,
+        "T1": -0.057268,
+        "C5_elem": 1.0,
+        "C5_rowperm": 0.88971
+      },
+      "C5_rowperm": {
+        "C1": -0.635903,
+        "T1": -0.003241,
+        "C5_elem": 0.88971,
+        "C5_rowperm": 1.0
+      }
+    }
+  }
+}

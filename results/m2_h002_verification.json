@@ -1,0 +1,2488 @@
+{
+  "timestamp_utc": "2026-11-26T23:20:19.663992+00:00",
+  "milestone": "M2b_H002_verification",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "invariants_and_replay": {
+    "timestamp_utc": "2026-11-26T22:08:03.110283+00:00",
+    "pristine_recipient_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+    "replay_verification": {
+      "C1_sha256": "b11f16df6de7bfb5f060789477a4e67764946f111feccd3a871d2440227ad11a",
+      "C1_matches_codex_expected": true,
+      "C1_matches_codex_dir": true,
+      "T1_sha256": "da9ad05f9c4931477197b46581ed83653485f16763eeb7197bb9aaead2f81414",
+      "T1_matches_codex_expected": true,
+      "T1_matches_codex_dir": true
+    },
+    "float64_reversion": {
+      "C1": {
+        "changed_params": 0,
+        "frozen_tensors_verified": 153
+      },
+      "T1": {
+        "changed_params": 0,
+        "frozen_tensors_verified": 153
+      }
+    },
+    "arms": {
+      "C1": {
+        "provenance": {
+          "arm": "C1",
+          "radius": 0.03125,
+          "donor_tensors": [],
+          "formula": "BF16(R + radius * (R - mean_rows(R)))",
+          "recipient_model": "Qwen/Qwen3.5-0.8B",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "target_tensor": "model.language_model.embed_tokens.weight",
+          "target_row_ids": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "input_output_tied": true,
+          "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+          "edited_digit_rows_sha256_bf16": "857d8d44203ddaaac020327fe0b1d8c64e241d30252aa36c713945809eba662f",
+          "pre_round_delta_frobenius": 0.03701915164816806,
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_accessed": 0
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c1",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 1,
+          "changed_params": 9097,
+          "changed_fraction": 1.041515463549647e-05,
+          "overall_delta_frobenius_norm": 0.03728681262160319,
+          "overall_relative_frobenius_norm": 3.961378765963135e-05,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.embed_tokens.weight",
+              "group": "embed_lm_head",
+              "shape": [
+                248320,
+                1024
+              ],
+              "numel": 254279680,
+              "changed_elements": 9097,
+              "delta_frobenius_norm": 0.03728681262160319,
+              "base_frobenius_norm": 314.08787832786544,
+              "relative_frobenius_norm": 0.00011871458656765091
+            }
+          ]
+        }
+      },
+      "T1": {
+        "provenance": {
+          "arm": "T1",
+          "radius": 0.03125,
+          "ridge": 0.125,
+          "donor_model": "Qwen/Qwen3.5-2B",
+          "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "source": "checkpoint",
+          "donor_tensor": "model.language_model.embed_tokens.weight",
+          "donor_shape": [
+            248320,
+            2048
+          ],
+          "source_dtype": "bfloat16",
+          "row_order": [
+            {
+              "token": "0",
+              "id": 15
+            },
+            {
+              "token": "1",
+              "id": 16
+            },
+            {
+              "token": "2",
+              "id": 17
+            },
+            {
+              "token": "3",
+              "id": 18
+            },
+            {
+              "token": "4",
+              "id": 19
+            },
+            {
+              "token": "5",
+              "id": 20
+            },
+            {
+              "token": "6",
+              "id": 21
+            },
+            {
+              "token": "7",
+              "id": 22
+            },
+            {
+              "token": "8",
+              "id": 23
+            },
+            {
+              "token": "9",
+              "id": 24
+            },
+            {
+              "token": " zero",
+              "id": 6942
+            },
+            {
+              "token": " one",
+              "id": 799
+            },
+            {
+              "token": " two",
+              "id": 1330
+            },
+            {
+              "token": " three",
+              "id": 2250
+            },
+            {
+              "token": " four",
+              "id": 2943
+            },
+            {
+              "token": " five",
+              "id": 4097
+            },
+            {
+              "token": " six",
+              "id": 4590
+            },
+            {
+              "token": " seven",
+              "id": 7840
+            },
+            {
+              "token": " eight",
+              "id": 7810
+            },
+            {
+              "token": " nine",
+              "id": 11292
+            },
+            {
+              "token": "+",
+              "id": 10
+            },
+            {
+              "token": "-",
+              "id": 12
+            },
+            {
+              "token": "*",
+              "id": 9
+            },
+            {
+              "token": "/",
+              "id": 14
+            },
+            {
+              "token": "=",
+              "id": 28
+            },
+            {
+              "token": " plus",
+              "id": 5346
+            },
+            {
+              "token": " minus",
+              "id": 26401
+            },
+            {
+              "token": " times",
+              "id": 2942
+            },
+            {
+              "token": " sum",
+              "id": 2542
+            },
+            {
+              "token": " total",
+              "id": 2702
+            },
+            {
+              "token": " digits",
+              "id": 17955
+            },
+            {
+              "token": " number",
+              "id": 1324
+            },
+            {
+              "token": " hundred",
+              "id": 7493
+            },
+            {
+              "token": " thousand",
+              "id": 15706
+            },
+            {
+              "token": " carry",
+              "id": 6564
+            },
+            {
+              "token": " borrow",
+              "id": 16686
+            },
+            {
+              "token": " equals",
+              "id": 16327
+            },
+            {
+              "token": " add",
+              "id": 884
+            },
+            {
+              "token": " subtract",
+              "id": 31192
+            },
+            {
+              "token": " multiply",
+              "id": 29283
+            }
+          ],
+          "source_rows_sha256_bf16": "997caa141917f0db83917d6e23ef136f910f8a6b989499bfaf9e84a844b2ec37",
+          "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+          "override_row_bytes_read": 0,
+          "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+          "similarity_error_before": 0.1854499018520413,
+          "similarity_error_after": 0.15157923580117788,
+          "recipient_model": "Qwen/Qwen3.5-0.8B",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "target_tensor": "model.language_model.embed_tokens.weight",
+          "target_row_ids": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "input_output_tied": true,
+          "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+          "edited_digit_rows_sha256_bf16": "526580b7b7f32bfb914f78136ce1be9f4fe2ec7efb8f046208ed23280640c84c",
+          "pre_round_delta_frobenius": 0.03701915164816806,
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_accessed": 163840
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_t1",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 1,
+          "changed_params": 9050,
+          "changed_fraction": 1.0361344338929653e-05,
+          "overall_delta_frobenius_norm": 0.0372040585334069,
+          "overall_relative_frobenius_norm": 3.9525869099494756e-05,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.embed_tokens.weight",
+              "group": "embed_lm_head",
+              "shape": [
+                248320,
+                1024
+              ],
+              "numel": 254279680,
+              "changed_elements": 9050,
+              "delta_frobenius_norm": 0.0372040585334069,
+              "base_frobenius_norm": 314.08787832786544,
+              "relative_frobenius_norm": 0.00011845111225391155
+            }
+          ]
+        }
+      },
+      "C5_elem": {
+        "provenance": {
+          "arm": "C5",
+          "radius": 0.03125,
+          "ridge": 0.125,
+          "donor_model": "Qwen/Qwen3.5-2B",
+          "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "source": "override",
+          "donor_tensor": "model.language_model.embed_tokens.weight",
+          "donor_shape": [
+            248320,
+            2048
+          ],
+          "source_dtype": "bfloat16",
+          "row_order": [
+            {
+              "token": "0",
+              "id": 15
+            },
+            {
+              "token": "1",
+              "id": 16
+            },
+            {
+              "token": "2",
+              "id": 17
+            },
+            {
+              "token": "3",
+              "id": 18
+            },
+            {
+              "token": "4",
+              "id": 19
+            },
+            {
+              "token": "5",
+              "id": 20
+            },
+            {
+              "token": "6",
+              "id": 21
+            },
+            {
+              "token": "7",
+              "id": 22
+            },
+            {
+              "token": "8",
+              "id": 23
+            },
+            {
+              "token": "9",
+              "id": 24
+            },
+            {
+              "token": " zero",
+              "id": 6942
+            },
+            {
+              "token": " one",
+              "id": 799
+            },
+            {
+              "token": " two",
+              "id": 1330
+            },
+            {
+              "token": " three",
+              "id": 2250
+            },
+            {
+              "token": " four",
+              "id": 2943
+            },
+            {
+              "token": " five",
+              "id": 4097
+            },
+            {
+              "token": " six",
+              "id": 4590
+            },
+            {
+              "token": " seven",
+              "id": 7840
+            },
+            {
+              "token": " eight",
+              "id": 7810
+            },
+            {
+              "token": " nine",
+              "id": 11292
+            },
+            {
+              "token": "+",
+              "id": 10
+            },
+            {
+              "token": "-",
+              "id": 12
+            },
+            {
+              "token": "*",
+              "id": 9
+            },
+            {
+              "token": "/",
+              "id": 14
+            },
+            {
+              "token": "=",
+              "id": 28
+            },
+            {
+              "token": " plus",
+              "id": 5346
+            },
+            {
+              "token": " minus",
+              "id": 26401
+            },
+            {
+              "token": " times",
+              "id": 2942
+            },
+            {
+              "token": " sum",
+              "id": 2542
+            },
+            {
+              "token": " total",
+              "id": 2702
+            },
+            {
+              "token": " digits",
+              "id": 17955
+            },
+            {
+              "token": " number",
+              "id": 1324
+            },
+            {
+              "token": " hundred",
+              "id": 7493
+            },
+            {
+              "token": " thousand",
+              "id": 15706
+            },
+            {
+              "token": " carry",
+              "id": 6564
+            },
+            {
+              "token": " borrow",
+              "id": 16686
+            },
+            {
+              "token": " equals",
+              "id": 16327
+            },
+            {
+              "token": " add",
+              "id": 884
+            },
+            {
+              "token": " subtract",
+              "id": 31192
+            },
+            {
+              "token": " multiply",
+              "id": 29283
+            }
+          ],
+          "source_rows_sha256_bf16": "4ec59f081bfdd0c9496f703bc38934626cb15dc0706364bfa7194f5b23169f4d",
+          "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+          "override_row_bytes_read": 163840,
+          "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+          "similarity_error_before": 0.7120147194373888,
+          "similarity_error_after": 0.6920326692322045,
+          "recipient_model": "Qwen/Qwen3.5-0.8B",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "target_tensor": "model.language_model.embed_tokens.weight",
+          "target_row_ids": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "input_output_tied": true,
+          "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+          "edited_digit_rows_sha256_bf16": "500446f70e8125f984e68f3c723b99b8bb3e8279d8886ba14563a0a104dfed91",
+          "pre_round_delta_frobenius": 0.03701915164816808,
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_accessed": 0
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c5_elem",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 1,
+          "changed_params": 9079,
+          "changed_fraction": 1.0394546436811306e-05,
+          "overall_delta_frobenius_norm": 0.03726805309916414,
+          "overall_relative_frobenius_norm": 3.959385740316137e-05,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.embed_tokens.weight",
+              "group": "embed_lm_head",
+              "shape": [
+                248320,
+                1024
+              ],
+              "numel": 254279680,
+              "changed_elements": 9079,
+              "delta_frobenius_norm": 0.03726805309916414,
+              "base_frobenius_norm": 314.08787832786544,
+              "relative_frobenius_norm": 0.00011865485958124531
+            }
+          ]
+        }
+      },
+      "C5_rowperm": {
+        "provenance": {
+          "arm": "C5",
+          "radius": 0.03125,
+          "ridge": 0.125,
+          "donor_model": "Qwen/Qwen3.5-2B",
+          "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "source": "override",
+          "donor_tensor": "model.language_model.embed_tokens.weight",
+          "donor_shape": [
+            248320,
+            2048
+          ],
+          "source_dtype": "bfloat16",
+          "row_order": [
+            {
+              "token": "0",
+              "id": 15
+            },
+            {
+              "token": "1",
+              "id": 16
+            },
+            {
+              "token": "2",
+              "id": 17
+            },
+            {
+              "token": "3",
+              "id": 18
+            },
+            {
+              "token": "4",
+              "id": 19
+            },
+            {
+              "token": "5",
+              "id": 20
+            },
+            {
+              "token": "6",
+              "id": 21
+            },
+            {
+              "token": "7",
+              "id": 22
+            },
+            {
+              "token": "8",
+              "id": 23
+            },
+            {
+              "token": "9",
+              "id": 24
+            },
+            {
+              "token": " zero",
+              "id": 6942
+            },
+            {
+              "token": " one",
+              "id": 799
+            },
+            {
+              "token": " two",
+              "id": 1330
+            },
+            {
+              "token": " three",
+              "id": 2250
+            },
+            {
+              "token": " four",
+              "id": 2943
+            },
+            {
+              "token": " five",
+              "id": 4097
+            },
+            {
+              "token": " six",
+              "id": 4590
+            },
+            {
+              "token": " seven",
+              "id": 7840
+            },
+            {
+              "token": " eight",
+              "id": 7810
+            },
+            {
+              "token": " nine",
+              "id": 11292
+            },
+            {
+              "token": "+",
+              "id": 10
+            },
+            {
+              "token": "-",
+              "id": 12
+            },
+            {
+              "token": "*",
+              "id": 9
+            },
+            {
+              "token": "/",
+              "id": 14
+            },
+            {
+              "token": "=",
+              "id": 28
+            },
+            {
+              "token": " plus",
+              "id": 5346
+            },
+            {
+              "token": " minus",
+              "id": 26401
+            },
+            {
+              "token": " times",
+              "id": 2942
+            },
+            {
+              "token": " sum",
+              "id": 2542
+            },
+            {
+              "token": " total",
+              "id": 2702
+            },
+            {
+              "token": " digits",
+              "id": 17955
+            },
+            {
+              "token": " number",
+              "id": 1324
+            },
+            {
+              "token": " hundred",
+              "id": 7493
+            },
+            {
+              "token": " thousand",
+              "id": 15706
+            },
+            {
+              "token": " carry",
+              "id": 6564
+            },
+            {
+              "token": " borrow",
+              "id": 16686
+            },
+            {
+              "token": " equals",
+              "id": 16327
+            },
+            {
+              "token": " add",
+              "id": 884
+            },
+            {
+              "token": " subtract",
+              "id": 31192
+            },
+            {
+              "token": " multiply",
+              "id": 29283
+            }
+          ],
+          "source_rows_sha256_bf16": "54bb501fdc97d2c9c30cc97d5411fd3a0a43aa72236a32b30ffb79a76db4479b",
+          "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+          "override_row_bytes_read": 163840,
+          "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+          "similarity_error_before": 0.7378492111553328,
+          "similarity_error_after": 0.7174331741430264,
+          "recipient_model": "Qwen/Qwen3.5-0.8B",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "target_tensor": "model.language_model.embed_tokens.weight",
+          "target_row_ids": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "input_output_tied": true,
+          "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+          "edited_digit_rows_sha256_bf16": "ac1fc1faddcab5f05e500864ddfcb39b70099f831ddcb5bb80aecadf6f1b7259",
+          "pre_round_delta_frobenius": 0.03701915164816807,
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_accessed": 0
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c5_rowperm",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 1,
+          "changed_params": 9058,
+          "changed_fraction": 1.0370503538345281e-05,
+          "overall_delta_frobenius_norm": 0.0371339741538587,
+          "overall_relative_frobenius_norm": 3.9451410932264046e-05,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.embed_tokens.weight",
+              "group": "embed_lm_head",
+              "shape": [
+                248320,
+                1024
+              ],
+              "numel": 254279680,
+              "changed_elements": 9058,
+              "delta_frobenius_norm": 0.0371339741538587,
+              "base_frobenius_norm": 314.08787832786544,
+              "relative_frobenius_norm": 0.00011822797604145624
+            }
+          ]
+        }
+      }
+    },
+    "digit_delta_geometry": {
+      "delta_frobenius_norms_f64": {
+        "C1": 0.03728681307271264,
+        "T1": 0.0372040578996521,
+        "C5_elem": 0.03726805474404231,
+        "C5_rowperm": 0.03713397484263455
+      },
+      "pairwise_cosine_similarity": {
+        "C1": {
+          "C1": 1.0,
+          "T1": 0.055951,
+          "C5_elem": -0.676905,
+          "C5_rowperm": -0.635903
+        },
+        "T1": {
+          "C1": 0.055951,
+          "T1": 1.0,
+          "C5_elem": -0.057268,
+          "C5_rowperm": -0.003241
+        },
+        "C5_elem": {
+          "C1": -0.676905,
+          "T1": -0.057268,
+          "C5_elem": 1.0,
+          "C5_rowperm": 0.88971
+        },
+        "C5_rowperm": {
+          "C1": -0.635903,
+          "T1": -0.003241,
+          "C5_elem": 0.88971,
+          "C5_rowperm": 1.0
+        }
+      }
+    }
+  },
+  "validation": {
+    "C1": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c1",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9097,
+        "changed_fraction": 1.041515463549647e-05,
+        "overall_delta_frobenius_norm": 0.03728681262160319,
+        "overall_relative_frobenius_norm": 3.961378765963135e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9097,
+            "delta_frobenius_norm": 0.03728681262160319,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011871458656765091
+          }
+        ]
+      },
+      "provenance": {
+        "arm": "C1",
+        "radius": 0.03125,
+        "donor_tensors": [],
+        "formula": "BF16(R + radius * (R - mean_rows(R)))",
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "857d8d44203ddaaac020327fe0b1d8c64e241d30252aa36c713945809eba662f",
+        "pre_round_delta_frobenius": 0.03701915164816806,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 0
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.6333333333333333,
+        "correct_count": 95,
+        "completion_rate": 0.8733333333333333,
+        "truncation_rate": 0.12666666666666668,
+        "repetition_loop_rate": 0.06,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.7022900763358778,
+        "avg_output_tokens": 438.74,
+        "median_output_tokens": 329.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.25333333333333335,
+          "pass_at_1_le_512_tok": 0.5533333333333333,
+          "pass_at_1_le_1024_tok": 0.6333333333333333
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.36,
+            "completion_rate": 0.94,
+            "repetition_loop_rate": 0.02,
+            "avg_output_tokens": 422.14
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.62,
+            "completion_rate": 0.7,
+            "repetition_loop_rate": 0.14,
+            "avg_output_tokens": 608.86
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.92,
+            "completion_rate": 0.98,
+            "repetition_loop_rate": 0.02,
+            "avg_output_tokens": 285.22
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.59,
+        "correct_count": 59,
+        "completion_rate": 0.92,
+        "truncation_rate": 0.08,
+        "repetition_loop_rate": 0.03,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6413043478260869,
+        "avg_output_tokens": 446.61,
+        "median_output_tokens": 371.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.09,
+          "pass_at_1_le_512_tok": 0.5,
+          "pass_at_1_le_1024_tok": 0.59
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 109.78,
+      "gsm8k_tok_s": 109.49,
+      "synth_eval_sec": 599.485,
+      "gsm8k_eval_sec": 407.888,
+      "peak_mps_allocated_mb": 2377.78
+    },
+    "T1": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_t1",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9050,
+        "changed_fraction": 1.0361344338929653e-05,
+        "overall_delta_frobenius_norm": 0.0372040585334069,
+        "overall_relative_frobenius_norm": 3.9525869099494756e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9050,
+            "delta_frobenius_norm": 0.0372040585334069,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011845111225391155
+          }
+        ]
+      },
+      "provenance": {
+        "arm": "T1",
+        "radius": 0.03125,
+        "ridge": 0.125,
+        "donor_model": "Qwen/Qwen3.5-2B",
+        "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "source": "checkpoint",
+        "donor_tensor": "model.language_model.embed_tokens.weight",
+        "donor_shape": [
+          248320,
+          2048
+        ],
+        "source_dtype": "bfloat16",
+        "row_order": [
+          {
+            "token": "0",
+            "id": 15
+          },
+          {
+            "token": "1",
+            "id": 16
+          },
+          {
+            "token": "2",
+            "id": 17
+          },
+          {
+            "token": "3",
+            "id": 18
+          },
+          {
+            "token": "4",
+            "id": 19
+          },
+          {
+            "token": "5",
+            "id": 20
+          },
+          {
+            "token": "6",
+            "id": 21
+          },
+          {
+            "token": "7",
+            "id": 22
+          },
+          {
+            "token": "8",
+            "id": 23
+          },
+          {
+            "token": "9",
+            "id": 24
+          },
+          {
+            "token": " zero",
+            "id": 6942
+          },
+          {
+            "token": " one",
+            "id": 799
+          },
+          {
+            "token": " two",
+            "id": 1330
+          },
+          {
+            "token": " three",
+            "id": 2250
+          },
+          {
+            "token": " four",
+            "id": 2943
+          },
+          {
+            "token": " five",
+            "id": 4097
+          },
+          {
+            "token": " six",
+            "id": 4590
+          },
+          {
+            "token": " seven",
+            "id": 7840
+          },
+          {
+            "token": " eight",
+            "id": 7810
+          },
+          {
+            "token": " nine",
+            "id": 11292
+          },
+          {
+            "token": "+",
+            "id": 10
+          },
+          {
+            "token": "-",
+            "id": 12
+          },
+          {
+            "token": "*",
+            "id": 9
+          },
+          {
+            "token": "/",
+            "id": 14
+          },
+          {
+            "token": "=",
+            "id": 28
+          },
+          {
+            "token": " plus",
+            "id": 5346
+          },
+          {
+            "token": " minus",
+            "id": 26401
+          },
+          {
+            "token": " times",
+            "id": 2942
+          },
+          {
+            "token": " sum",
+            "id": 2542
+          },
+          {
+            "token": " total",
+            "id": 2702
+          },
+          {
+            "token": " digits",
+            "id": 17955
+          },
+          {
+            "token": " number",
+            "id": 1324
+          },
+          {
+            "token": " hundred",
+            "id": 7493
+          },
+          {
+            "token": " thousand",
+            "id": 15706
+          },
+          {
+            "token": " carry",
+            "id": 6564
+          },
+          {
+            "token": " borrow",
+            "id": 16686
+          },
+          {
+            "token": " equals",
+            "id": 16327
+          },
+          {
+            "token": " add",
+            "id": 884
+          },
+          {
+            "token": " subtract",
+            "id": 31192
+          },
+          {
+            "token": " multiply",
+            "id": 29283
+          }
+        ],
+        "source_rows_sha256_bf16": "997caa141917f0db83917d6e23ef136f910f8a6b989499bfaf9e84a844b2ec37",
+        "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+        "override_row_bytes_read": 0,
+        "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+        "similarity_error_before": 0.1854499018520413,
+        "similarity_error_after": 0.15157923580117788,
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "526580b7b7f32bfb914f78136ce1be9f4fe2ec7efb8f046208ed23280640c84c",
+        "pre_round_delta_frobenius": 0.03701915164816806,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 163840
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.6666666666666666,
+        "correct_count": 100,
+        "completion_rate": 0.8866666666666667,
+        "truncation_rate": 0.11333333333333333,
+        "repetition_loop_rate": 0.02,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.7443609022556391,
+        "avg_output_tokens": 406.0933333333333,
+        "median_output_tokens": 311.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.22666666666666666,
+          "pass_at_1_le_512_tok": 0.6133333333333333,
+          "pass_at_1_le_1024_tok": 0.6666666666666666
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.4,
+            "completion_rate": 0.9,
+            "repetition_loop_rate": 0.0,
+            "avg_output_tokens": 401.62
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.68,
+            "completion_rate": 0.78,
+            "repetition_loop_rate": 0.06,
+            "avg_output_tokens": 544.0
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.92,
+            "completion_rate": 0.98,
+            "repetition_loop_rate": 0.0,
+            "avg_output_tokens": 272.66
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.57,
+        "correct_count": 57,
+        "completion_rate": 0.93,
+        "truncation_rate": 0.07,
+        "repetition_loop_rate": 0.02,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6129032258064516,
+        "avg_output_tokens": 443.67,
+        "median_output_tokens": 366.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.08,
+          "pass_at_1_le_512_tok": 0.5,
+          "pass_at_1_le_1024_tok": 0.57
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 109.63,
+      "gsm8k_tok_s": 109.4,
+      "synth_eval_sec": 555.616,
+      "gsm8k_eval_sec": 405.544,
+      "peak_mps_allocated_mb": 2369.78
+    },
+    "C5_elem": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c5_elem",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9079,
+        "changed_fraction": 1.0394546436811306e-05,
+        "overall_delta_frobenius_norm": 0.03726805309916414,
+        "overall_relative_frobenius_norm": 3.959385740316137e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9079,
+            "delta_frobenius_norm": 0.03726805309916414,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011865485958124531
+          }
+        ]
+      },
+      "provenance": {
+        "arm": "C5",
+        "radius": 0.03125,
+        "ridge": 0.125,
+        "donor_model": "Qwen/Qwen3.5-2B",
+        "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "source": "override",
+        "donor_tensor": "model.language_model.embed_tokens.weight",
+        "donor_shape": [
+          248320,
+          2048
+        ],
+        "source_dtype": "bfloat16",
+        "row_order": [
+          {
+            "token": "0",
+            "id": 15
+          },
+          {
+            "token": "1",
+            "id": 16
+          },
+          {
+            "token": "2",
+            "id": 17
+          },
+          {
+            "token": "3",
+            "id": 18
+          },
+          {
+            "token": "4",
+            "id": 19
+          },
+          {
+            "token": "5",
+            "id": 20
+          },
+          {
+            "token": "6",
+            "id": 21
+          },
+          {
+            "token": "7",
+            "id": 22
+          },
+          {
+            "token": "8",
+            "id": 23
+          },
+          {
+            "token": "9",
+            "id": 24
+          },
+          {
+            "token": " zero",
+            "id": 6942
+          },
+          {
+            "token": " one",
+            "id": 799
+          },
+          {
+            "token": " two",
+            "id": 1330
+          },
+          {
+            "token": " three",
+            "id": 2250
+          },
+          {
+            "token": " four",
+            "id": 2943
+          },
+          {
+            "token": " five",
+            "id": 4097
+          },
+          {
+            "token": " six",
+            "id": 4590
+          },
+          {
+            "token": " seven",
+            "id": 7840
+          },
+          {
+            "token": " eight",
+            "id": 7810
+          },
+          {
+            "token": " nine",
+            "id": 11292
+          },
+          {
+            "token": "+",
+            "id": 10
+          },
+          {
+            "token": "-",
+            "id": 12
+          },
+          {
+            "token": "*",
+            "id": 9
+          },
+          {
+            "token": "/",
+            "id": 14
+          },
+          {
+            "token": "=",
+            "id": 28
+          },
+          {
+            "token": " plus",
+            "id": 5346
+          },
+          {
+            "token": " minus",
+            "id": 26401
+          },
+          {
+            "token": " times",
+            "id": 2942
+          },
+          {
+            "token": " sum",
+            "id": 2542
+          },
+          {
+            "token": " total",
+            "id": 2702
+          },
+          {
+            "token": " digits",
+            "id": 17955
+          },
+          {
+            "token": " number",
+            "id": 1324
+          },
+          {
+            "token": " hundred",
+            "id": 7493
+          },
+          {
+            "token": " thousand",
+            "id": 15706
+          },
+          {
+            "token": " carry",
+            "id": 6564
+          },
+          {
+            "token": " borrow",
+            "id": 16686
+          },
+          {
+            "token": " equals",
+            "id": 16327
+          },
+          {
+            "token": " add",
+            "id": 884
+          },
+          {
+            "token": " subtract",
+            "id": 31192
+          },
+          {
+            "token": " multiply",
+            "id": 29283
+          }
+        ],
+        "source_rows_sha256_bf16": "4ec59f081bfdd0c9496f703bc38934626cb15dc0706364bfa7194f5b23169f4d",
+        "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+        "override_row_bytes_read": 163840,
+        "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+        "similarity_error_before": 0.7120147194373888,
+        "similarity_error_after": 0.6920326692322045,
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "500446f70e8125f984e68f3c723b99b8bb3e8279d8886ba14563a0a104dfed91",
+        "pre_round_delta_frobenius": 0.03701915164816808,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 0
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.6466666666666666,
+        "correct_count": 97,
+        "completion_rate": 0.8666666666666667,
+        "truncation_rate": 0.13333333333333333,
+        "repetition_loop_rate": 0.06,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.7153846153846154,
+        "avg_output_tokens": 433.8333333333333,
+        "median_output_tokens": 316.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.19333333333333333,
+          "pass_at_1_le_512_tok": 0.56,
+          "pass_at_1_le_1024_tok": 0.6466666666666666
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.32,
+            "completion_rate": 0.9,
+            "repetition_loop_rate": 0.02,
+            "avg_output_tokens": 408.86
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.76,
+            "completion_rate": 0.72,
+            "repetition_loop_rate": 0.14,
+            "avg_output_tokens": 602.62
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.86,
+            "completion_rate": 0.98,
+            "repetition_loop_rate": 0.02,
+            "avg_output_tokens": 290.02
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.56,
+        "correct_count": 56,
+        "completion_rate": 0.93,
+        "truncation_rate": 0.07,
+        "repetition_loop_rate": 0.02,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6021505376344086,
+        "avg_output_tokens": 444.56,
+        "median_output_tokens": 383.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.05,
+          "pass_at_1_le_512_tok": 0.5,
+          "pass_at_1_le_1024_tok": 0.56
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 109.72,
+      "gsm8k_tok_s": 109.45,
+      "synth_eval_sec": 593.088,
+      "gsm8k_eval_sec": 406.158,
+      "peak_mps_allocated_mb": 2369.78
+    },
+    "C5_rowperm": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h002_c5_rowperm",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 1,
+        "changed_params": 9058,
+        "changed_fraction": 1.0370503538345281e-05,
+        "overall_delta_frobenius_norm": 0.0371339741538587,
+        "overall_relative_frobenius_norm": 3.9451410932264046e-05,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.embed_tokens.weight",
+            "group": "embed_lm_head",
+            "shape": [
+              248320,
+              1024
+            ],
+            "numel": 254279680,
+            "changed_elements": 9058,
+            "delta_frobenius_norm": 0.0371339741538587,
+            "base_frobenius_norm": 314.08787832786544,
+            "relative_frobenius_norm": 0.00011822797604145624
+          }
+        ]
+      },
+      "provenance": {
+        "arm": "C5",
+        "radius": 0.03125,
+        "ridge": 0.125,
+        "donor_model": "Qwen/Qwen3.5-2B",
+        "donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "source": "override",
+        "donor_tensor": "model.language_model.embed_tokens.weight",
+        "donor_shape": [
+          248320,
+          2048
+        ],
+        "source_dtype": "bfloat16",
+        "row_order": [
+          {
+            "token": "0",
+            "id": 15
+          },
+          {
+            "token": "1",
+            "id": 16
+          },
+          {
+            "token": "2",
+            "id": 17
+          },
+          {
+            "token": "3",
+            "id": 18
+          },
+          {
+            "token": "4",
+            "id": 19
+          },
+          {
+            "token": "5",
+            "id": 20
+          },
+          {
+            "token": "6",
+            "id": 21
+          },
+          {
+            "token": "7",
+            "id": 22
+          },
+          {
+            "token": "8",
+            "id": 23
+          },
+          {
+            "token": "9",
+            "id": 24
+          },
+          {
+            "token": " zero",
+            "id": 6942
+          },
+          {
+            "token": " one",
+            "id": 799
+          },
+          {
+            "token": " two",
+            "id": 1330
+          },
+          {
+            "token": " three",
+            "id": 2250
+          },
+          {
+            "token": " four",
+            "id": 2943
+          },
+          {
+            "token": " five",
+            "id": 4097
+          },
+          {
+            "token": " six",
+            "id": 4590
+          },
+          {
+            "token": " seven",
+            "id": 7840
+          },
+          {
+            "token": " eight",
+            "id": 7810
+          },
+          {
+            "token": " nine",
+            "id": 11292
+          },
+          {
+            "token": "+",
+            "id": 10
+          },
+          {
+            "token": "-",
+            "id": 12
+          },
+          {
+            "token": "*",
+            "id": 9
+          },
+          {
+            "token": "/",
+            "id": 14
+          },
+          {
+            "token": "=",
+            "id": 28
+          },
+          {
+            "token": " plus",
+            "id": 5346
+          },
+          {
+            "token": " minus",
+            "id": 26401
+          },
+          {
+            "token": " times",
+            "id": 2942
+          },
+          {
+            "token": " sum",
+            "id": 2542
+          },
+          {
+            "token": " total",
+            "id": 2702
+          },
+          {
+            "token": " digits",
+            "id": 17955
+          },
+          {
+            "token": " number",
+            "id": 1324
+          },
+          {
+            "token": " hundred",
+            "id": 7493
+          },
+          {
+            "token": " thousand",
+            "id": 15706
+          },
+          {
+            "token": " carry",
+            "id": 6564
+          },
+          {
+            "token": " borrow",
+            "id": 16686
+          },
+          {
+            "token": " equals",
+            "id": 16327
+          },
+          {
+            "token": " add",
+            "id": 884
+          },
+          {
+            "token": " subtract",
+            "id": 31192
+          },
+          {
+            "token": " multiply",
+            "id": 29283
+          }
+        ],
+        "source_rows_sha256_bf16": "54bb501fdc97d2c9c30cc97d5411fd3a0a43aa72236a32b30ffb79a76db4479b",
+        "recipient_rows_sha256_bf16": "e7667ff18a15b644def1f2699ea0a306fbef722d85dcd5498f408306c21af371",
+        "override_row_bytes_read": 163840,
+        "formula": "C = center(digits) @ A.T / ||center(digits)||_F; A = row_unit(center(anchors)); F = center((C_d-C_r) @ solve(A_r@A_r.T + ridge*I, A_r)); digit_rows' = BF16(R + radius * ||center(R)||_F * F / ||F||_F)",
+        "similarity_error_before": 0.7378492111553328,
+        "similarity_error_after": 0.7174331741430264,
+        "recipient_model": "Qwen/Qwen3.5-0.8B",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "target_tensor": "model.language_model.embed_tokens.weight",
+        "target_row_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "input_output_tied": true,
+        "original_digit_rows_sha256_bf16": "4a73b21df0bb61ac24375ea6380684177512d9da57c424fc961a5fcaac17465d",
+        "edited_digit_rows_sha256_bf16": "ac1fc1faddcab5f05e500864ddfcb39b70099f831ddcb5bb80aecadf6f1b7259",
+        "pre_round_delta_frobenius": 0.03701915164816807,
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_accessed": 0
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.66,
+        "correct_count": 99,
+        "completion_rate": 0.8933333333333333,
+        "truncation_rate": 0.10666666666666667,
+        "repetition_loop_rate": 0.06,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.7388059701492538,
+        "avg_output_tokens": 406.7266666666667,
+        "median_output_tokens": 311.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.21333333333333335,
+          "pass_at_1_le_512_tok": 0.6133333333333333,
+          "pass_at_1_le_1024_tok": 0.66
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.4,
+            "completion_rate": 0.9,
+            "repetition_loop_rate": 0.06,
+            "avg_output_tokens": 400.12
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.68,
+            "completion_rate": 0.8,
+            "repetition_loop_rate": 0.12,
+            "avg_output_tokens": 538.98
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.9,
+            "completion_rate": 0.98,
+            "repetition_loop_rate": 0.0,
+            "avg_output_tokens": 281.08
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.59,
+        "correct_count": 59,
+        "completion_rate": 0.91,
+        "truncation_rate": 0.09,
+        "repetition_loop_rate": 0.01,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6483516483516484,
+        "avg_output_tokens": 441.52,
+        "median_output_tokens": 377.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.07,
+          "pass_at_1_le_512_tok": 0.52,
+          "pass_at_1_le_1024_tok": 0.59
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 109.62,
+      "gsm8k_tok_s": 109.44,
+      "synth_eval_sec": 556.531,
+      "gsm8k_eval_sec": 403.442,
+      "peak_mps_allocated_mb": 2369.78
+    }
+  },
+  "paired_comparisons": {
+    "C0_raw_to_C1": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.59,
+        "delta_pp": -3.0,
+        "bootstrap_95ci_pp": [
+          -12.0,
+          5.0
+        ],
+        "improved_b_over_a": 8,
+        "regressed_b_vs_a": 11,
+        "both_correct": 51,
+        "both_incorrect": 30,
+        "mcnemar_exact_p": 0.6476058959960938
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.6333333333333333,
+        "delta_pp": -2.67,
+        "bootstrap_95ci_pp": [
+          -8.67,
+          3.33
+        ],
+        "improved_b_over_a": 9,
+        "regressed_b_vs_a": 13,
+        "both_correct": 86,
+        "both_incorrect": 42,
+        "mcnemar_exact_p": 0.5234670639038086
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.36,
+        "delta_pp": -4.0,
+        "bootstrap_95ci_pp": [
+          -16.0,
+          6.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 5,
+        "both_correct": 15,
+        "both_incorrect": 27,
+        "mcnemar_exact_p": 0.7265625
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.62,
+        "delta_pp": -6.0,
+        "bootstrap_95ci_pp": [
+          -18.0,
+          6.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 7,
+        "both_correct": 27,
+        "both_incorrect": 12,
+        "mcnemar_exact_p": 0.548828125
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.92,
+        "delta_pp": 2.0,
+        "bootstrap_95ci_pp": [
+          -4.0,
+          10.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 1,
+        "both_correct": 44,
+        "both_incorrect": 3,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C0_raw_to_T1": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.57,
+        "delta_pp": -5.0,
+        "bootstrap_95ci_pp": [
+          -13.0,
+          2.0
+        ],
+        "improved_b_over_a": 5,
+        "regressed_b_vs_a": 10,
+        "both_correct": 52,
+        "both_incorrect": 33,
+        "mcnemar_exact_p": 0.30175781249999994
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.6666666666666666,
+        "delta_pp": 0.67,
+        "bootstrap_95ci_pp": [
+          -4.67,
+          6.0
+        ],
+        "improved_b_over_a": 8,
+        "regressed_b_vs_a": 7,
+        "both_correct": 92,
+        "both_incorrect": 43,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.4,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -10.0,
+          10.05
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 4,
+        "both_correct": 16,
+        "both_incorrect": 26,
+        "mcnemar_exact_p": 1.0
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.68,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          8.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 2,
+        "both_correct": 32,
+        "both_incorrect": 14,
+        "mcnemar_exact_p": 1.0
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.92,
+        "delta_pp": 2.0,
+        "bootstrap_95ci_pp": [
+          -4.0,
+          10.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 1,
+        "both_correct": 44,
+        "both_incorrect": 3,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C0_raw_to_C5_elem": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.56,
+        "delta_pp": -6.0,
+        "bootstrap_95ci_pp": [
+          -14.0,
+          2.0
+        ],
+        "improved_b_over_a": 6,
+        "regressed_b_vs_a": 12,
+        "both_correct": 50,
+        "both_incorrect": 32,
+        "mcnemar_exact_p": 0.237884521484375
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.6466666666666666,
+        "delta_pp": -1.33,
+        "bootstrap_95ci_pp": [
+          -7.33,
+          4.67
+        ],
+        "improved_b_over_a": 10,
+        "regressed_b_vs_a": 12,
+        "both_correct": 87,
+        "both_incorrect": 41,
+        "mcnemar_exact_p": 0.8318119049072266
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.32,
+        "delta_pp": -8.0,
+        "bootstrap_95ci_pp": [
+          -20.0,
+          2.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 6,
+        "both_correct": 14,
+        "both_incorrect": 28,
+        "mcnemar_exact_p": 0.2890625
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.76,
+        "delta_pp": 8.0,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          22.0
+        ],
+        "improved_b_over_a": 8,
+        "regressed_b_vs_a": 4,
+        "both_correct": 30,
+        "both_incorrect": 8,
+        "mcnemar_exact_p": 0.3876953125
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.86,
+        "delta_pp": -4.0,
+        "bootstrap_95ci_pp": [
+          -10.0,
+          0.0
+        ],
+        "improved_b_over_a": 0,
+        "regressed_b_vs_a": 2,
+        "both_correct": 43,
+        "both_incorrect": 5,
+        "mcnemar_exact_p": 0.5
+      }
+    },
+    "C0_raw_to_C5_rowperm": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.59,
+        "delta_pp": -3.0,
+        "bootstrap_95ci_pp": [
+          -11.0,
+          5.0
+        ],
+        "improved_b_over_a": 7,
+        "regressed_b_vs_a": 10,
+        "both_correct": 52,
+        "both_incorrect": 31,
+        "mcnemar_exact_p": 0.629058837890625
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.66,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -5.33,
+          5.33
+        ],
+        "improved_b_over_a": 8,
+        "regressed_b_vs_a": 8,
+        "both_correct": 91,
+        "both_incorrect": 43,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.4,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          8.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 2,
+        "both_correct": 18,
+        "both_incorrect": 28,
+        "mcnemar_exact_p": 1.0
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.68,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -12.0,
+          12.0
+        ],
+        "improved_b_over_a": 5,
+        "regressed_b_vs_a": 5,
+        "both_correct": 29,
+        "both_incorrect": 11,
+        "mcnemar_exact_p": 1.0
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.9,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          6.0
+        ],
+        "improved_b_over_a": 1,
+        "regressed_b_vs_a": 1,
+        "both_correct": 44,
+        "both_incorrect": 4,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C1_to_T1": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.59,
+        "acc_b": 0.57,
+        "delta_pp": -2.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          4.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 6,
+        "both_correct": 53,
+        "both_incorrect": 37,
+        "mcnemar_exact_p": 0.75390625
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.6333333333333333,
+        "acc_b": 0.6666666666666666,
+        "delta_pp": 3.33,
+        "bootstrap_95ci_pp": [
+          -3.33,
+          10.0
+        ],
+        "improved_b_over_a": 15,
+        "regressed_b_vs_a": 10,
+        "both_correct": 85,
+        "both_incorrect": 40,
+        "mcnemar_exact_p": 0.42435622215270996
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.36,
+        "acc_b": 0.4,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          16.0
+        ],
+        "improved_b_over_a": 6,
+        "regressed_b_vs_a": 4,
+        "both_correct": 14,
+        "both_incorrect": 26,
+        "mcnemar_exact_p": 0.75390625
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.62,
+        "acc_b": 0.68,
+        "delta_pp": 6.0,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          18.0
+        ],
+        "improved_b_over_a": 7,
+        "regressed_b_vs_a": 4,
+        "both_correct": 27,
+        "both_incorrect": 12,
+        "mcnemar_exact_p": 0.548828125
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.92,
+        "acc_b": 0.92,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          8.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 2,
+        "both_correct": 44,
+        "both_incorrect": 2,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C5_elem_to_T1": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.56,
+        "acc_b": 0.57,
+        "delta_pp": 1.0,
+        "bootstrap_95ci_pp": [
+          -5.0,
+          8.0
+        ],
+        "improved_b_over_a": 6,
+        "regressed_b_vs_a": 5,
+        "both_correct": 51,
+        "both_incorrect": 38,
+        "mcnemar_exact_p": 1.0
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.6466666666666666,
+        "acc_b": 0.6666666666666666,
+        "delta_pp": 2.0,
+        "bootstrap_95ci_pp": [
+          -3.33,
+          7.33
+        ],
+        "improved_b_over_a": 10,
+        "regressed_b_vs_a": 7,
+        "both_correct": 90,
+        "both_incorrect": 43,
+        "mcnemar_exact_p": 0.629058837890625
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.32,
+        "acc_b": 0.4,
+        "delta_pp": 8.0,
+        "bootstrap_95ci_pp": [
+          2.0,
+          16.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 0,
+        "both_correct": 16,
+        "both_incorrect": 30,
+        "mcnemar_exact_p": 0.125
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.76,
+        "acc_b": 0.68,
+        "delta_pp": -8.0,
+        "bootstrap_95ci_pp": [
+          -20.0,
+          4.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 7,
+        "both_correct": 31,
+        "both_incorrect": 9,
+        "mcnemar_exact_p": 0.34375
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.86,
+        "acc_b": 0.92,
+        "delta_pp": 6.0,
+        "bootstrap_95ci_pp": [
+          0.0,
+          14.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 0,
+        "both_correct": 43,
+        "both_incorrect": 4,
+        "mcnemar_exact_p": 0.25
+      }
+    },
+    "C5_rowperm_to_T1": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.59,
+        "acc_b": 0.57,
+        "delta_pp": -2.0,
+        "bootstrap_95ci_pp": [
+          -9.0,
+          5.0
+        ],
+        "improved_b_over_a": 5,
+        "regressed_b_vs_a": 7,
+        "both_correct": 52,
+        "both_incorrect": 36,
+        "mcnemar_exact_p": 0.7744140625
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.6666666666666666,
+        "delta_pp": 0.67,
+        "bootstrap_95ci_pp": [
+          -4.67,
+          6.0
+        ],
+        "improved_b_over_a": 8,
+        "regressed_b_vs_a": 7,
+        "both_correct": 92,
+        "both_incorrect": 43,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.4,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -10.0,
+          10.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 3,
+        "both_correct": 17,
+        "both_incorrect": 27,
+        "mcnemar_exact_p": 1.0
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.68,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -12.0,
+          12.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 4,
+        "both_correct": 30,
+        "both_incorrect": 12,
+        "mcnemar_exact_p": 1.0
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.92,
+        "delta_pp": 2.0,
+        "bootstrap_95ci_pp": [
+          0.0,
+          6.0
+        ],
+        "improved_b_over_a": 1,
+        "regressed_b_vs_a": 0,
+        "both_correct": 45,
+        "both_incorrect": 4,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C4_weights_to_T1": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.6,
+        "acc_b": 0.57,
+        "delta_pp": -3.0,
+        "bootstrap_95ci_pp": [
+          -13.0,
+          7.0
+        ],
+        "improved_b_over_a": 11,
+        "regressed_b_vs_a": 14,
+        "both_correct": 46,
+        "both_incorrect": 29,
+        "mcnemar_exact_p": 0.6900379657745361
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.5933333333333334,
+        "acc_b": 0.6666666666666666,
+        "delta_pp": 7.33,
+        "bootstrap_95ci_pp": [
+          -1.33,
+          16.67
+        ],
+        "improved_b_over_a": 30,
+        "regressed_b_vs_a": 19,
+        "both_correct": 70,
+        "both_incorrect": 31,
+        "mcnemar_exact_p": 0.15240777196147803
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.4,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -16.0,
+          16.0
+        ],
+        "improved_b_over_a": 9,
+        "regressed_b_vs_a": 9,
+        "both_correct": 11,
+        "both_incorrect": 21,
+        "mcnemar_exact_p": 1.0
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.58,
+        "acc_b": 0.68,
+        "delta_pp": 10.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          26.0
+        ],
+        "improved_b_over_a": 12,
+        "regressed_b_vs_a": 7,
+        "both_correct": 22,
+        "both_incorrect": 9,
+        "mcnemar_exact_p": 0.359283447265625
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.8,
+        "acc_b": 0.92,
+        "delta_pp": 12.0,
+        "bootstrap_95ci_pp": [
+          -2.0,
+          26.0
+        ],
+        "improved_b_over_a": 9,
+        "regressed_b_vs_a": 3,
+        "both_correct": 37,
+        "both_incorrect": 1,
+        "mcnemar_exact_p": 0.14599609375
+      }
+    }
+  }
+}
