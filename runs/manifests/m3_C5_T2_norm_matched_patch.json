@@ -1,0 +1,111 @@
+{
+  "timestamp_utc": "2026-11-27T09:24:18.505745+00:00",
+  "provenance": {
+    "track": "T2",
+    "condition": "C5_frozen_T2_localization",
+    "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "transplant_value_source": "donor_override",
+    "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+    "strength": 0.5,
+    "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+    "sources": {
+      "model.language_model.layers.13.linear_attn.A_log": {
+        "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+        "source_head": 12,
+        "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+        "recipient_head": 12,
+        "source_dtype": "torch.float32",
+        "source_vector_sha256": "42689b99c8120c417052952b3227a81760aa9477cbf33909400540b4bcd6d2b0",
+        "donor_value": -1.3406486511230469,
+        "activation_offset": 0.0,
+        "recipient_before": -1.3359375,
+        "recipient_after": -1.3382930755615234
+      },
+      "model.language_model.layers.13.linear_attn.dt_bias": {
+        "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+        "source_head": 12,
+        "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+        "recipient_head": 12,
+        "source_dtype": "torch.bfloat16",
+        "source_vector_sha256": "c39fbd7e71feec027dbfd09a3b2d5ebf1b3b6cd0315512b9fb406dfd509c6ce0",
+        "donor_value": -1.2734375,
+        "activation_offset": 0.06416821479797363,
+        "recipient_before": -0.875,
+        "recipient_after": -1.0390625
+      }
+    },
+    "gradient_steps": 0,
+    "donor_forward_passes": 0,
+    "recipient_forward_passes": 0,
+    "donor_bytes_sliced": 0,
+    "override_bytes_after_storage_cast": 96
+  },
+  "invariants": {
+    "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+    "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/m3_tmp_c5_t2",
+    "tensor_count": 488,
+    "total_params": 873438784,
+    "frozen_prefixes": [
+      "model.visual.",
+      "visual."
+    ],
+    "frozen_tensors_verified": 153,
+    "changed_tensor_count": 2,
+    "changed_params": 2,
+    "changed_fraction": 2.2897998539071058e-09,
+    "overall_delta_frobenius_norm": 0.1640794095627969,
+    "overall_relative_frobenius_norm": 0.00017431918774340265,
+    "changed_tensors": [
+      {
+        "name": "model.language_model.layers.13.linear_attn.A_log",
+        "group": "text_linear_attn",
+        "shape": [
+          16
+        ],
+        "numel": 16,
+        "changed_elements": 1,
+        "delta_frobenius_norm": 0.0023555755615234375,
+        "base_frobenius_norm": 5.433022244836719,
+        "relative_frobenius_norm": 0.00043356633847064813
+      },
+      {
+        "name": "model.language_model.layers.13.linear_attn.dt_bias",
+        "group": "text_linear_attn",
+        "shape": [
+          16
+        ],
+        "numel": 16,
+        "changed_elements": 1,
+        "delta_frobenius_norm": 0.1640625,
+        "base_frobenius_norm": 8.902791097799312,
+        "relative_frobenius_norm": 0.018428209557849195
+      }
+    ]
+  },
+  "runtime": {
+    "graph_sha256": "13236418e10d4656fc8cb6c4677507a2993a4f47febf0109d3d32f26d31ff066",
+    "modules": 517,
+    "text_layers": 24,
+    "runtime_parameters": 852985920,
+    "tied_embeddings": true
+  },
+  "metadata_sha256": {
+    "LICENSE": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+    "tokenizer_config.json": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c",
+    "config.json": "b90b86f35c8e6925ef74ee04d0e758f0a845c83a42089ad82bbaa948de9b4204",
+    "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "README.md": "87a163af54f32fa608a0f8d3ac67945c53dd2b4a7c96740b3d7fdc28e8458864",
+    "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+    "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+    ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+    "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+    "model.safetensors.index.json": "d8a08838a613b025eb7952ed9db11696213e57e76a375661ef5c12f9dd5dcf4e",
+    "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+    "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+  },
+  "edited_shard_sha256": "ec180428cafe2141a68d76a6c579ec835b14063a8464da5094ab6606663ebcd3",
+  "changed_params": 2,
+  "overall_relative_frobenius_norm": 0.00017431918774340265,
+  "wall_seconds": 3.5135517089947825
+}

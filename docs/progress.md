@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
-**Date:** 2026-11-26  
-**Current Milestone:** `M2: Agent pilot and main experiments` — **Stage 1 (`T1` `H002` + `T2` `H003`) independently verified (both negative on blinded validation); awaiting Stage 2 Gate decision.**
+**Date:** 2026-11-27  
+**Current Milestone:** `M3: Verification and analysis` — **M3 isolated 10-arm confirmatory evaluation & Holm-Bonferroni analysis complete (null result confirmed on both `T1` and `T2`); review-only `H004` ready before M4 paper writing.**
 **Branch:** `main`  
-**Stage 1 verified commits:** `477646f` (`H002` verified), `007101b` (`H003` submission) on `main`
+**M3 Freeze commit:** `d12e8fb` on `main` (prior to opening `/Users/kaiwendu/.awst_isolated_eval/`)
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001` verified `3/3`; `H002` & `H003` verified)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001`, `H002`, `H003` verified; review-only `H004` drafted)
 
 ---
 
@@ -56,14 +56,14 @@
 - [x] Complete H002 donor-free C1 and weights-only T1 trials and Antigravity independent verification (`C1`, `T1`, `C5_elem`, `C5_rowperm` on blinded `data/validation/`). *(Dev `+4.0 pp` GSM8K gain did **not** generalize to validation: `T1` `57.0%` GSM8K vs `C0_raw` `62.0%`, `C1` `59.0%`, `C5_rowperm` `59.0%`. See section 8 and [`results/m2_h002_verification.json`](../results/m2_h002_verification.json).)*
 - [x] Complete H003 activation-assisted development trials and return the frozen T2 checkpoint. [H003 report](../runs/codex_h003/report.md)
 - [x] Independently verify Stage 1 T2, shuffled-donor controls and blinded outcomes. *(Verified negative on validation: `T2` `57.0%` GSM8K / `38.0%` `carry_add_sub` vs `C0_raw` `62.0%`/`40.0%`, `C4_act` `62.0%`/`34.0%`, `C5_perm` `57.0%`/`34.0%`, `C5_norm_matched` `59.0%`/`34.0%`. See section 10 and [`results/m2_h003_verification.json`](../results/m2_h003_verification.json).)*
-- [ ] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`).
-- [ ] Run approved second donor experiment if justified (Stage 3/4 gated separately).
+- [x] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`). *(Researcher approved skipping Stage 2 `Qwen3.5-9B`, Stage 3, and Stage 4 under `D010` after verified Stage 1 negative findings on both `T1` and `T2`.)*
+- [x] Run approved second donor experiment if justified (Stage 3/4 gated separately). *(Formally skipped per `D010`; documented transparently rather than silently omitted.)*
 
-### M3: Verification and analysis
-- [ ] Freeze selected methods and checkpoints before isolated final evaluation.
-- [ ] Verify reproducibility from recorded commits/manifests, CIs, independent runs, contamination risks, and alternative explanations.
-- [ ] Verify unchanged architecture/parameter count, zero gradient training, provenance, retention, latency, peak memory, and costs.
-- [ ] Request independent review without revealing hidden data; record and resolve findings.
+### M3: Verification and analysis *(Isolated 10-arm evaluation & stats complete at \$0.00 spend; independent review `H004` optional/pending)*
+- [x] Freeze selected methods and checkpoints before isolated final evaluation. *(Frozen in `D010`, `docs/preregistration.md` §8, and `runs/manifests/m3_frozen_checkpoint_audit.json` at commit `d12e8fb` before touching `/Users/kaiwendu/.awst_isolated_eval/`.)*
+- [x] Verify reproducibility from recorded commits/manifests, CIs, independent runs, contamination risks, and alternative explanations. *(Evaluated all 10 frozen arms in [`results/m3_isolated_evaluation.json`](../results/m3_isolated_evaluation.json); single-session `N=1` constraint and dev-vs-test variance documented explicitly.)*
+- [x] Verify unchanged architecture/parameter count, zero gradient training, provenance, retention, latency, peak memory, and costs. *(Verified `873,438,784` stored params, `153/153` frozen vision tensors, `0` gradient steps, `70.0%` retention / `62.6` PPL, `~101 tok/s` [`95%` of `C0_raw`], `2395.8 MB` MPS [`1.00x` of `C0_raw`], `\$0.00` direct spend.)*
+- [ ] Request independent review without revealing hidden data; record and resolve findings. *(Review-only brief drafted in [`docs/handoffs/H004_m3_independent_review.md`](handoffs/H004_m3_independent_review.md); awaiting researcher decision to submit `H004` or proceed straight to M4.)*
 
 ### M4: Writing and release preparation
 - [ ] Write paper after verified results only, updating abstract to match evidence.
@@ -83,7 +83,7 @@
 
 ## 5. Next actions
 
-1. **Stage 2 Approval Gate (`Qwen3.5-9B -> Qwen3.5-0.8B` vs. Milestone M3/M4):** Both Stage 1 AWST tracks (`T1` `H002` and `T2` `H003`) failed to outperform `C0_raw`, `C4`, or shuffled-donor `C5` controls on blinded `data/validation/` (`57.0%` vs `62.0%` GSM8K; `40.0%` / `38.0%` vs `40.0%` `carry_add_sub`). Pause for researcher decision on whether to skip Stage 2 (`Qwen3.5-9B`) and proceed directly to Milestone M3 isolated final evaluation (`/Users/kaiwendu/.awst_isolated_eval/`) + M4 paper writing, or approve a larger-donor / follow-up experiment.
+1. **Researcher decision before Milestone M4 (Paper Writing):** Either submit review-only [`docs/handoffs/H004_m3_independent_review.md`](handoffs/H004_m3_independent_review.md) to GPT-6.2 Astra (`<= \$2.50` shadow cap, zero hidden test data exposed) to audit M3 before drafting the paper, or proceed directly to Milestone M4 (`paper/` manuscript drafting and artifact/expense verification).
 
 ## 8. Antigravity Independent Verification of H002 (`T1` / `C1` / `C5`), 2026-11-26
 
@@ -149,3 +149,24 @@
   - `T2` vs `C5_norm_matched` on `gsm8k_val`: `-2.0 pp` (`[-8.0, +4.0] pp`, `4/6`, `p = 0.7539`); on `carry_add_sub`: `+4.0 pp` (`[-6.0, +14.0] pp`, `4/2`, `p = 0.6875`).
   - **Budget Reconciliation (`D005`):** Codex's `H003` final meter (`\$5.988440` shadow) plus `H002` (`\$6.041536`) totaled `\$12.029976`, exceeding the `\$12.00` Astra sub-cap by `\$0.029976`. That `\$0.03` overrun is reconciled transparently against the approved `\$3.00` contingency buffer inside the `\$20.00` M2 pilot gate (`D005`), with `\$0.00` direct API/cloud spend (`\$13.1302` total Codex shadow across `H001`–`H003`).
   - **Scientific Conclusion for Stage 1 (`Qwen3.5-2B -> Qwen3.5-0.8B`):** **Both Track `T1` (`H002`) and Track `T2` (`H003`) are verified negative on blinded validation.** Neither agent-directed weights-only nor activation-assisted training-free transplantation outperformed `C0_raw`, `C4`, or shuffled-donor `C5` controls on `gsm8k_val` or `carry_add_sub`. Ready for Stage 2 Gate review (`D005` / Protocol Section 14.2 M2).
+
+## 11. Milestone M3 Isolated Confirmatory Evaluation & Statistical Audit, 2026-11-27
+
+- **Freeze Commit:** `d12e8fb` (committed and pushed prior to reading `/Users/kaiwendu/.awst_isolated_eval/`).
+- **Runner & Report:** [`src/evaluation/run_m3_isolated_eval.py`](../src/evaluation/run_m3_isolated_eval.py) · [`src/evaluation/retention.py`](../src/evaluation/retention.py) · [`results/m3_isolated_evaluation.json`](../results/m3_isolated_evaluation.json) · Raw isolated per-item logs remain strictly external at `/Users/kaiwendu/.awst_isolated_eval/m3_logs/` (`0` hidden test strings in repo).
+- **Isolated Confirmatory Scorecard (`nothink 1024` greedy, M4 Max MPS `bfloat16`; `gsm8k_test` seeded `n=200`, `synthetic_test` `n=150` [`50`/subskill], `synthetic_ood_test` full `n=100`, `ret_ifeval` `n=30`, `prose_ppl` `10` passages):**
+  - `C0_raw`: `51.5%` GSM8K, `30.0%` carry, `66.0%` mult, `96.0%` word, `79.0%` OOD, `70.0%` ret, `62.63` PPL (`106.5 tok/s`, `2395.8 MB` MPS).
+  - `Qwen3.5-2B` (donor): `73.0%` GSM8K (`+21.5 pp`, `[+14.5, +28.5]`, `p < 1e-7`), `74.0%` carry (`+44.0 pp`), `86.0%` mult, `100.0%` word, `81.0%` OOD, `66.7%` ret, `41.02` PPL (`61.3 tok/s`, `4827.8 MB` MPS).
+  - `C1`: `53.0%` GSM8K (`+1.5 pp`), `26.0%` carry, `64.0%` mult, `98.0%` word, `78.0%` OOD, `70.0%` ret, `62.63` PPL (`101.9 tok/s`).
+  - `C3` (random `2B` slice): `49.5%` GSM8K (`-2.0 pp`), `20.0%` carry (`-10.0 pp`), `60.0%` mult, `86.0%` word, **`59.0%` OOD (`-20.0 pp`, `[-29.0, -11.0]`, `p < 1e-4`)**, `66.7%` ret, **`78.87` PPL** (`+25.9%` degradation).
+  - `C4_weights`: `47.0%` GSM8K (`-4.5 pp`), `18.0%` carry (`-12.0 pp`), `72.0%` mult, `90.0%` word, `72.0%` OOD (`-7.0 pp`), `63.3%` ret, `73.86` PPL.
+  - `C4_act`: `47.5%` GSM8K (`-4.0 pp`), `26.0%` carry, `68.0%` mult, `94.0%` word, `79.0%` OOD, `73.3%` ret, `66.50` PPL.
+  - **`T1` (`H002` weights-only):** `54.5%` GSM8K (`+3.0 pp`, `[-2.0, +8.0]`, `17/11`, `p = 0.3449`), `28.0%` carry (`-2.0 pp`), `66.0%` mult, `96.0%` word, `77.0%` OOD (`-2.0 pp`), `70.0%` ret (`0.0 pp`), `62.62` PPL (`100.9 tok/s`, `2395.8 MB` MPS).
+  - **`C5_T1_rowperm` (shuffled-donor for `T1`):** `54.0%` GSM8K (`+2.5 pp`), `34.0%` carry (`+4.0 pp`), `62.0%` mult, `94.0%` word, `79.0%` OOD, `70.0%` ret, `62.62` PPL.
+  - **`T2` (`H003` act-assisted):** `51.5%` GSM8K (`0.0 pp`, `[-3.5, +3.5]`, `6/6`, `p = 1.0`), `30.0%` carry (`0.0 pp`), `62.0%` mult, `98.0%` word, `74.0%` OOD (`-5.0 pp`, `[-10.0, -1.0]`, `p = 0.0625`), `70.0%` ret (`0.0 pp`), `62.47` PPL (`101.4 tok/s`, `2395.8 MB` MPS).
+  - **`C5_T2_norm_matched` (shuffled-donor for `T2`):** `55.0%` GSM8K (`+3.5 pp`), `32.0%` carry (`+2.0 pp`), `60.0%` mult, `96.0%` word, `79.0%` OOD, `70.0%` ret, `62.61` PPL.
+- **Holm-Bonferroni Primary Contrasts & Hypothesis Verdicts:**
+  - **Track `T1` (`H1`):** `T1 vs C1` = `+1.5 pp` (`[-3.5, +6.5]`, Holm `p = 0.7011`); `T1 vs C4_weights` = `+7.5 pp` (`[+1.0, +14.0]`, raw `p = 0.0400`, **Holm `p = 0.0800`** — driven by `C4_weights`'s `-4.5 pp` drop below `C0_raw`); `T1 vs C5_T1_rowperm` = `+0.5 pp` (`[-3.5, +4.5]`, `p = 1.0`). Fails `>= +5 pp` gain, fails Holm significance, fails donor dependence, fails OOD gain; passes retention (`0.0 pp`), structural invariants, and efficiency (`0.947x` speed, `1.000x` MPS memory).
+  - **Track `T2` (`H1`):** `T2 vs C1` = `-1.5 pp` (Holm `p = 0.7201`); `T2 vs C4_act` = `+4.0 pp` (Holm `p = 0.6635`); `T2 vs C5_T2_norm_matched` = **`-3.5 pp` (`[-8.5, +1.0]`, `p = 0.2295`)** on GSM8K and `-5.0 pp` on OOD. Fails gain, Holm significance, donor dependence, and OOD; passes retention, invariants, and efficiency (`0.952x` speed, `1.000x` MPS memory).
+  - **Alignment Hypothesis (`H3`):** Strongly corroborated on OOD & prose fluency — unaligned `C3` caused `-20.0 pp` OOD collapse (`p < 1e-4`) and `+16.2` PPL increase, whereas `C4_act` (`+20.0 pp`, `p = 0.0001`), `T1` (`+18.0 pp`, `p = 0.0001`), `T2` (`+15.0 pp`, `p = 0.0041`), and `C4_weights` (`+13.0 pp`, `p = 0.0192`) all significantly avoided `C3`'s degradation.
+  - **Cumulative Cost & Storage:** `\$0.00` direct API/cloud spend (`\$13.1302` cumulative Codex shadow across `H001`–`H003`, `\$6.87` unused inside `D005`'s `\$20.00` pilot gate); `18G` in `hf_cache/` (`< 30 GB` cap); `15/15` unit tests passing (`pytest -q`).
