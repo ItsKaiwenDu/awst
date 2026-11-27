@@ -1,0 +1,1261 @@
+{
+  "timestamp_utc": "2026-11-27T04:05:20.521446+00:00",
+  "milestone": "M2b_H003_verification",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "invariants_and_replay": {
+    "timestamp_utc": "2026-11-27T03:13:30.289110+00:00",
+    "pristine_recipient_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+    "replay_verification": {
+      "T2_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732",
+      "T2_matches_codex_expected": true,
+      "T2_matches_codex_dir": true,
+      "identical_override_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732",
+      "identical_override_matches_T2": true,
+      "C5_perm_sha256": "f47af66b18e02bf65920f47b750616cf2301da02c9a1ea31cb9972471926708c",
+      "C5_perm_matches_codex_shuffled_receipt": true
+    },
+    "float64_reversion": {
+      "changed_params": 0,
+      "frozen_tensors_verified": 153,
+      "reverted_shard_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+      "matches_pristine_base": true
+    },
+    "arms": {
+      "T2": {
+        "provenance": {
+          "track": "T2",
+          "condition": "T2",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "transplant_value_source": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+          "strength": 0.5,
+          "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+          "sources": {
+            "model.language_model.layers.13.linear_attn.A_log": {
+              "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+              "source_head": 12,
+              "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+              "recipient_head": 12,
+              "source_dtype": "torch.float32",
+              "source_vector_sha256": "5dfe0d4a32753e3e28b7047a6801ea0cc631aa24f960fe91f0b5b9883e1a27b4",
+              "donor_value": -1.546875,
+              "activation_offset": 0.0,
+              "recipient_before": -1.3359375,
+              "recipient_after": -1.44140625
+            },
+            "model.language_model.layers.13.linear_attn.dt_bias": {
+              "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+              "source_head": 12,
+              "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+              "recipient_head": 12,
+              "source_dtype": "torch.bfloat16",
+              "source_vector_sha256": "9c724d53b30733d09bb1751b642b040bcf5a2f5194802e76adcb537628271a37",
+              "donor_value": -0.6796875,
+              "activation_offset": 0.06416821479797363,
+              "recipient_before": -0.875,
+              "recipient_after": -0.74609375
+            }
+          },
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_sliced": 96,
+          "override_bytes_after_storage_cast": 0
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h003_t2",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 2,
+          "changed_params": 2,
+          "changed_fraction": 2.2897998539071058e-09,
+          "overall_delta_frobenius_norm": 0.16655473129162376,
+          "overall_relative_frobenius_norm": 0.00017694898799879393,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.layers.13.linear_attn.A_log",
+              "group": "text_linear_attn",
+              "shape": [
+                16
+              ],
+              "numel": 16,
+              "changed_elements": 1,
+              "delta_frobenius_norm": 0.10546875,
+              "base_frobenius_norm": 5.433022244836719,
+              "relative_frobenius_norm": 0.019412537855929522
+            },
+            {
+              "name": "model.language_model.layers.13.linear_attn.dt_bias",
+              "group": "text_linear_attn",
+              "shape": [
+                16
+              ],
+              "numel": 16,
+              "changed_elements": 1,
+              "delta_frobenius_norm": 0.12890625,
+              "base_frobenius_norm": 8.902791097799312,
+              "relative_frobenius_norm": 0.014479307509738653
+            }
+          ]
+        }
+      },
+      "C5_perm": {
+        "provenance": {
+          "track": "T2",
+          "condition": "C5_frozen_T2_localization",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "transplant_value_source": "donor_override",
+          "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+          "strength": 0.5,
+          "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+          "sources": {
+            "model.language_model.layers.13.linear_attn.A_log": {
+              "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+              "source_head": 12,
+              "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+              "recipient_head": 12,
+              "source_dtype": "torch.float32",
+              "source_vector_sha256": "1b10812db9c073c4e7481196f744ec8deb4b41afb6585f0afdd9b1618afdabc9",
+              "donor_value": -1.3984375,
+              "activation_offset": 0.0,
+              "recipient_before": -1.3359375,
+              "recipient_after": -1.3671875
+            },
+            "model.language_model.layers.13.linear_attn.dt_bias": {
+              "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+              "source_head": 12,
+              "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+              "recipient_head": 12,
+              "source_dtype": "torch.bfloat16",
+              "source_vector_sha256": "b9061f9383df818cdd34c6361160ab6446b7c89e54848ebfefaae77d7dda58b7",
+              "donor_value": -5.375,
+              "activation_offset": 0.06416821479797363,
+              "recipient_before": -0.875,
+              "recipient_after": -3.09375
+            }
+          },
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_sliced": 0,
+          "override_bytes_after_storage_cast": 96
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h003_c5_perm",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 2,
+          "changed_params": 2,
+          "changed_fraction": 2.2897998539071058e-09,
+          "overall_delta_frobenius_norm": 2.2189700595095916,
+          "overall_relative_frobenius_norm": 0.0023574503311008153,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.layers.13.linear_attn.A_log",
+              "group": "text_linear_attn",
+              "shape": [
+                16
+              ],
+              "numel": 16,
+              "changed_elements": 1,
+              "delta_frobenius_norm": 0.03125,
+              "base_frobenius_norm": 5.433022244836719,
+              "relative_frobenius_norm": 0.005751863068423562
+            },
+            {
+              "name": "model.language_model.layers.13.linear_attn.dt_bias",
+              "group": "text_linear_attn",
+              "shape": [
+                16
+              ],
+              "numel": 16,
+              "changed_elements": 1,
+              "delta_frobenius_norm": 2.21875,
+              "base_frobenius_norm": 8.902791097799312,
+              "relative_frobenius_norm": 0.24921959592519863
+            }
+          ]
+        }
+      },
+      "C5_norm_matched": {
+        "provenance": {
+          "track": "T2",
+          "condition": "C5_frozen_T2_localization",
+          "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "transplant_value_source": "donor_override",
+          "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+          "strength": 0.5,
+          "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+          "sources": {
+            "model.language_model.layers.13.linear_attn.A_log": {
+              "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+              "source_head": 12,
+              "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+              "recipient_head": 12,
+              "source_dtype": "torch.float32",
+              "source_vector_sha256": "42689b99c8120c417052952b3227a81760aa9477cbf33909400540b4bcd6d2b0",
+              "donor_value": -1.3406486511230469,
+              "activation_offset": 0.0,
+              "recipient_before": -1.3359375,
+              "recipient_after": -1.3382930755615234
+            },
+            "model.language_model.layers.13.linear_attn.dt_bias": {
+              "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+              "source_head": 12,
+              "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+              "recipient_head": 12,
+              "source_dtype": "torch.bfloat16",
+              "source_vector_sha256": "c39fbd7e71feec027dbfd09a3b2d5ebf1b3b6cd0315512b9fb406dfd509c6ce0",
+              "donor_value": -1.2734375,
+              "activation_offset": 0.06416821479797363,
+              "recipient_before": -0.875,
+              "recipient_after": -1.0390625
+            }
+          },
+          "gradient_steps": 0,
+          "donor_forward_passes": 0,
+          "recipient_forward_passes": 0,
+          "donor_bytes_sliced": 0,
+          "override_bytes_after_storage_cast": 96
+        },
+        "invariants": {
+          "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+          "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h003_c5_norm_matched",
+          "tensor_count": 488,
+          "total_params": 873438784,
+          "frozen_prefixes": [
+            "model.visual.",
+            "visual."
+          ],
+          "frozen_tensors_verified": 153,
+          "changed_tensor_count": 2,
+          "changed_params": 2,
+          "changed_fraction": 2.2897998539071058e-09,
+          "overall_delta_frobenius_norm": 0.1640794095627969,
+          "overall_relative_frobenius_norm": 0.00017431918774340265,
+          "changed_tensors": [
+            {
+              "name": "model.language_model.layers.13.linear_attn.A_log",
+              "group": "text_linear_attn",
+              "shape": [
+                16
+              ],
+              "numel": 16,
+              "changed_elements": 1,
+              "delta_frobenius_norm": 0.0023555755615234375,
+              "base_frobenius_norm": 5.433022244836719,
+              "relative_frobenius_norm": 0.00043356633847064813
+            },
+            {
+              "name": "model.language_model.layers.13.linear_attn.dt_bias",
+              "group": "text_linear_attn",
+              "shape": [
+                16
+              ],
+              "numel": 16,
+              "changed_elements": 1,
+              "delta_frobenius_norm": 0.1640625,
+              "base_frobenius_norm": 8.902791097799312,
+              "relative_frobenius_norm": 0.018428209557849195
+            }
+          ]
+        }
+      }
+    },
+    "delta_2d_geometry": {
+      "head_index": 12,
+      "recipient_base_values": {
+        "A_log": -1.3359375,
+        "dt_bias": -0.875
+      },
+      "activation_offset_dt_bias": 0.06416821479797363,
+      "c5_perm_head_mapping": [
+        6,
+        3,
+        0,
+        7,
+        10,
+        15,
+        2,
+        12,
+        14,
+        9,
+        8,
+        5,
+        4,
+        13,
+        11,
+        1
+      ],
+      "c5_shuffled_donor_head": 4,
+      "c5_norm_matched_rel_diff_frac": 0.014862,
+      "deltas_a_log_dt_bias": {
+        "T2": [
+          -0.10546875,
+          0.12890625
+        ],
+        "C5_perm": [
+          -0.03125,
+          -2.21875
+        ],
+        "C5_norm_matched": [
+          -0.00235558,
+          -0.1640625
+        ]
+      },
+      "delta_l2_norms": {
+        "T2": 0.16655473,
+        "C5_perm": 2.21897006,
+        "C5_norm_matched": 0.16407941
+      },
+      "norm_ratio_vs_t2": {
+        "T2": 1.0,
+        "C5_perm": 13.3228,
+        "C5_norm_matched": 0.9851
+      },
+      "pairwise_cosine_similarity": {
+        "T2": {
+          "T2": 1.0,
+          "C5_perm": -0.764963,
+          "C5_norm_matched": -0.764787
+        },
+        "C5_perm": {
+          "T2": -0.764963,
+          "C5_perm": 1.0,
+          "C5_norm_matched": 1.0
+        },
+        "C5_norm_matched": {
+          "T2": -0.764787,
+          "C5_perm": 1.0,
+          "C5_norm_matched": 1.0
+        }
+      }
+    }
+  },
+  "validation": {
+    "T2": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h003_t2",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 2,
+        "changed_params": 2,
+        "changed_fraction": 2.2897998539071058e-09,
+        "overall_delta_frobenius_norm": 0.16655473129162376,
+        "overall_relative_frobenius_norm": 0.00017694898799879393,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.layers.13.linear_attn.A_log",
+            "group": "text_linear_attn",
+            "shape": [
+              16
+            ],
+            "numel": 16,
+            "changed_elements": 1,
+            "delta_frobenius_norm": 0.10546875,
+            "base_frobenius_norm": 5.433022244836719,
+            "relative_frobenius_norm": 0.019412537855929522
+          },
+          {
+            "name": "model.language_model.layers.13.linear_attn.dt_bias",
+            "group": "text_linear_attn",
+            "shape": [
+              16
+            ],
+            "numel": 16,
+            "changed_elements": 1,
+            "delta_frobenius_norm": 0.12890625,
+            "base_frobenius_norm": 8.902791097799312,
+            "relative_frobenius_norm": 0.014479307509738653
+          }
+        ]
+      },
+      "provenance": {
+        "track": "T2",
+        "condition": "T2",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "transplant_value_source": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+        "strength": 0.5,
+        "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+        "sources": {
+          "model.language_model.layers.13.linear_attn.A_log": {
+            "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+            "source_head": 12,
+            "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+            "recipient_head": 12,
+            "source_dtype": "torch.float32",
+            "source_vector_sha256": "5dfe0d4a32753e3e28b7047a6801ea0cc631aa24f960fe91f0b5b9883e1a27b4",
+            "donor_value": -1.546875,
+            "activation_offset": 0.0,
+            "recipient_before": -1.3359375,
+            "recipient_after": -1.44140625
+          },
+          "model.language_model.layers.13.linear_attn.dt_bias": {
+            "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+            "source_head": 12,
+            "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+            "recipient_head": 12,
+            "source_dtype": "torch.bfloat16",
+            "source_vector_sha256": "9c724d53b30733d09bb1751b642b040bcf5a2f5194802e76adcb537628271a37",
+            "donor_value": -0.6796875,
+            "activation_offset": 0.06416821479797363,
+            "recipient_before": -0.875,
+            "recipient_after": -0.74609375
+          }
+        },
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_sliced": 96,
+        "override_bytes_after_storage_cast": 0
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.66,
+        "correct_count": 99,
+        "completion_rate": 0.8733333333333333,
+        "truncation_rate": 0.12666666666666668,
+        "repetition_loop_rate": 0.08,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.7480916030534351,
+        "avg_output_tokens": 436.7133333333333,
+        "median_output_tokens": 315.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.22666666666666666,
+          "pass_at_1_le_512_tok": 0.58,
+          "pass_at_1_le_1024_tok": 0.66
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.38,
+            "completion_rate": 0.84,
+            "repetition_loop_rate": 0.1,
+            "avg_output_tokens": 456.3
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.66,
+            "completion_rate": 0.78,
+            "repetition_loop_rate": 0.14,
+            "avg_output_tokens": 591.96
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.94,
+            "completion_rate": 1.0,
+            "repetition_loop_rate": 0.0,
+            "avg_output_tokens": 261.88
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.57,
+        "correct_count": 57,
+        "completion_rate": 0.93,
+        "truncation_rate": 0.07,
+        "repetition_loop_rate": 0.02,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6129032258064516,
+        "avg_output_tokens": 440.02,
+        "median_output_tokens": 382.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.06,
+          "pass_at_1_le_512_tok": 0.49,
+          "pass_at_1_le_1024_tok": 0.57
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 105.5,
+      "gsm8k_tok_s": 104.8,
+      "synth_eval_sec": 620.921,
+      "gsm8k_eval_sec": 419.877,
+      "peak_mps_allocated_mb": 2377.78
+    },
+    "C5_perm": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h003_c5_perm",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 2,
+        "changed_params": 2,
+        "changed_fraction": 2.2897998539071058e-09,
+        "overall_delta_frobenius_norm": 2.2189700595095916,
+        "overall_relative_frobenius_norm": 0.0023574503311008153,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.layers.13.linear_attn.A_log",
+            "group": "text_linear_attn",
+            "shape": [
+              16
+            ],
+            "numel": 16,
+            "changed_elements": 1,
+            "delta_frobenius_norm": 0.03125,
+            "base_frobenius_norm": 5.433022244836719,
+            "relative_frobenius_norm": 0.005751863068423562
+          },
+          {
+            "name": "model.language_model.layers.13.linear_attn.dt_bias",
+            "group": "text_linear_attn",
+            "shape": [
+              16
+            ],
+            "numel": 16,
+            "changed_elements": 1,
+            "delta_frobenius_norm": 2.21875,
+            "base_frobenius_norm": 8.902791097799312,
+            "relative_frobenius_norm": 0.24921959592519863
+          }
+        ]
+      },
+      "provenance": {
+        "track": "T2",
+        "condition": "C5_frozen_T2_localization",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "transplant_value_source": "donor_override",
+        "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+        "strength": 0.5,
+        "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+        "sources": {
+          "model.language_model.layers.13.linear_attn.A_log": {
+            "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+            "source_head": 12,
+            "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+            "recipient_head": 12,
+            "source_dtype": "torch.float32",
+            "source_vector_sha256": "1b10812db9c073c4e7481196f744ec8deb4b41afb6585f0afdd9b1618afdabc9",
+            "donor_value": -1.3984375,
+            "activation_offset": 0.0,
+            "recipient_before": -1.3359375,
+            "recipient_after": -1.3671875
+          },
+          "model.language_model.layers.13.linear_attn.dt_bias": {
+            "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+            "source_head": 12,
+            "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+            "recipient_head": 12,
+            "source_dtype": "torch.bfloat16",
+            "source_vector_sha256": "b9061f9383df818cdd34c6361160ab6446b7c89e54848ebfefaae77d7dda58b7",
+            "donor_value": -5.375,
+            "activation_offset": 0.06416821479797363,
+            "recipient_before": -0.875,
+            "recipient_after": -3.09375
+          }
+        },
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_sliced": 0,
+        "override_bytes_after_storage_cast": 96
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.6666666666666666,
+        "correct_count": 100,
+        "completion_rate": 0.8933333333333333,
+        "truncation_rate": 0.10666666666666667,
+        "repetition_loop_rate": 0.08666666666666667,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.7388059701492538,
+        "avg_output_tokens": 385.3666666666667,
+        "median_output_tokens": 300.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.28,
+          "pass_at_1_le_512_tok": 0.6333333333333333,
+          "pass_at_1_le_1024_tok": 0.6666666666666666
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.34,
+            "completion_rate": 0.86,
+            "repetition_loop_rate": 0.1,
+            "avg_output_tokens": 419.64
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.78,
+            "completion_rate": 0.82,
+            "repetition_loop_rate": 0.16,
+            "avg_output_tokens": 490.94
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.88,
+            "completion_rate": 1.0,
+            "repetition_loop_rate": 0.0,
+            "avg_output_tokens": 245.52
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.57,
+        "correct_count": 57,
+        "completion_rate": 0.91,
+        "truncation_rate": 0.09,
+        "repetition_loop_rate": 0.02,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6153846153846154,
+        "avg_output_tokens": 437.56,
+        "median_output_tokens": 358.5,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.09,
+          "pass_at_1_le_512_tok": 0.54,
+          "pass_at_1_le_1024_tok": 0.57
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 104.84,
+      "gsm8k_tok_s": 106.18,
+      "synth_eval_sec": 551.389,
+      "gsm8k_eval_sec": 412.092,
+      "peak_mps_allocated_mb": 2377.78
+    },
+    "C5_norm_matched": {
+      "patch_invariants": {
+        "base_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/models/qwen3.5_0.8b",
+        "edited_dir": "/Users/kaiwendu/Documents/GitHub/awst/hf_cache/edited/verify_h003_c5_norm_matched",
+        "tensor_count": 488,
+        "total_params": 873438784,
+        "frozen_prefixes": [
+          "model.visual.",
+          "visual."
+        ],
+        "frozen_tensors_verified": 153,
+        "changed_tensor_count": 2,
+        "changed_params": 2,
+        "changed_fraction": 2.2897998539071058e-09,
+        "overall_delta_frobenius_norm": 0.1640794095627969,
+        "overall_relative_frobenius_norm": 0.00017431918774340265,
+        "changed_tensors": [
+          {
+            "name": "model.language_model.layers.13.linear_attn.A_log",
+            "group": "text_linear_attn",
+            "shape": [
+              16
+            ],
+            "numel": 16,
+            "changed_elements": 1,
+            "delta_frobenius_norm": 0.0023555755615234375,
+            "base_frobenius_norm": 5.433022244836719,
+            "relative_frobenius_norm": 0.00043356633847064813
+          },
+          {
+            "name": "model.language_model.layers.13.linear_attn.dt_bias",
+            "group": "text_linear_attn",
+            "shape": [
+              16
+            ],
+            "numel": 16,
+            "changed_elements": 1,
+            "delta_frobenius_norm": 0.1640625,
+            "base_frobenius_norm": 8.902791097799312,
+            "relative_frobenius_norm": 0.018428209557849195
+          }
+        ]
+      },
+      "provenance": {
+        "track": "T2",
+        "condition": "C5_frozen_T2_localization",
+        "recipient_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+        "localization_donor_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+        "transplant_value_source": "donor_override",
+        "localization_sha256": "6592a64141576a2c4a4577d4d384991e8eb1a970b2cbf2d1268baf1d87ea99f9",
+        "strength": 0.5,
+        "formula": "cast_to_storage(r + strength * (selected_donor_value + activation_offset - r))",
+        "sources": {
+          "model.language_model.layers.13.linear_attn.A_log": {
+            "source_tensor": "model.language_model.layers.13.linear_attn.A_log",
+            "source_head": 12,
+            "recipient_tensor": "model.language_model.layers.13.linear_attn.A_log",
+            "recipient_head": 12,
+            "source_dtype": "torch.float32",
+            "source_vector_sha256": "42689b99c8120c417052952b3227a81760aa9477cbf33909400540b4bcd6d2b0",
+            "donor_value": -1.3406486511230469,
+            "activation_offset": 0.0,
+            "recipient_before": -1.3359375,
+            "recipient_after": -1.3382930755615234
+          },
+          "model.language_model.layers.13.linear_attn.dt_bias": {
+            "source_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+            "source_head": 12,
+            "recipient_tensor": "model.language_model.layers.13.linear_attn.dt_bias",
+            "recipient_head": 12,
+            "source_dtype": "torch.bfloat16",
+            "source_vector_sha256": "c39fbd7e71feec027dbfd09a3b2d5ebf1b3b6cd0315512b9fb406dfd509c6ce0",
+            "donor_value": -1.2734375,
+            "activation_offset": 0.06416821479797363,
+            "recipient_before": -0.875,
+            "recipient_after": -1.0390625
+          }
+        },
+        "gradient_steps": 0,
+        "donor_forward_passes": 0,
+        "recipient_forward_passes": 0,
+        "donor_bytes_sliced": 0,
+        "override_bytes_after_storage_cast": 96
+      },
+      "synthetic_val": {
+        "n": 150,
+        "pass_at_1": 0.6533333333333333,
+        "correct_count": 98,
+        "completion_rate": 0.8333333333333334,
+        "truncation_rate": 0.16666666666666666,
+        "repetition_loop_rate": 0.04,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.768,
+        "avg_output_tokens": 456.66,
+        "median_output_tokens": 328.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.24666666666666667,
+          "pass_at_1_le_512_tok": 0.5666666666666667,
+          "pass_at_1_le_1024_tok": 0.6533333333333333
+        },
+        "by_subskill": {
+          "carry_add_sub": {
+            "n": 50,
+            "pass_at_1": 0.34,
+            "completion_rate": 0.78,
+            "repetition_loop_rate": 0.0,
+            "avg_output_tokens": 494.24
+          },
+          "mult_2x2_3x1": {
+            "n": 50,
+            "pass_at_1": 0.72,
+            "completion_rate": 0.74,
+            "repetition_loop_rate": 0.1,
+            "avg_output_tokens": 590.94
+          },
+          "word_2step": {
+            "n": 50,
+            "pass_at_1": 0.9,
+            "completion_rate": 0.98,
+            "repetition_loop_rate": 0.02,
+            "avg_output_tokens": 284.8
+          }
+        }
+      },
+      "gsm8k_val": {
+        "n": 100,
+        "pass_at_1": 0.59,
+        "correct_count": 59,
+        "completion_rate": 0.93,
+        "truncation_rate": 0.07,
+        "repetition_loop_rate": 0.0,
+        "invalid_parse_rate": 0.0,
+        "completed_only_accuracy": 0.6344086021505376,
+        "avg_output_tokens": 448.18,
+        "median_output_tokens": 375.0,
+        "matched_token_budget": {
+          "pass_at_1_le_256_tok": 0.07,
+          "pass_at_1_le_512_tok": 0.5,
+          "pass_at_1_le_1024_tok": 0.59
+        },
+        "by_subskill": {}
+      },
+      "synth_tok_s": 105.4,
+      "gsm8k_tok_s": 105.23,
+      "synth_eval_sec": 649.906,
+      "gsm8k_eval_sec": 425.902,
+      "peak_mps_allocated_mb": 2369.78
+    }
+  },
+  "paired_comparisons": {
+    "C0_raw_to_T2": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.57,
+        "delta_pp": -5.0,
+        "bootstrap_95ci_pp": [
+          -11.0,
+          1.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 7,
+        "both_correct": 55,
+        "both_incorrect": 36,
+        "mcnemar_exact_p": 0.1796875
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.66,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -4.67,
+          4.67
+        ],
+        "improved_b_over_a": 7,
+        "regressed_b_vs_a": 7,
+        "both_correct": 92,
+        "both_incorrect": 44,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.38,
+        "delta_pp": -2.0,
+        "bootstrap_95ci_pp": [
+          -10.0,
+          6.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 3,
+        "both_correct": 17,
+        "both_incorrect": 28,
+        "mcnemar_exact_p": 1.0
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.66,
+        "delta_pp": -2.0,
+        "bootstrap_95ci_pp": [
+          -12.0,
+          8.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 4,
+        "both_correct": 30,
+        "both_incorrect": 13,
+        "mcnemar_exact_p": 1.0
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.94,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          0.0,
+          10.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 0,
+        "both_correct": 45,
+        "both_incorrect": 3,
+        "mcnemar_exact_p": 0.5
+      }
+    },
+    "C0_raw_to_C5_perm": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.57,
+        "delta_pp": -5.0,
+        "bootstrap_95ci_pp": [
+          -15.0,
+          5.0
+        ],
+        "improved_b_over_a": 11,
+        "regressed_b_vs_a": 16,
+        "both_correct": 46,
+        "both_incorrect": 27,
+        "mcnemar_exact_p": 0.44206833839416504
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.6666666666666666,
+        "delta_pp": 0.67,
+        "bootstrap_95ci_pp": [
+          -7.33,
+          8.67
+        ],
+        "improved_b_over_a": 19,
+        "regressed_b_vs_a": 18,
+        "both_correct": 81,
+        "both_incorrect": 32,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.34,
+        "delta_pp": -6.0,
+        "bootstrap_95ci_pp": [
+          -20.0,
+          8.0
+        ],
+        "improved_b_over_a": 6,
+        "regressed_b_vs_a": 9,
+        "both_correct": 11,
+        "both_incorrect": 24,
+        "mcnemar_exact_p": 0.6072387695312499
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.78,
+        "delta_pp": 10.0,
+        "bootstrap_95ci_pp": [
+          -4.0,
+          26.0
+        ],
+        "improved_b_over_a": 10,
+        "regressed_b_vs_a": 5,
+        "both_correct": 29,
+        "both_incorrect": 6,
+        "mcnemar_exact_p": 0.30175781249999994
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.88,
+        "delta_pp": -2.0,
+        "bootstrap_95ci_pp": [
+          -12.0,
+          8.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 4,
+        "both_correct": 41,
+        "both_incorrect": 2,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C0_raw_to_C5_norm_matched": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.59,
+        "delta_pp": -3.0,
+        "bootstrap_95ci_pp": [
+          -11.0,
+          5.0
+        ],
+        "improved_b_over_a": 6,
+        "regressed_b_vs_a": 9,
+        "both_correct": 53,
+        "both_incorrect": 32,
+        "mcnemar_exact_p": 0.6072387695312499
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.66,
+        "acc_b": 0.6533333333333333,
+        "delta_pp": -0.67,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          4.67
+        ],
+        "improved_b_over_a": 7,
+        "regressed_b_vs_a": 8,
+        "both_correct": 91,
+        "both_incorrect": 44,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.4,
+        "acc_b": 0.34,
+        "delta_pp": -6.0,
+        "bootstrap_95ci_pp": [
+          -16.0,
+          4.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 5,
+        "both_correct": 15,
+        "both_incorrect": 28,
+        "mcnemar_exact_p": 0.453125
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.68,
+        "acc_b": 0.72,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          16.0
+        ],
+        "improved_b_over_a": 5,
+        "regressed_b_vs_a": 3,
+        "both_correct": 31,
+        "both_incorrect": 11,
+        "mcnemar_exact_p": 0.7265625
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.9,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          0.0,
+          0.0
+        ],
+        "improved_b_over_a": 0,
+        "regressed_b_vs_a": 0,
+        "both_correct": 45,
+        "both_incorrect": 5,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C4_act_to_T2": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.62,
+        "acc_b": 0.57,
+        "delta_pp": -5.0,
+        "bootstrap_95ci_pp": [
+          -15.0,
+          5.0
+        ],
+        "improved_b_over_a": 10,
+        "regressed_b_vs_a": 15,
+        "both_correct": 47,
+        "both_incorrect": 28,
+        "mcnemar_exact_p": 0.42435622215270996
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.6466666666666666,
+        "acc_b": 0.66,
+        "delta_pp": 1.33,
+        "bootstrap_95ci_pp": [
+          -5.33,
+          8.0
+        ],
+        "improved_b_over_a": 14,
+        "regressed_b_vs_a": 12,
+        "both_correct": 85,
+        "both_incorrect": 39,
+        "mcnemar_exact_p": 0.8450189828872681
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.34,
+        "acc_b": 0.38,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          -10.0,
+          18.0
+        ],
+        "improved_b_over_a": 7,
+        "regressed_b_vs_a": 5,
+        "both_correct": 12,
+        "both_incorrect": 26,
+        "mcnemar_exact_p": 0.7744140625
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.66,
+        "acc_b": 0.66,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -14.0,
+          14.0
+        ],
+        "improved_b_over_a": 6,
+        "regressed_b_vs_a": 6,
+        "both_correct": 27,
+        "both_incorrect": 11,
+        "mcnemar_exact_p": 1.0
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.94,
+        "acc_b": 0.94,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          6.0
+        ],
+        "improved_b_over_a": 1,
+        "regressed_b_vs_a": 1,
+        "both_correct": 46,
+        "both_incorrect": 2,
+        "mcnemar_exact_p": 1.0
+      }
+    },
+    "C5_perm_to_T2": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.57,
+        "acc_b": 0.57,
+        "delta_pp": 0.0,
+        "bootstrap_95ci_pp": [
+          -11.0,
+          11.0
+        ],
+        "improved_b_over_a": 15,
+        "regressed_b_vs_a": 15,
+        "both_correct": 42,
+        "both_incorrect": 28,
+        "mcnemar_exact_p": 1.0
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.6666666666666666,
+        "acc_b": 0.66,
+        "delta_pp": -0.67,
+        "bootstrap_95ci_pp": [
+          -8.67,
+          7.33
+        ],
+        "improved_b_over_a": 17,
+        "regressed_b_vs_a": 18,
+        "both_correct": 82,
+        "both_incorrect": 33,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.34,
+        "acc_b": 0.38,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          -10.0,
+          18.0
+        ],
+        "improved_b_over_a": 8,
+        "regressed_b_vs_a": 6,
+        "both_correct": 11,
+        "both_incorrect": 25,
+        "mcnemar_exact_p": 0.79052734375
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.78,
+        "acc_b": 0.66,
+        "delta_pp": -12.0,
+        "bootstrap_95ci_pp": [
+          -28.0,
+          4.0
+        ],
+        "improved_b_over_a": 5,
+        "regressed_b_vs_a": 11,
+        "both_correct": 28,
+        "both_incorrect": 6,
+        "mcnemar_exact_p": 0.210113525390625
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.88,
+        "acc_b": 0.94,
+        "delta_pp": 6.0,
+        "bootstrap_95ci_pp": [
+          -2.0,
+          16.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 1,
+        "both_correct": 43,
+        "both_incorrect": 2,
+        "mcnemar_exact_p": 0.375
+      }
+    },
+    "C5_norm_matched_to_T2": {
+      "gsm8k_val": {
+        "n": 100,
+        "acc_a": 0.59,
+        "acc_b": 0.57,
+        "delta_pp": -2.0,
+        "bootstrap_95ci_pp": [
+          -8.0,
+          4.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 6,
+        "both_correct": 53,
+        "both_incorrect": 37,
+        "mcnemar_exact_p": 0.75390625
+      },
+      "synthetic_val": {
+        "n": 150,
+        "acc_a": 0.6533333333333333,
+        "acc_b": 0.66,
+        "delta_pp": 0.67,
+        "bootstrap_95ci_pp": [
+          -4.67,
+          6.0
+        ],
+        "improved_b_over_a": 9,
+        "regressed_b_vs_a": 8,
+        "both_correct": 90,
+        "both_incorrect": 43,
+        "mcnemar_exact_p": 1.0
+      },
+      "carry_add_sub": {
+        "n": 50,
+        "acc_a": 0.34,
+        "acc_b": 0.38,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          -6.0,
+          14.0
+        ],
+        "improved_b_over_a": 4,
+        "regressed_b_vs_a": 2,
+        "both_correct": 15,
+        "both_incorrect": 29,
+        "mcnemar_exact_p": 0.6875
+      },
+      "mult_2x2_3x1": {
+        "n": 50,
+        "acc_a": 0.72,
+        "acc_b": 0.66,
+        "delta_pp": -6.0,
+        "bootstrap_95ci_pp": [
+          -18.0,
+          6.0
+        ],
+        "improved_b_over_a": 3,
+        "regressed_b_vs_a": 6,
+        "both_correct": 30,
+        "both_incorrect": 11,
+        "mcnemar_exact_p": 0.5078125
+      },
+      "word_2step": {
+        "n": 50,
+        "acc_a": 0.9,
+        "acc_b": 0.94,
+        "delta_pp": 4.0,
+        "bootstrap_95ci_pp": [
+          0.0,
+          10.0
+        ],
+        "improved_b_over_a": 2,
+        "regressed_b_vs_a": 0,
+        "both_correct": 45,
+        "both_incorrect": 3,
+        "mcnemar_exact_p": 0.5
+      }
+    }
+  }
+}

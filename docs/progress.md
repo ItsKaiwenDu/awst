@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-26  
-**Current Milestone:** `M2: Agent pilot and main experiments` — **H002 independently verified (negative on blinded validation); H003 (`T2`) development complete, independent verification pending.**
+**Current Milestone:** `M2: Agent pilot and main experiments` — **Stage 1 (`T1` `H002` + `T2` `H003`) independently verified (both negative on blinded validation); awaiting Stage 2 Gate decision.**
 **Branch:** `main`  
-**H002 verified commit:** `f1b6e4a` on `main`
+**Stage 1 verified commits:** `477646f` (`H002` verified), `007101b` (`H003` submission) on `main`
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001` verified `3/3`; `H002` verified; `H003` returned)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001` verified `3/3`; `H002` & `H003` verified)
 
 ---
 
@@ -13,9 +13,9 @@
 
 | Category | Authorized | Spent to Date | Notes |
 |---|---:|---:|---|
-| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines completed at \$0.00 |
+| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines completed at \$0.00; \$13.1302 cumulative shadow (`\$6.87` M2 headroom) |
 | Gemini API | \$5.00 (within \$20 pilot / \$30 protocol cap) | \$0.00 | `D001` Option A matched check in M2 |
-| Astra API / Codex | $12.00 shared H002+H003 | $0.00 direct | H002 closed at $6.041536. H003 used $5.988440 through the recorded cutoff, exceeding the shared cap by $0.029976 at that time. H001 used a separate pilot allowance. [H003 meter](../runs/codex_h003/accounting.json) |
+| Astra API / Codex | \$12.00 (+ \$3.00 `D005` contingency) | \$0.00 direct | `H001` \$1.1003 + `H002` \$6.0415 + `H003` \$5.9884 = **\$13.1302** shadow (`H002`+`H003` = `\$12.0300`, `\$0.0300` reconciled against `D005` \$3.00 contingency). [H003 meter](../runs/codex_h003/accounting.json) |
 | Cloud GPU | \$0.00 (protocol cap \$40.00) | \$0.00 | Local M4 Max first |
 | Storage & Misc | \$0.00 (protocol cap \$10.00) | \$0.00 | `18G` in `hf_cache/` (`< 30 GB` cap); 580 GiB free |
 | **Total Initial Study** | **\$20.00 pilot authorized / \$200.00 hard ceiling** | **\$0.00** | Zero paid work executed |
@@ -50,12 +50,12 @@
 - [x] Validate selective tensor retrieval on `Qwen/Qwen3.5-0.8B` via HTTP `206` `Range` requests (`results/m1_remote_reader_validation.json`: `176,584 / 1,746,942,600` bytes = `9892.98x` reduction, bit-exact match verified).
 - [x] Run M4 Max MPS micro-benchmark (`results/m1_micro_benchmark.json`: `109 tok/s` `0.8B`, `64–65 tok/s` `2B`, zero NaNs), reproduce Stage 0 `C0_loopfixed` (`runs/manifests/stage0_c0_loopfixed_patch.json`: `130,188` entries in L15/L19 `down_proj`, `153/153` vision tensors SHA-256 unchanged, `reversion_verified: true`), run validation baselines (`results/m1_stage0_baselines.json`: `nothink 1024` `C0_raw` `62.0%` GSM8K / `40.0%` `carry_add_sub` vs `2B` `82.0%` GSM8K / `78.0%` `carry_add_sub`; `think` check `95% -> 75%` loops without `presence_penalty=1.5`), and freeze [`docs/preregistration.md`](preregistration.md) v1.0.
 
-### M2: Agent pilot and main experiments *(M2a & H001 complete; H002 `T1` independently verified; H003 `T2` development complete)*
+### M2: Agent pilot and main experiments *(M2a, H001, H002 `T1`, and H003 `T2` all verified; Stage 2 Gate pending)*
 - [x] Run approved small competency comparisons and measure actual cost; select programmer(s) using pilot evidence. *(Verified `3/3` for both Gemini 4 Neon and GPT-6.2 Astra in [`results/m2_rq6_competency_comparison.json`](../results/m2_rq6_competency_comparison.json); Astra `$1.10` in-turn shadow / `$0.00` direct API; caveat: `docs/progress.md` disclosed Neon's aggregate `3/3` score prior to Astra run, zero task answers exposed. Confirmed **GPT-6.2 Astra (Codex)** for Stage 1 `H002` & `H003`.)*
-- [x] Implement and test conventional transfer (`C4`) and matched controls (`C1`–`C5`); establish immutable patch & provenance logs. *(Evaluated in `results/m2_conventional_baselines.json` and `results/m2_h002_verification.json`: `C4_weights` `60.0%` GSM8K / `40.0%` `carry_add_sub`; `C4_act` `62.0%` / `34.0%`; `C2` `63.0%` / `36.0%`; `C3` `55.0%` / `40.0%`; `C5_elem` `56.0%` / `32.0%`; `C5_rowperm` `59.0%` / `40.0%` vs. `C0_raw` `62.0%` / `40.0%` and `2B` `82.0%` / `78.0%`. `12/12` unit tests pass; `hf_cache` = `15G`.)*
+- [x] Implement and test conventional transfer (`C4`) and matched controls (`C1`–`C5`); establish immutable patch & provenance logs. *(Evaluated in `results/m2_conventional_baselines.json`, `results/m2_h002_verification.json`, and `results/m2_h003_verification.json`: `C4_weights` `60.0%` GSM8K / `40.0%` `carry_add_sub`; `C4_act` `62.0%` / `34.0%`; `C2` `63.0%` / `36.0%`; `C3` `55.0%` / `40.0%`; `H002` `C5_elem` `56.0%`/`32.0%`, `C5_rowperm` `59.0%`/`40.0%`; `H003` `C5_perm` `57.0%`/`34.0%`, `C5_norm_matched` `59.0%`/`34.0%` vs. `C0_raw` `62.0%` / `40.0%` and `2B` `82.0%` / `78.0%`. `12/12` unit tests pass; `hf_cache` = `18G`.)*
 - [x] Complete H002 donor-free C1 and weights-only T1 trials and Antigravity independent verification (`C1`, `T1`, `C5_elem`, `C5_rowperm` on blinded `data/validation/`). *(Dev `+4.0 pp` GSM8K gain did **not** generalize to validation: `T1` `57.0%` GSM8K vs `C0_raw` `62.0%`, `C1` `59.0%`, `C5_rowperm` `59.0%`. See section 8 and [`results/m2_h002_verification.json`](../results/m2_h002_verification.json).)*
 - [x] Complete H003 activation-assisted development trials and return the frozen T2 checkpoint. [H003 report](../runs/codex_h003/report.md)
-- [ ] Independently verify Stage 1 T2, shuffled-donor controls and blinded outcomes.
+- [x] Independently verify Stage 1 T2, shuffled-donor controls and blinded outcomes. *(Verified negative on validation: `T2` `57.0%` GSM8K / `38.0%` `carry_add_sub` vs `C0_raw` `62.0%`/`40.0%`, `C4_act` `62.0%`/`34.0%`, `C5_perm` `57.0%`/`34.0%`, `C5_norm_matched` `59.0%`/`34.0%`. See section 10 and [`results/m2_h003_verification.json`](../results/m2_h003_verification.json).)*
 - [ ] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`).
 - [ ] Run approved second donor experiment if justified (Stage 3/4 gated separately).
 
@@ -83,8 +83,7 @@
 
 ## 5. Next actions
 
-1. H003 development is complete. [H003 submission](../runs/codex_h003/report.md)
-2. Antigravity will independently verify `T2` invariants, `float64` reversion, `C5` shuffled-donor control, and blinded `data/validation/` evaluation, then review Stage 1 results before the Stage 2 (`Qwen3.5-9B`) gate.
+1. **Stage 2 Approval Gate (`Qwen3.5-9B -> Qwen3.5-0.8B` vs. Milestone M3/M4):** Both Stage 1 AWST tracks (`T1` `H002` and `T2` `H003`) failed to outperform `C0_raw`, `C4`, or shuffled-donor `C5` controls on blinded `data/validation/` (`57.0%` vs `62.0%` GSM8K; `40.0%` / `38.0%` vs `40.0%` `carry_add_sub`). Pause for researcher decision on whether to skip Stage 2 (`Qwen3.5-9B`) and proceed directly to Milestone M3 isolated final evaluation (`/Users/kaiwendu/.awst_isolated_eval/`) + M4 paper writing, or approve a larger-donor / follow-up experiment.
 
 ## 8. Antigravity Independent Verification of H002 (`T1` / `C1` / `C5`), 2026-11-26
 
@@ -131,3 +130,22 @@
 - Frozen-method commit `939e4ee` was pushed to `origin/main`. The 0.5 finalist scored 23/40 on the screen, compared with 19/40 for strength 1.0. On 64 disjoint prompts per family it solved 27 carry and 38 GSM8K, versus 26 and 36 for C0 and 22 and 36 for C4_act. All four paired 95% intervals include zero. The donor dependence and generalization of this small development difference are unresolved. [Trial log, comparisons and reproduction](../runs/codex_h003/report.md)
 - H003 used 56/64 donor forwards, 246,175 recipient forwards including probing, 3/12 candidate trials, four reference evaluations and 245,639 generated tokens. Evaluation took 2,240.48 seconds. The ordinary and identical-value override reproduced the finalist SHA-256. A shuffled source changed the edit and had 13.3 times its norm. Float64 reversion restored the pristine shard digest. All seven development evaluations completed, with $0 direct spend. Codex shadow usage through 2026-11-27T03:04:36.451Z was $5.988440. Independent C5 behavioral scoring and blinded validation remain with Antigravity. [Replay](../runs/codex_h003/replay.json) · [Resources](../runs/codex_h003/accounting.json)
 - The first fresh meter after the resumed chat showed $12.029976 combined shadow usage at 7:04:36 PM PST on November 26, $0.029976 above the shared $12 cap. The development runs and local verification had already finished. The final results are in the working tree. The final results commit and push are pending a budget decision. The published localization commit is `939e4ee`. The meter is a cutoff snapshot.
+
+## 10. Antigravity Independent Verification of H003 (`T2` / `C5`), 2026-11-26
+
+- **Verification Runner:** [`src/evaluation/verify_h003.py`](../src/evaluation/verify_h003.py) · **Full Report:** [`results/m2_h003_verification.json`](../results/m2_h003_verification.json)
+- **Replay & Architectural Invariants:** Independent execution of `apply_t2` matched Codex's `h003_half` shard SHA-256 bit-for-bit (`ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732`), as did `donor_override` with exact donor vectors under an inaccessible `donor_dir` sentinel. `float64` delta reversion restored the pristine shard SHA-256 with **`0` differing parameters** (`153/153` frozen vision tensors). All three verified checkpoints (`T2`, `C5_perm`, `C5_norm_matched`) preserved `873,438,784` stored parameters, `153/153` frozen vision tensors, `changed_params: 2` (`layers.13.linear_attn.{A_log,dt_bias}` head `12`), `donor_forward_passes: 0`, and `gradient_steps: 0`. Temporary verification directories were cleaned up, keeping `hf_cache/` at **`18G`** (`< 30 GB` cap).
+- **2D Delta Geometry (`layers.13.linear_attn.{A_log,dt_bias}` head 12):** `T2` delta = `[-0.10546875, +0.12890625]` (`||delta||_2 = 0.16655`, `rel_frob = 0.00017695`); canonical `C5_perm` (`seed=42`, mapped donor head `4`) reproduced Codex's shuffled shard SHA-256 `f47af66b18e02bf65920f47b750616cf2301da02c9a1ea31cb9972471926708c` with `[-0.03125, -2.21875]` (`||delta||_2 = 2.21897`, **`13.32x`** `T2` norm, `cos = -0.7650` vs `T2`). Norm-matched `C5_norm_matched` scaled the same shuffled direction to `[-0.00235558, -0.1640625]` (`||delta||_2 = 0.16408`, **`0.9851x`** `T2` norm, `1.49%` `bfloat16` rounding difference, `cos = -0.7648` vs `T2`).
+- **Blinded Validation Results (`nothink 1024`, greedy, M4 Max MPS `bfloat16`, `~104.8–106.2 tok/s`):**
+  - **`C0_raw` (reference):** `62.0%` `gsm8k_val` (`n=100`), `66.0%` `synthetic_val` (`n=150`: `40.0%` `carry_add_sub`, `68.0%` `mult_2x2_3x1`, `90.0%` `word_2step`).
+  - **`C4_act` (reference):** `62.0%` `gsm8k_val`, `64.67%` `synthetic_val` (`34.0%` carry, `66.0%` mult, `94.0%` word).
+  - **`T2` (`strength=0.5`, L13 H12):** `57.0%` `gsm8k_val`, `66.0%` `synthetic_val` (`38.0%` carry, `66.0%` mult, `94.0%` word).
+  - **`C5_perm` (`13.32x` shuffled-donor):** `57.0%` `gsm8k_val`, `66.67%` `synthetic_val` (`34.0%` carry, `78.0%` mult, `88.0%` word).
+  - **`C5_norm_matched` (`0.985x` shuffled-donor):** `59.0%` `gsm8k_val`, `65.33%` `synthetic_val` (`34.0%` carry, `72.0%` mult, `90.0%` word).
+- **Paired Inference (Exact McNemar & 10,000-resample Bootstrap 95% CI) & Stage 1 Conclusion:**
+  - `T2` vs `C0_raw` on `gsm8k_val`: `-5.0 pp` (`[-11.0, +1.0] pp`, `2` improved / `7` regressed, `p = 0.1797`); on `carry_add_sub`: `-2.0 pp` (`[-10.0, +6.0] pp`, `2/3`, `p = 1.0`).
+  - `T2` vs `C4_act` on `gsm8k_val`: `-5.0 pp` (`[-15.0, +5.0] pp`, `10/15`, `p = 0.4244`); on `carry_add_sub`: `+4.0 pp` (`[-10.0, +18.0] pp`, `7/5`, `p = 0.7744`).
+  - `T2` vs `C5_perm` on `gsm8k_val`: `0.0 pp` (`[-11.0, +11.0] pp`, `15/15`, `p = 1.0`); on `carry_add_sub`: `+4.0 pp` (`[-10.0, +18.0] pp`, `8/6`, `p = 0.7905`).
+  - `T2` vs `C5_norm_matched` on `gsm8k_val`: `-2.0 pp` (`[-8.0, +4.0] pp`, `4/6`, `p = 0.7539`); on `carry_add_sub`: `+4.0 pp` (`[-6.0, +14.0] pp`, `4/2`, `p = 0.6875`).
+  - **Budget Reconciliation (`D005`):** Codex's `H003` final meter (`\$5.988440` shadow) plus `H002` (`\$6.041536`) totaled `\$12.029976`, exceeding the `\$12.00` Astra sub-cap by `\$0.029976`. That `\$0.03` overrun is reconciled transparently against the approved `\$3.00` contingency buffer inside the `\$20.00` M2 pilot gate (`D005`), with `\$0.00` direct API/cloud spend (`\$13.1302` total Codex shadow across `H001`–`H003`).
+  - **Scientific Conclusion for Stage 1 (`Qwen3.5-2B -> Qwen3.5-0.8B`):** **Both Track `T1` (`H002`) and Track `T2` (`H003`) are verified negative on blinded validation.** Neither agent-directed weights-only nor activation-assisted training-free transplantation outperformed `C0_raw`, `C4`, or shuffled-donor `C5` controls on `gsm8k_val` or `carry_add_sub`. Ready for Stage 2 Gate review (`D005` / Protocol Section 14.2 M2).
