@@ -73,8 +73,8 @@
 # 3. Regenerate publication figures strictly from stored JSON outputs
 MPLCONFIGDIR=/tmp/mplconfig /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 src/paper/generate_figures.py
 
-# 3b. Package Overleaf-ready LaTeX bundle (upload to Overleaf -> Compiler: pdfLaTeX, Main: main.tex)
-cd paper && zip -r /tmp/awst_overleaf.zip main.tex references.bib figures/*.pdf && cd ..
+# 3b. Package Overleaf-ready LaTeX bundle at repository root (upload to Overleaf -> Compiler: pdfLaTeX, Main: main.tex)
+cd paper && zip -r ../awst_overleaf.zip main.tex references.bib figures/*.pdf && cd ..
 
 # 4. Recreate frozen H002 (C1, T1) and H003 (T2) edited checkpoints
 .venv/bin/python runs/codex_h002/apply_c1.py --recipient-dir hf_cache/models/qwen3.5_0.8b --out-dir hf_cache/edited/h002_recreated_c1 --manifest-path hf_cache/edited/h002_recreated_c1.json

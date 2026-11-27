@@ -77,8 +77,8 @@ awst/
 # Regenerate figures from stored results/*.json
 MPLCONFIGDIR=/tmp/mplconfig /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 src/paper/generate_figures.py
 
-# Package Overleaf LaTeX zip (upload to Overleaf, set Compiler = pdfLaTeX, Main = main.tex)
-cd paper && zip -r /tmp/awst_overleaf.zip main.tex references.bib figures/*.pdf && cd ..
+# Package Overleaf LaTeX zip at repository root (upload to Overleaf, set Compiler = pdfLaTeX, Main = main.tex)
+cd paper && zip -r ../awst_overleaf.zip main.tex references.bib figures/*.pdf && cd ..
 ```
 
 ---
