@@ -9,7 +9,7 @@ Per [`AWST_Research_Protocol_v0.3.md`](../../AWST_Research_Protocol_v0.3.md) Sec
 | [`H001_rq6_competency_pilot.md`](H001_rq6_competency_pilot.md) | RQ6 synthetic toy-network competency pilot (Tasks A, B, C) | GPT-6.2 Astra (Codex) | **COMPLETED & VERIFIED** (`3/3`, `\$1.10` in-turn shadow / `\$0.00` direct API; [`results/m2_rq6_competency_comparison.json`](../../results/m2_rq6_competency_comparison.json)) |
 | [`H002_stage1_awst_t1.md`](H002_stage1_awst_t1.md) | Stage 1 `C1` (donor-free) + `T1` (weights-only AWST, `2B -> 0.8B`) | GPT-6.2 Astra (Codex) | **COMPLETED & VERIFIED** (`T1` negative on validation: `57.0%` GSM8K vs `62.0%` `C0_raw`; [`results/m2_h002_verification.json`](../../results/m2_h002_verification.json)) |
 | [`H003_stage1_awst_t2.md`](H003_stage1_awst_t2.md) | Stage 1 `T2` (activation-assisted AWST, `2B -> 0.8B`) | GPT-6.2 Astra (Codex) | **COMPLETED & VERIFIED** (`T2` negative on validation: `57.0%` GSM8K vs `62.0%` `C0_raw`; [`results/m2_h003_verification.json`](../../results/m2_h003_verification.json)) |
-| [`H004_m3_independent_review.md`](H004_m3_independent_review.md) | Milestone M3 independent methodology & statistical review (no hidden data) | GPT-6.2 Astra (Codex) | **PENDING REVIEW-ONLY** (optional pre-M4 peer audit; `<= \$2.50` shadow cap) |
+| [`H004_m3_independent_review.md`](H004_m3_independent_review.md) | Milestone M3 independent methodology & statistical review (no hidden data) | GPT-6.2 Astra (Codex) | **COMPLETED & RECONCILED** (`\$1.161018` in-turn shadow / `\$0.00` direct API, zero model runs, zero hidden data accessed; [`runs/codex_h004/review.md`](../../runs/codex_h004/review.md)) |
 
 ## Required Handoff Procedure
 

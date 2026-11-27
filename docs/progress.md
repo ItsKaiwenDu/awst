@@ -1,11 +1,11 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-27  
-**Current Milestone:** `M3: Verification and analysis` — **M3 isolated 10-arm confirmatory evaluation & Holm-Bonferroni analysis complete (null result confirmed on both `T1` and `T2`); review-only `H004` ready before M4 paper writing.**
+**Current Milestone:** `M4: Writing and release preparation` — **M3 isolated 10-arm evaluation & `H004` independent review reconciled (neither frozen Stage 1 checkpoint met preregistered joint success criteria: `T1 - C0 = +3.0 pp [-2.0, +8.0]` spans `+5 pp` while failing Holm/`C5`; `T2 - C0 = 0.0 pp [-3.5, +3.5]` excludes `+5 pp`; `N=1` session/track).**  
 **Branch:** `main`  
 **M3 Freeze commit:** `d12e8fb` on `main` (prior to opening `/Users/kaiwendu/.awst_isolated_eval/`)
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001`, `H002`, `H003` verified; review-only `H004` drafted)
+**Secondary Weight-Space Programmer:** Codex (`GPT-6.2 Astra` — `H001`, `H002`, `H003` verified; `H004` review reconciled)
 
 ---
 
@@ -13,15 +13,15 @@
 
 | Category | Authorized | Spent to Date | Notes |
 |---|---:|---:|---|
-| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1 local setup & baselines completed at \$0.00; \$13.1302 cumulative shadow (`\$6.87` M2 headroom) |
+| Paid Pilot Gate (`D005`) | **\$20.00** (approved for M2) | \$0.00 | M1–M4 local work completed at \$0.00 direct spend; \$14.2912 cumulative shadow (`\$5.71` headroom) |
 | Gemini API | \$5.00 (within \$20 pilot / \$30 protocol cap) | \$0.00 | `D001` Option A matched check in M2 |
-| Astra API / Codex | \$12.00 (+ \$3.00 `D005` contingency) | \$0.00 direct | `H001` \$1.1003 + `H002` \$6.0415 + `H003` \$5.9884 = **\$13.1302** shadow (`H002`+`H003` = `\$12.0300`, `\$0.0300` reconciled against `D005` \$3.00 contingency). [H003 meter](../runs/codex_h003/accounting.json) |
+| Astra API / Codex | \$12.00 (+ \$3.00 `D005` contingency + `<= \$2.50` `H004` review cap) | \$0.00 direct | `H001` \$1.1003 + `H002` \$6.0415 + `H003` \$5.9884 + `H004` \$1.1610 = **\$14.2912** shadow (`H002`+`H003` = `\$12.0300`, `\$0.0300` reconciled against `D005` \$3.00 contingency). [H003 meter](../runs/codex_h003/accounting.json) · [H004 review](../runs/codex_h004/review.md) |
 | Cloud GPU | \$0.00 (protocol cap \$40.00) | \$0.00 | Local M4 Max first |
 | Storage & Misc | \$0.00 (protocol cap \$10.00) | \$0.00 | `18G` in `hf_cache/` (`< 30 GB` cap); 580 GiB free |
-| **Total Initial Study** | **\$20.00 pilot authorized / \$200.00 hard ceiling** | **\$0.00** | Zero paid work executed |
+| **Total Initial Study** | **\$20.00 pilot authorized / \$200.00 hard ceiling** | **\$0.00** | Zero direct paid API/cloud spend |
 
 - **Local Hardware Verified:** Apple M4 Max, 36 GiB unified memory (`38,654,705,664` bytes), 14 CPU cores, macOS `27.2.1` (`26B131`), `580 GiB` free disk space on `/`.
-- **Software Gap Identified:** Python `3.14.5` and `3.11` are installed (`huggingface_hub 1.29.0`, `numpy 2.5.1`), but `torch`, `transformers` (`>=5.2`), `safetensors`, `datasets`, `scipy`, and `pytest` are **not installed yet** (deferred to M1 `.venv` setup).
+- **Pinned Software Stack (`.venv` + System Matplotlib):** `.venv` runs Python `3.11.16`, `torch 2.15.0`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`, `scipy`, and `pytest 9.2.0`; system Python `3.14.5` provides `matplotlib 3.11.1` for figure generation.
 
 ---
 
@@ -56,19 +56,19 @@
 - [x] Complete H002 donor-free C1 and weights-only T1 trials and Antigravity independent verification (`C1`, `T1`, `C5_elem`, `C5_rowperm` on blinded `data/validation/`). *(Dev `+4.0 pp` GSM8K gain did **not** generalize to validation: `T1` `57.0%` GSM8K vs `C0_raw` `62.0%`, `C1` `59.0%`, `C5_rowperm` `59.0%`. See section 8 and [`results/m2_h002_verification.json`](../results/m2_h002_verification.json).)*
 - [x] Complete H003 activation-assisted development trials and return the frozen T2 checkpoint. [H003 report](../runs/codex_h003/report.md)
 - [x] Independently verify Stage 1 T2, shuffled-donor controls and blinded outcomes. *(Verified negative on validation: `T2` `57.0%` GSM8K / `38.0%` `carry_add_sub` vs `C0_raw` `62.0%`/`40.0%`, `C4_act` `62.0%`/`34.0%`, `C5_perm` `57.0%`/`34.0%`, `C5_norm_matched` `59.0%`/`34.0%`. See section 10 and [`results/m2_h003_verification.json`](../results/m2_h003_verification.json).)*
-- [x] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`). *(Researcher approved skipping Stage 2 `Qwen3.5-9B`, Stage 3, and Stage 4 under `D010` after verified Stage 1 negative findings on both `T1` and `T2`.)*
-- [x] Run approved second donor experiment if justified (Stage 3/4 gated separately). *(Formally skipped per `D010`; documented transparently rather than silently omitted.)*
+- [x] Review donor-dependence, preliminary results, budget, and regressions before approving Stage 2 (`Qwen3.5-9B`). *(Researcher approved skipping Stage 2 `Qwen3.5-9B`, Stage 3, and Stage 4 under `D011` [formerly `D010` at freeze] after verified Stage 1 negative findings on both `T1` and `T2`.)*
+- [x] Run approved second donor experiment if justified (Stage 3/4 gated separately). *(Formally skipped per `D011`; documented transparently rather than silently omitted.)*
 
-### M3: Verification and analysis *(Isolated 10-arm evaluation & stats complete at \$0.00 spend; independent review `H004` optional/pending)*
-- [x] Freeze selected methods and checkpoints before isolated final evaluation. *(Frozen in `D010`, `docs/preregistration.md` §8, and `runs/manifests/m3_frozen_checkpoint_audit.json` at commit `d12e8fb` before touching `/Users/kaiwendu/.awst_isolated_eval/`.)*
+### M3: Verification and analysis *(Isolated 10-arm evaluation, Holm-Bonferroni stats, and `H004` independent review complete at \$0.00 spend)*
+- [x] Freeze selected methods and checkpoints before isolated final evaluation. *(Frozen in `D011`, `docs/preregistration.md` §8, and `runs/manifests/m3_frozen_checkpoint_audit.json` at commit `d12e8fb` before touching `/Users/kaiwendu/.awst_isolated_eval/`.)*
 - [x] Verify reproducibility from recorded commits/manifests, CIs, independent runs, contamination risks, and alternative explanations. *(Evaluated all 10 frozen arms in [`results/m3_isolated_evaluation.json`](../results/m3_isolated_evaluation.json); single-session `N=1` constraint and dev-vs-test variance documented explicitly.)*
 - [x] Verify unchanged architecture/parameter count, zero gradient training, provenance, retention, latency, peak memory, and costs. *(Verified `873,438,784` stored params, `153/153` frozen vision tensors, `0` gradient steps, `70.0%` retention / `62.6` PPL, `~101 tok/s` [`95%` of `C0_raw`], `2395.8 MB` MPS [`1.00x` of `C0_raw`], `\$0.00` direct spend.)*
-- [ ] Request independent review without revealing hidden data; record and resolve findings. *(Review-only brief drafted in [`docs/handoffs/H004_m3_independent_review.md`](handoffs/H004_m3_independent_review.md); awaiting researcher decision to submit `H004` or proceed straight to M4.)*
+- [x] Request independent review without revealing hidden data; record and resolve findings. *(Review-only `H004` completed by GPT-6.2 Astra in [`runs/codex_h004/review.md`](../runs/codex_h004/review.md) at `\$1.161018` in-turn shadow / `\$0.00` direct API; all blocking, major, and suggestion items reconciled in `docs/` and `paper/`.)*
 
-### M4: Writing and release preparation
-- [ ] Write paper after verified results only, updating abstract to match evidence.
-- [ ] Verify all figures, tables, numerical claims, and references against stored outputs.
-- [ ] Prepare final artifact manifest, expense summary, and obtain human approval before public release.
+### M4: Writing and release preparation *(Manuscript, figures, manifest, and README complete at \$0.00 spend; paused at human release gate)*
+- [x] Write paper after verified results only, updating abstract to match evidence. *(Complete manuscript [`paper/awst_paper.md`](../paper/awst_paper.md) + [`paper/references.bib`](../paper/references.bib), rigorously calibrated to M1–M3 data and all `H004` independent review findings.)*
+- [x] Verify all figures, tables, numerical claims, and references against stored outputs. *(3 dual `.png`/`.pdf` figures generated programmatically via [`src/paper/generate_figures.py`](../src/paper/generate_figures.py); verified by [`src/paper/verify_paper_numbers.py`](../src/paper/verify_paper_numbers.py), `tests/test_paper_verification.py`, and `pandoc --citeproc`.)*
+- [ ] Prepare final artifact manifest, expense summary, and obtain human approval before public release. *(Final artifact manifest [`paper/artifact_manifest.md`](../paper/artifact_manifest.md), updated [`README.md`](../README.md), and itemized M0–M4 expense ledger [`$0.00` direct / `$14.2912` shadow] complete; awaiting human approval before any public release, publication, or checkpoint distribution.)*
 
 ---
 
@@ -83,7 +83,7 @@
 
 ## 5. Next actions
 
-1. **Researcher decision before Milestone M4 (Paper Writing):** Either submit review-only [`docs/handoffs/H004_m3_independent_review.md`](handoffs/H004_m3_independent_review.md) to GPT-6.2 Astra (`<= \$2.50` shadow cap, zero hidden test data exposed) to audit M3 before drafting the paper, or proceed directly to Milestone M4 (`paper/` manuscript drafting and artifact/expense verification).
+1. **Milestone M4 Execution:** Reconcile `H004` findings across project documentation, generate publication figures from stored JSONs, draft `paper/awst_paper.md` + `paper/references.bib` + `paper/artifact_manifest.md`, update `README.md`, verify all claims/tests programmatically, push to `origin/main`, and pause at the M4 human approval gate before any public release or checkpoint distribution.
 
 ## 8. Antigravity Independent Verification of H002 (`T1` / `C1` / `C5`), 2026-11-26
 
@@ -168,5 +168,14 @@
 - **Holm-Bonferroni Primary Contrasts & Hypothesis Verdicts:**
   - **Track `T1` (`H1`):** `T1 vs C1` = `+1.5 pp` (`[-3.5, +6.5]`, Holm `p = 0.7011`); `T1 vs C4_weights` = `+7.5 pp` (`[+1.0, +14.0]`, raw `p = 0.0400`, **Holm `p = 0.0800`** — driven by `C4_weights`'s `-4.5 pp` drop below `C0_raw`); `T1 vs C5_T1_rowperm` = `+0.5 pp` (`[-3.5, +4.5]`, `p = 1.0`). Fails `>= +5 pp` gain, fails Holm significance, fails donor dependence, fails OOD gain; passes retention (`0.0 pp`), structural invariants, and efficiency (`0.947x` speed, `1.000x` MPS memory).
   - **Track `T2` (`H1`):** `T2 vs C1` = `-1.5 pp` (Holm `p = 0.7201`); `T2 vs C4_act` = `+4.0 pp` (Holm `p = 0.6635`); `T2 vs C5_T2_norm_matched` = **`-3.5 pp` (`[-8.5, +1.0]`, `p = 0.2295`)** on GSM8K and `-5.0 pp` on OOD. Fails gain, Holm significance, donor dependence, and OOD; passes retention, invariants, and efficiency (`0.952x` speed, `1.000x` MPS memory).
-  - **Alignment Hypothesis (`H3`):** Strongly corroborated on OOD & prose fluency — unaligned `C3` caused `-20.0 pp` OOD collapse (`p < 1e-4`) and `+16.2` PPL increase, whereas `C4_act` (`+20.0 pp`, `p = 0.0001`), `T1` (`+18.0 pp`, `p = 0.0001`), `T2` (`+15.0 pp`, `p = 0.0041`), and `C4_weights` (`+13.0 pp`, `p = 0.0192`) all significantly avoided `C3`'s degradation.
-  - **Cumulative Cost & Storage:** `\$0.00` direct API/cloud spend (`\$13.1302` cumulative Codex shadow across `H001`–`H003`, `\$6.87` unused inside `D005`'s `\$20.00` pilot gate); `18G` in `hf_cache/` (`< 30 GB` cap); `15/15` unit tests passing (`pytest -q`).
+  - **Alignment Finding (`H3`):** Unaligned `C3` failed specifically on OOD (`-20.0 pp`, exact `p = 3.59e-5`) and 10 prose passages (`62.63 -> 78.87` PPL); `C4_act` (`+20.0 pp`, `p = 0.0001`), `T1` (`+18.0 pp`, `p = 0.0001`), `T2` (`+15.0 pp`, `p = 0.0041`), and closest single-draw comparator `C4_weights` (`+13.0 pp`, raw `p = 0.0192`, `-2.5 pp` GSM8K) all avoided that specific OOD/PPL drop, though selection, projection, and matching co-vary.
+  - **Cumulative Cost & Storage:** `\$0.00` direct API/cloud spend (`\$14.2912` cumulative Codex shadow across `H001`–`H004`, `\$5.71` unused inside `D005`'s `\$20.00` pilot gate); `18G` in `hf_cache/` (`< 30 GB` cap).
+
+## 12. `H004` Independent Review & Resolution, 2026-11-27
+
+- **Review Artifact:** [`runs/codex_h004/review.md`](../runs/codex_h004/review.md) (`GPT-6.2 Astra`, Codex, `high` reasoning effort, review-only audit of commit `42b859b` vs. freeze `d12e8fb`; zero model runs, zero hidden data accessed; `\$1.161018` in-turn shadow cost at cutoff `2026-11-27T16:07:34Z`, `\$0.00` direct API spend).
+- **Independent Verification Outcome:** Reproduced `133/133` contrast-by-endpoint tables (sample sizes, marginals, signed differences, exact two-sided McNemar `p`-values) and all `6/6` two-contrast Holm-Bonferroni families bit-for-bit.
+- **Resolved Action Items:**
+  - **`[BLOCKING]` Calibration:** Replaced uncalibrated null-confirmation phrasing across M4 docs and paper; accurately report that neither frozen Stage 1 checkpoint met preregistered joint success criteria, distinguishing `T1 - C0` (`+3.0 pp [-2.0, +8.0]`, spans `+5 pp` while failing Holm and `C5`) from `T2 - C0` (`0.0 pp [-3.5, +3.5]`, excludes `+5 pp` on these 200 items) under `N=1` single-session constraints.
+  - **`[MAJOR]` Scope & Power Disclosures:** Integrated into paper Section 6 (`Analysis`) and Section 7 (`Limitations`): McNemar power at `n=200` (`~40%/30%` at `14%` discordance, `~26%/18%` at `23.5%` discordance for `+5 pp`), sparse-flip CI vs. exact `p` reporting (`T2` OOD `0/5`: `[-10, -1] pp`, `p = .0625`), `T1 - C4_weights` decomposition (`+3.0 pp` vs `-4.5 pp`), control asymmetries (`C1`, `C2`, `C4` param scale, single-seed/conditional `C5`), procedural isolation vs. GSM8K/template exposure, parser fallback/truncation/loop diagnostics, `H3` secondary scoping, `21/30` retention resolution (`1` flip = `3.33 pp`), and post-eval MPS memory sampling vs. mid-generation peak.
+  - **`[SUGGESTION]` Audit Trail Cleanup:** Resolved duplicate `D010` in [`docs/decisions.md`](decisions.md) by moving `H003 activation localization` chronologically to `D010` and renumbering `Skip Stage 2 & Freeze M3 Confirmatory Scope` to `D011` with explicit cross-references in [`docs/preregistration.md`](preregistration.md) and [`docs/progress.md`](progress.md).

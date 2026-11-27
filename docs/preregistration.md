@@ -120,7 +120,7 @@
 
 ## 8. Milestone M3 Confirmatory Freeze Addendum (2026-11-26)
 
-Per researcher approval recorded in [`docs/decisions.md`](decisions.md#d010--skip-stage-2-qwen35-9b-and-freeze-m3-confirmatory-scope) (`D010`), Stage 2 (`Qwen/Qwen3.5-9B`), Stage 3 (`google/gemma-4-E2B-it`), and Stage 4 (`moonshotai/Kimi-K3.1-Pro`) are skipped following verified negative Stage 1 validation results on both `T1` and `T2`. Before opening any file inside `/Users/kaiwendu/.awst_isolated_eval/`, the M3 confirmatory evaluation is frozen as follows:
+Per researcher approval recorded in [`docs/decisions.md`](decisions.md#d011--skip-stage-2-qwen35-9b-and-freeze-m3-confirmatory-scope) (`D011`; originally `D010` at freeze commit `d12e8fb`, renumbered in `docs/decisions.md` without altering any frozen protocol parameter), Stage 2 (`Qwen/Qwen3.5-9B`), Stage 3 (`google/gemma-4-E2B-it`), and Stage 4 (`moonshotai/Kimi-K3.1-Pro`) are skipped following verified negative Stage 1 validation results on both `T1` and `T2`. Before opening any file inside `/Users/kaiwendu/.awst_isolated_eval/`, the M3 confirmatory evaluation is frozen as follows:
 
 - **Frozen 10 Arms:** `C0_raw`, `Qwen3.5-2B`, `C1`, `C3` (`alpha=0.05`, layers `8–23`, `seed=42`), `C4_weights`, `C4_act`, `T1`, `C5_T1_rowperm` (`seed=42`), `T2`, and `C5_T2_norm_matched` (`seed=42`). Single-session (`N=1` per track) replication scope is noted explicitly per Section 6 / Protocol Section 11.
 - **Frozen Isolated Test Splits (`/Users/kaiwendu/.awst_isolated_eval/`):**

@@ -87,7 +87,14 @@ The researcher submitted the H002 implementation handoff on 2026-11-26. Codex fi
 
 ---
 
-### D010 — Skip Stage 2 (Qwen3.5-9B) and Freeze M3 Confirmatory Scope
+### D010 — H003 activation localization and development selection
+
+The researcher submitted the H003 implementation handoff on November 26, 2026. Within the authorized T2 arm, Codex froze the head-matching rule, two-head ablation shortlist and two strengths before any model forward. The pilot reserves 16 calibration, 20 selection and 64 disjoint follow-up examples from each development family. Equal-family total correct, then carry correct, then smaller strength selects one edit. C0 and the archived C4 activation baseline are measured on the same development prompts. [Frozen design](../runs/codex_h003/design.md)
+
+---
+
+### D011 — Skip Stage 2 (Qwen3.5-9B) and Freeze M3 Confirmatory Scope
+*(originally numbered D010 at freeze commit `d12e8fb`; renumbered D011 during M4 reconciliation after H004 flagged the duplicate ID)*
 - **Status:** `APPROVED — 2026-11-26`
 - **Context:** Independent validation across `Qwen/Qwen3.5-2B -> Qwen/Qwen3.5-0.8B` (`data/validation/`) established verified negative outcomes for both Stage 1 AWST tracks (`T1` `H002`: `57.0%` GSM8K, `40.0%` `carry_add_sub` vs `C0_raw` `62.0%`/`40.0%` and `C5_rowperm` `59.0%`/`40.0%`; `T2` `H003`: `57.0%` GSM8K, `38.0%` `carry_add_sub` vs `C0_raw` `62.0%`/`40.0%`, `C4_act` `62.0%`/`34.0%`, and `C5_norm_matched` `59.0%`/`34.0%`). After reviewing the Stage 1 evidence and structural mismatches of `Qwen/Qwen3.5-9B` (`32` layers vs `24`, `hidden_size 4096` vs `1024`, untied embeddings), the researcher approved skipping Stage 2 (`Qwen3.5-9B`), Stage 3 (`google/gemma-4-E2B-it`), and Stage 4 (`moonshotai/Kimi-K3.1-Pro`) and proceeding directly to Milestone M3 confirmatory evaluation and Milestone M4 paper writing.
 - **Frozen Confirmatory Matrix (pinned to commit `ce93542`, prior to opening `/Users/kaiwendu/.awst_isolated_eval/`):**
@@ -99,7 +106,3 @@ The researcher submitted the H002 implementation handoff on 2026-11-26. Codex fi
      - `synthetic_ood_test`: full `n=100` unseen wording/template OOD split (`sha256: 4904d73b...`).
   4. **Capability Retention & Efficiency (`src/evaluation/retention.py`):** 30-item deterministic non-math IFEval-style instruction-following suite (6 categories × 5 items) plus teacher-forced perplexity on 10 original non-math English passages, peak MPS memory, and decoding `tok/s`.
   5. **Statistical Plan & Strict Isolation:** `10,000`-resample paired bootstrap 95% CIs (`default_rng(42)`), exact two-sided McNemar tests, and Holm-Bonferroni correction across the primary contrasts per track (`{T1 vs C1, T1 vs C4_weights}` and `{T2 vs C1, T2 vs C4_act}`). Raw isolated test logs remain strictly outside the repository at `/Users/kaiwendu/.awst_isolated_eval/m3_logs/`; only aggregate statistics and paired counts are stored in `results/m3_isolated_evaluation.json`.
-
-### D010 — H003 activation localization and development selection
-
-The researcher submitted the H003 implementation handoff on November 26, 2026. Within the authorized T2 arm, Codex froze the head-matching rule, two-head ablation shortlist and two strengths before any model forward. The pilot reserves 16 calibration, 20 selection and 64 disjoint follow-up examples from each development family. Equal-family total correct, then carry correct, then smaller strength selects one edit. C0 and the archived C4 activation baseline are measured on the same development prompts. [Frozen design](../runs/codex_h003/design.md)
