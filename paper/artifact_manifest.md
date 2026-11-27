@@ -3,7 +3,7 @@
 **Date:** 2026-11-27  
 **Repository:** `/Users/kaiwendu/Documents/GitHub/awst` (`origin/main`)  
 **Freeze Reference Commit:** `d12e8fb` (M3 evaluation `42b859b`, `H004` review `9c975e9`)  
-**Release Status:** Private research repository; **pending human approval before any publication, checkpoint distribution, or public release**.
+**Release Status:** **M0–M4 Approved as Complete & Archived Privately (2026-11-27)** — `D011` stop retained; repository remains private with no public release or checkpoint distribution.
 
 ---
 
@@ -49,14 +49,14 @@
 
 | Item / Session | Mode & Model | Direct Paid USD | Shadow API USD | Scope / Evidence |
 |---|---|---:|---:|---|
-| Local ML Runs (`M1`–`M4`) | Apple M4 Max MPS (`bfloat16`) | `\$0.00` | `\$0.00` | Baselines, `C2`–`C4`, `H002`/`H003` verification, M3 10-arm isolated eval |
-| **`H001` (`RQ6` Competency)** | Codex (`GPT-6.2 Astra`, `max`) | `\$0.00` | `\$1.1002544` | 1 turn, `490,523` tokens; in-turn receipt (`runs/competency_astra/report.md`) |
-| **`H002` (Stage 1 `C1` + `T1`)** | Codex (`GPT-6.2 Astra`, `max`) | `\$0.00` | `\$6.041536` | Closed receipt (`runs/codex_h003/accounting.json`); 6.85M in / 50.0K out |
-| **`H003` (Stage 1 `T2`)** | Codex (`GPT-6.2 Astra`, `max`) | `\$0.00` | `\$5.988440` | Cutoff receipt (`runs/codex_h003/accounting.json`); 56/64 donor forwards |
-| **`H004` (M3 Independent Review)** | Codex (`GPT-6.2 Astra`, `high`) | `\$0.00` | `\$1.161018` | In-turn receipt (`runs/codex_h004/review.md`); 0 model runs |
-| **Total Across Initial Study** | **`\$20.00` M2 pilot gate / `\$200.00` ceiling** | **`\$0.00`** | **`\$14.2912484`** | **`\$5.71` unused pilot shadow headroom; `\$0.00` direct spend; `18 GB` cache (`< 30 GB`)** |
+| Local ML Runs (`M1`–`M4`) | Apple M4 Max MPS (`bfloat16`) | `$0.00` | `$0.00` | Baselines, `C2`–`C4`, `H002`/`H003` verification, M3 10-arm isolated eval |
+| **`H001` (`RQ6` Competency)** | Codex (`GPT-6.2 Astra`, `max`) | `$0.00` | `$1.1002544` | 1 turn, `490,523` tokens; in-turn receipt (`runs/competency_astra/report.md`) |
+| **`H002` (Stage 1 `C1` + `T1`)** | Codex (`GPT-6.2 Astra`, `max`) | `$0.00` | `$6.041536` | Closed receipt (`runs/codex_h003/accounting.json`); 6.85M in / 50.0K out |
+| **`H003` (Stage 1 `T2`)** | Codex (`GPT-6.2 Astra`, `max`) | `$0.00` | `$5.988440` | Cutoff receipt (`runs/codex_h003/accounting.json`); 56/64 donor forwards |
+| **`H004` (M3 Independent Review)** | Codex (`GPT-6.2 Astra`, `high`) | `$0.00` | `$1.161018` | In-turn receipt (`runs/codex_h004/review.md`); 0 model runs |
+| **Total Across Initial Study** | **`$20.00` M2 pilot gate / `$200.00` ceiling** | **`$0.00`** | **`$14.2912484`** | **`$5.71` unused pilot shadow headroom; `$0.00` direct spend; `18 GB` cache (`< 30 GB`)** |
 
-*Reconciliation note:* `H002` + `H003` (`\$12.029976`) exceeded the initial `\$12.00` Astra pilot sub-cap by `\$0.029976`, transparently reconciled within the `\$3.00` contingency reserve inside `D005`.
+*Reconciliation note:* `H002` + `H003` (`$12.029976`) exceeded the initial `$12.00` Astra pilot sub-cap by `$0.029976`, transparently reconciled within the `$3.00` contingency reserve inside `D005`.
 
 ---
 
@@ -85,7 +85,7 @@ MPLCONFIGDIR=/tmp/mplconfig /Library/Frameworks/Python.framework/Versions/3.14/b
 
 ---
 
-## 5. Remaining Future Work & Release Gate
+## 5. Remaining Future Work & Release Sign-Off
 
-- **Human Gate Pending:** Publication, repository visibility changes, or derived checkpoint distribution require explicit researcher authorization (`AWST_Research_Protocol_v0.3.md` Section 14.2 M4).
+- **Researcher M4 Sign-Off (2026-11-27):** Project AWST M0–M4 approved as complete and archived privately (`D011` stop retained; repository remains private with no public release or checkpoint distribution). Any future publication, visibility change, or checkpoint release requires a new explicit authorization.
 - **Deferred / Skipped Scope (`D011`):** Multi-session replication (`N >= 5` independent Codex runs per track), Stage 2 (`Qwen/Qwen3.5-9B`), Stage 3 (`google/gemma-4-E2B-it`), Stage 4 (`moonshotai/Kimi-K3.1-Pro` downstream remote transplantation), blinded manual parse-method audits on isolated completions, and intermediate-scale causal subspace transfer (`0.01%`–`1%` parameter regime).

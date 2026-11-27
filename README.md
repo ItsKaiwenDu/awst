@@ -1,7 +1,7 @@
 # Agentic Weight-Space Transplantation (AWST)
 
 **Title:** *Agentic Weight-Space Transplantation: An Empirical Feasibility Study on Training-Free Mathematical Transfer Between Language Models*  
-**Status:** **Milestones M0–M4 Complete** (awaiting human approval prior to any public release or publication)  
+**Status:** **Milestones M0–M4 Complete & Archived Privately** (researcher sign-off 2026-11-27; `D011` stop retained, repository remains private)  
 **Primary Domain:** Grade-school mathematical reasoning (multi-digit carry/borrow arithmetic + GSM8K)  
 **Spend to Date:** **\$0.00** direct API/cloud spend / \$200.00 hard ceiling (**\$14.2912** cumulative Codex shadow across `H001`–`H004` inside the authorized \$20.00 M2 pilot gate)
 
@@ -85,4 +85,4 @@ MPLCONFIGDIR=/tmp/mplconfig /Library/Frameworks/Python.framework/Versions/3.14/b
 - Single editing session (`N=1`) per track precludes statistical estimation of run-to-run agent variability; GSM8K subset (`n=200`) provides moderate power for `+5 pp` effects (~`26%–40%` exact McNemar depending on discordance).
 - `synthetic_arithmetic.py` generator and OOD templates are agent-readable in-repo; OOD tests unseen two-step wording rather than new carry algorithms; GSM8K parser uses a last-number fallback without a blinded human completion audit.
 - `ret_ifeval` (`n=30`, `21/30` exact match) and single post-eval MPS memory snapshots (`2395.8 MB`) do not certify broad general-capability preservation or mid-generation peak memory bounds.
-- Repository remains **private**; public release, publication, or weight distribution requires explicit human approval (`AWST_Research_Protocol_v0.3.md` Section 14.2 M4).
+- Repository remains **private** per researcher 2026-11-27 M4 sign-off (`D011` stop retained); any future public release, publication, or weight distribution requires separate human approval (`AWST_Research_Protocol_v0.3.md` Section 14.2 M4).

@@ -1,7 +1,7 @@
 # Project AWST — Progress Log
 
 **Date:** 2026-11-27  
-**Current Milestone:** `M4: Writing and release preparation` — **M3 isolated 10-arm evaluation & `H004` independent review reconciled (neither frozen Stage 1 checkpoint met preregistered joint success criteria: `T1 - C0 = +3.0 pp [-2.0, +8.0]` spans `+5 pp` while failing Holm/`C5`; `T2 - C0 = 0.0 pp [-3.5, +3.5]` excludes `+5 pp`; `N=1` session/track).**  
+**Current Milestone:** `M4: Writing and release preparation` — **Complete & archived privately per 2026-11-27 researcher sign-off (`D011` stop retained; M0–M4 all `[x]`; repository remains private with zero direct paid spend).**
 **Branch:** `main`  
 **M3 Freeze commit:** `d12e8fb` on `main` (prior to opening `/Users/kaiwendu/.awst_isolated_eval/`)
 **Primary Harness:** Google Antigravity (`Gemini 4 Neon`)  
@@ -65,10 +65,10 @@
 - [x] Verify unchanged architecture/parameter count, zero gradient training, provenance, retention, latency, peak memory, and costs. *(Verified `873,438,784` stored params, `153/153` frozen vision tensors, `0` gradient steps, `70.0%` retention / `62.6` PPL, `~101 tok/s` [`95%` of `C0_raw`], `2395.8 MB` MPS [`1.00x` of `C0_raw`], `\$0.00` direct spend.)*
 - [x] Request independent review without revealing hidden data; record and resolve findings. *(Review-only `H004` completed by GPT-6.2 Astra in [`runs/codex_h004/review.md`](../runs/codex_h004/review.md) at `\$1.161018` in-turn shadow / `\$0.00` direct API; all blocking, major, and suggestion items reconciled in `docs/` and `paper/`.)*
 
-### M4: Writing and release preparation *(Manuscript, figures, manifest, and README complete at \$0.00 spend; paused at human release gate)*
+### M4: Writing and release preparation *(Complete & archived privately 2026-11-27 at \$0.00 direct spend)*
 - [x] Write paper after verified results only, updating abstract to match evidence. *(Complete manuscript [`paper/awst_paper.md`](../paper/awst_paper.md) + [`paper/references.bib`](../paper/references.bib), rigorously calibrated to M1–M3 data and all `H004` independent review findings.)*
 - [x] Verify all figures, tables, numerical claims, and references against stored outputs. *(3 dual `.png`/`.pdf` figures generated programmatically via [`src/paper/generate_figures.py`](../src/paper/generate_figures.py); verified by [`src/paper/verify_paper_numbers.py`](../src/paper/verify_paper_numbers.py), `tests/test_paper_verification.py`, and `pandoc --citeproc`.)*
-- [ ] Prepare final artifact manifest, expense summary, and obtain human approval before public release. *(Final artifact manifest [`paper/artifact_manifest.md`](../paper/artifact_manifest.md), updated [`README.md`](../README.md), and itemized M0–M4 expense ledger [`$0.00` direct / `$14.2912` shadow] complete; awaiting human approval before any public release, publication, or checkpoint distribution.)*
+- [x] Prepare final artifact manifest, expense summary, and obtain human approval before public release. *(Final artifact manifest [`paper/artifact_manifest.md`](../paper/artifact_manifest.md), updated [`README.md`](../README.md), and itemized M0–M4 expense ledger [`$0.00` direct / `$14.2912` shadow] complete; researcher approved closing M0–M4 privately on 2026-11-27 with `D011` stop retained and no public release.)*
 
 ---
 
