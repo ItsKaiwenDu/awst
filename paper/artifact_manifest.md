@@ -11,7 +11,8 @@
 
 | Category | Path | Role / Verification |
 |---|---|---|
-| **Manuscript & BibTeX** | [`paper/awst_paper.md`](awst_paper.md) | Complete empirical feasibility report following Protocol Section 13 & `H004` review |
+| **Manuscript & BibTeX** | [`paper/main.tex`](main.tex) | Overleaf-ready `pdfLaTeX` manuscript (vector `.pdf` figures + `plainnat` BibTeX) |
+| | [`paper/awst_paper.md`](awst_paper.md) | Markdown manuscript mirror (Protocol Section 13 & `H004` review) |
 | | [`paper/references.bib`](references.bib) | 15 verified primary references (byte-identical to `docs/literature/bibliography.bib`) |
 | **Publication Figures** | [`paper/figures/fig1_split_trajectory.png`](figures/fig1_split_trajectory.png) (`.pdf`) | Blinded validation vs. isolated test accuracy (`C0`–`C5`, `T1`, `T2`, `Qwen3.5-2B`) |
 | | [`paper/figures/fig2_m3_forest_contrasts.png`](figures/fig2_m3_forest_contrasts.png) (`.pdf`) | Paired differences, 95% bootstrap CIs, exact McNemar `p`, track Holm `p` |
@@ -71,6 +72,9 @@
 
 # 3. Regenerate publication figures strictly from stored JSON outputs
 MPLCONFIGDIR=/tmp/mplconfig /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 src/paper/generate_figures.py
+
+# 3b. Package Overleaf-ready LaTeX bundle (upload to Overleaf -> Compiler: pdfLaTeX, Main: main.tex)
+cd paper && zip -r /tmp/awst_overleaf.zip main.tex references.bib figures/*.pdf && cd ..
 
 # 4. Recreate frozen H002 (C1, T1) and H003 (T2) edited checkpoints
 .venv/bin/python runs/codex_h002/apply_c1.py --recipient-dir hf_cache/models/qwen3.5_0.8b --out-dir hf_cache/edited/h002_recreated_c1 --manifest-path hf_cache/edited/h002_recreated_c1.json

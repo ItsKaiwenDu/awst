@@ -24,7 +24,7 @@ Under a frozen greedy `enable_thinking=False`, `1,024`-token protocol (`nothink 
 
 ## Primary Deliverables
 
-- **Manuscript:** [`paper/awst_paper.md`](paper/awst_paper.md) (complete Sections 1–9 + Appendices, aligned with `H004` independent audit)
+- **Manuscript (LaTeX / Markdown):** [`paper/main.tex`](paper/main.tex) (Overleaf-ready `pdfLaTeX` + vector `.pdf` figures + [`paper/references.bib`](paper/references.bib)) · [`paper/awst_paper.md`](paper/awst_paper.md) (Markdown mirror)
 - **Publication Figures:** [`paper/figures/`](paper/figures/) (`fig1_split_trajectory`, `fig2_m3_forest_contrasts`, `fig3_edit_magnitude_vs_ood_ppl` in `.png` and `.pdf`)
 - **Final Artifact Manifest & Expense Ledger:** [`paper/artifact_manifest.md`](paper/artifact_manifest.md)
 - **Canonical Protocol & Records:** [`AWST_Research_Protocol_v0.3.md`](AWST_Research_Protocol_v0.3.md), [`docs/preregistration.md`](docs/preregistration.md), [`docs/decisions.md`](docs/decisions.md) (`D001`–`D011`), [`docs/progress.md`](docs/progress.md), [`docs/permissions.md`](docs/permissions.md)
@@ -76,6 +76,9 @@ awst/
 
 # Regenerate figures from stored results/*.json
 MPLCONFIGDIR=/tmp/mplconfig /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 src/paper/generate_figures.py
+
+# Package Overleaf LaTeX zip (upload to Overleaf, set Compiler = pdfLaTeX, Main = main.tex)
+cd paper && zip -r /tmp/awst_overleaf.zip main.tex references.bib figures/*.pdf && cd ..
 ```
 
 ---

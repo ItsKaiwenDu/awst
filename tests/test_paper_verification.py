@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from src.paper.verify_paper_numbers import verify_paper_artifacts
+from src.paper.verify_paper_numbers import verify_latex_manuscript, verify_paper_artifacts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_paper_numbers_citations_and_figures_verified() -> None:
     errors = verify_paper_artifacts()
     assert errors == [], f"Paper verification failures: {errors}"
+
+
+def test_latex_overleaf_manuscript_verified() -> None:
+    errors = verify_latex_manuscript()
+    assert errors == [], f"LaTeX manuscript verification failures: {errors}"
 
 
 def test_expected_publication_figures_present() -> None:
