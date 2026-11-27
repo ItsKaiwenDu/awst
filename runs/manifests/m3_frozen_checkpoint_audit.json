@@ -1,0 +1,66 @@
+{
+  "timestamp_utc": "2026-11-27T04:22:33.091126+00:00",
+  "milestone": "M3_checkpoint_audit",
+  "persistent_arms": {
+    "C0_raw": {
+      "path": "hf_cache/models/qwen3.5_0.8b",
+      "shard_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+      "total_params": 873438784
+    },
+    "Qwen3.5-2B": {
+      "path": "hf_cache/models/qwen3.5_2b",
+      "shard_sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+      "total_params": 2274069824
+    },
+    "C1": {
+      "path": "hf_cache/edited/h002_c1_low",
+      "shard_sha256": "b11f16df6de7bfb5f060789477a4e67764946f111feccd3a871d2440227ad11a",
+      "total_params": 873438784,
+      "frozen_tensors_verified": 153,
+      "changed_tensor_count": 1,
+      "changed_params": 9097,
+      "overall_relative_frobenius_norm": 3.961378765963135e-05
+    },
+    "C4_weights": {
+      "path": "hf_cache/edited/m2_c4_weights",
+      "shard_sha256": "1ecd31aab734047054734dd4ffb3ad7a97f1464cb92531d0d23419928fa0fc8d",
+      "total_params": 873438784,
+      "frozen_tensors_verified": 153,
+      "changed_tensor_count": 48,
+      "changed_params": 172514552,
+      "overall_relative_frobenius_norm": 0.010027944483526313
+    },
+    "C4_act": {
+      "path": "hf_cache/edited/m2_c4_act",
+      "shard_sha256": "2814219eb02445e4e74afad31d38fb0f8536be93d07b597dd2444698b6792491",
+      "total_params": 873438784,
+      "frozen_tensors_verified": 153,
+      "changed_tensor_count": 48,
+      "changed_params": 168325062,
+      "overall_relative_frobenius_norm": 0.004408709544288523
+    },
+    "T1": {
+      "path": "hf_cache/edited/h002_t1_low",
+      "shard_sha256": "da9ad05f9c4931477197b46581ed83653485f16763eeb7197bb9aaead2f81414",
+      "total_params": 873438784,
+      "frozen_tensors_verified": 153,
+      "changed_tensor_count": 1,
+      "changed_params": 9050,
+      "overall_relative_frobenius_norm": 3.9525869099494756e-05
+    },
+    "T2": {
+      "path": "hf_cache/edited/h003_half",
+      "shard_sha256": "ea5c744fe4d6627c2faefee13e2c2ad97c44f3ad012c7adc491d60290f6bb732",
+      "total_params": 873438784,
+      "frozen_tensors_verified": 153,
+      "changed_tensor_count": 2,
+      "changed_params": 2,
+      "overall_relative_frobenius_norm": 0.00017694898799879393
+    }
+  },
+  "rebuilt_temp_arms": [
+    "C3",
+    "C5_T1_rowperm",
+    "C5_T2_norm_matched"
+  ]
+}

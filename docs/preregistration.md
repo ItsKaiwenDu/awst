@@ -115,3 +115,17 @@
   2. Donor `Qwen/Qwen3.5-2B` leads `Qwen/Qwen3.5-0.8B` by **+38.0 pp** on `carry_add_sub` (`40% -> 78%`), **+18.0 pp** on `mult_2x2_3x1` (`68% -> 86%`), and **+20.0 pp** on `gsm8k_val` (`62% -> 82%`).
   3. Remote HTTP `206` reader verified bit-exact at `9,893x` byte reduction.
 - **M2 Authorized Pilot Scope (`D008`):** Stage 1 evaluates both `T1` (weights-only, paired with `C4_weights`) and `T2` (activation-assisted, paired with `C4_act`) strictly unpooled within the authorized \$20.00 pilot gate.
+
+---
+
+## 8. Milestone M3 Confirmatory Freeze Addendum (2026-11-26)
+
+Per researcher approval recorded in [`docs/decisions.md`](decisions.md#d010--skip-stage-2-qwen35-9b-and-freeze-m3-confirmatory-scope) (`D010`), Stage 2 (`Qwen/Qwen3.5-9B`), Stage 3 (`google/gemma-4-E2B-it`), and Stage 4 (`moonshotai/Kimi-K3.1-Pro`) are skipped following verified negative Stage 1 validation results on both `T1` and `T2`. Before opening any file inside `/Users/kaiwendu/.awst_isolated_eval/`, the M3 confirmatory evaluation is frozen as follows:
+
+- **Frozen 10 Arms:** `C0_raw`, `Qwen3.5-2B`, `C1`, `C3` (`alpha=0.05`, layers `8–23`, `seed=42`), `C4_weights`, `C4_act`, `T1`, `C5_T1_rowperm` (`seed=42`), `T2`, and `C5_T2_norm_matched` (`seed=42`). Single-session (`N=1` per track) replication scope is noted explicitly per Section 6 / Protocol Section 11.
+- **Frozen Isolated Test Splits (`/Users/kaiwendu/.awst_isolated_eval/`):**
+  - `gsm8k_test.jsonl`: `n=200` deterministically sampled via `sorted(random.Random(20261126).sample(range(1319), 200))`.
+  - `synthetic_test.jsonl`: `n=150` balanced (`50` per sub-skill: `carry_add_sub`, `mult_2x2_3x1`, `word_2step`).
+  - `synthetic_ood_test.jsonl`: full `n=100`.
+- **Retention & Perplexity (`src/evaluation/retention.py`):** 30-item non-math IFEval-style instruction-following suite + 10-passage general-prose perplexity (`NLL` & `PPL`).
+- **Holm-Bonferroni Primary Contrasts:** Adjusted separately within Track `T1` (`{T1 vs C1, T1 vs C4_weights}`) and Track `T2` (`{T2 vs C1, T2 vs C4_act}`), alongside `C5` donor-dependence, `H3` alignment (`C4`/`T1`/`T2` vs `C3`), 10,000-resample paired bootstrap 95% CIs, and M4 Max device efficiency checks. Raw per-item isolated test logs are stored strictly at `/Users/kaiwendu/.awst_isolated_eval/m3_logs/`.
