@@ -140,9 +140,9 @@ def make_fig1_split_trajectory(
         ("C1", "C1\n(donor-\nfree)"),
         ("C4_weights", "C4\nweights\n(SVD)"),
         ("C4_act", "C4 act\n(APM+\nridge)"),
-        ("T1", "T1\n(H002\nwts-only)"),
+        ("T1", "T1\n(wts-\nonly)"),
         ("C5_T1_rowperm", "C5-T1\n(row-\nperm)"),
-        ("T2", "T2\n(H003\nact)"),
+        ("T2", "T2\n(act-\nassist.)"),
         ("C5_T2_norm_matched", "C5-T2\n(norm-\nmatch)"),
         ("Qwen3.5-2B", "Qwen3.5\n-2B\n(donor)"),
     ]
@@ -266,8 +266,8 @@ def make_fig1_split_trajectory(
 
     # Clear custom legend on Panel A
     legend_handles = [
-        mpatches.Patch(facecolor="#CBD2D9", edgecolor="#333333", label="Blinded Validation (M2)"),
-        mpatches.Patch(facecolor=C_GRAY, edgecolor="#333333", label="Isolated Test (M3, Controls)"),
+        mpatches.Patch(facecolor="#CBD2D9", edgecolor="#333333", label="Blinded Validation"),
+        mpatches.Patch(facecolor=C_GRAY, edgecolor="#333333", label="Isolated Test (Controls)"),
         mpatches.Patch(facecolor=C_BLUE, edgecolor="#333333", label="T1 (Weights-Only AWST)"),
         mpatches.Patch(facecolor=C_ORANGE, edgecolor="#333333", label="T2 (Activation-Assisted AWST)"),
         mpatches.Patch(facecolor=C_TEAL, edgecolor="#333333", label="Qwen3.5-2B Donor"),
@@ -292,7 +292,7 @@ def make_fig1_split_trajectory(
     )
 
     fig.suptitle(
-        "Stage 1 Cross-Split Accuracy: Development-to-Held-Out Mirage & Control Overlap",
+        "Cross-Split Accuracy: Development-to-Held-Out Mirage & Control Overlap",
         y=1.03,
     )
     fig.tight_layout()
@@ -391,7 +391,7 @@ def make_fig2_m3_forest_contrasts(m3: dict) -> list[Path]:
             ax.text(xlim[0] + 0.6, 3.35, "Track T2 (Act-Assisted)", fontsize=8.0, fontweight="bold", color=C_ORANGE)
 
     fig.suptitle(
-        "M3 Isolated Paired Contrasts (95% Bootstrap CI, Exact McNemar p, and Track-Holm Adjusted H)",
+        "Isolated Paired Contrasts (95% Bootstrap CI, Exact McNemar p, and Track-Holm Adjusted H)",
         y=1.02,
     )
     fig.subplots_adjust(wspace=0.92, right=0.88)
@@ -507,7 +507,7 @@ def make_fig3_edit_magnitude_vs_ood_ppl(m3: dict) -> list[Path]:
     c3_ood = m3["arms"]["C3"]["datasets"]["synthetic_ood_test"]["metrics"]["pass_at_1"] * 100.0
     c3_norm = m3["arms"]["C3"]["patch_invariants"]["overall_relative_frobenius_norm"]
     ax1.annotate(
-        f"H3 OOD drop: {c3_ood - c0_ood:+.1f} pp\n(p = 3.59e-5 vs C0)",
+        f"Unaligned OOD drop: {c3_ood - c0_ood:+.1f} pp\n(p = 3.59e-5 vs C0)",
         xy=(c3_norm, c3_ood),
         xytext=(-135, 34),
         textcoords="offset points",
