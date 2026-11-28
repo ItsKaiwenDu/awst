@@ -12,6 +12,7 @@
 | Category | Path | Role / Verification |
 |---|---|---|
 | **Manuscript & BibTeX** | [`paper/main.tex`](main.tex) | Overleaf-ready `pdfLaTeX` manuscript (vector `.pdf` figures + `plainnat` BibTeX) |
+| | [`awst_overleaf.zip`](../awst_overleaf.zip) | Ready-to-upload Overleaf bundle (`main.tex`, `references.bib`, `figures/fig1..3.pdf`) tracked at repository root |
 | | [`paper/awst_paper.md`](awst_paper.md) | Markdown manuscript mirror (Protocol Section 13 & `H004` review) |
 | | [`paper/references.bib`](references.bib) | 15 verified primary references (byte-identical to `docs/literature/bibliography.bib`) |
 | **Publication Figures** | [`paper/figures/fig1_split_trajectory.png`](figures/fig1_split_trajectory.png) (`.pdf`) | Blinded validation vs. isolated test accuracy (`C0`–`C5`, `T1`, `T2`, `Qwen3.5-2B`) |
