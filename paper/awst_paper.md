@@ -2,8 +2,6 @@
 
 **Primary Investigator:** Kaiwen Du (College of Arts and Sciences, Santa Clara University) · November 27, 2026
 
-> **Academic Research Scope Disclaimer:** This study is a non-commercial academic feasibility investigation operating exclusively on open-weight Apache-2.0 checkpoints (`Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B`). It does not perform knowledge distillation or develop models intended to compete with frontier model providers; automated editors operate strictly between pinned open-weight checkpoints.
-
 ---
 
 ## Abstract
@@ -267,6 +265,7 @@ On the infrastructure side, selective HTTP `206` byte-range retrieval reliably f
 
 ## Appendix A. Pinned Reproducibility Registry
 
+- **Code & Artifacts Repository:** https://github.com/ItsKaiwenDu/awst
 - **Base Recipient (`Qwen/Qwen3.5-0.8B`):** revision `2fc06364715b967f1860aea9cf38778875588b17`, primary shard `model.safetensors-00001-of-00001.safetensors`, SHA-256 `04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696`, `873,438,784` stored / `852,985,920` active runtime params (`153` frozen vision tensors = `100,592,896` params; `488` stored vs. `473` runtime tensors omitting 15 `mtp.*` tensors). Pinned runtime stack: Python `3.11.16`, `torch 2.15.0`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`, `scipy`, macOS `27.2.1`.
 - **Donor (`Qwen/Qwen3.5-2B`):** revision `15852e8c16360a2fea060d615a32b45270f8a8fc`, primary shard SHA-256 `aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1`, `2,274,069,824` stored params.
 - **Persistent Finalist Shard Digests (`runs/manifests/m3_frozen_checkpoint_audit.json`):**
