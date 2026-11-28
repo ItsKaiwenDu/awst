@@ -1,6 +1,6 @@
 # Agentic Weight-Space Transplantation on Language Models
 
-**Primary Investigator:** Kaiwen Du (College of Arts and Sciences, Santa Clara University) · November 27, 2026
+**Kaiwen Du** (College of Arts and Sciences, Santa Clara University) · November 27, 2026
 
 ---
 
