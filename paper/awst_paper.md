@@ -1,11 +1,9 @@
-# Agentic Weight-Space Transplantation: An Empirical Feasibility Study on Training-Free Mathematical Transfer Between Language Models
+# Agentic Weight-Space Transplantation on Language Models
 
-**Project AWST Technical Report** | November 27, 2026  
-**Repository State:** Freeze commit `d12e8fb` (M3 evaluation `42b859b`, `H004` review `9c975e9`, Milestone M4)  
-**Primary Coordinator Harness:** Google Antigravity (`Gemini 4 Neon`)  
-**Designated Weight-Space Programmer & Independent Reviewer:** Codex (`GPT-6.2 Astra`)
+**Primary Investigator:** Kaiwen Du · November 27, 2026  
+**Repository State:** Freeze commit `d12e8fb` (M3 evaluation `42b859b`, `H004` review `9c975e9`, Milestone M4)
 
-> **Academic Research Scope Disclaimer:** This study is a non-commercial academic feasibility investigation operating exclusively on open-weight Apache-2.0 checkpoints (`Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B`). It does not perform knowledge distillation or develop models intended to compete with frontier model providers; agentic programmers act strictly as transparent weight-space editors between pinned open-weight checkpoints.
+> **Academic Research Scope Disclaimer:** This study is a non-commercial academic feasibility investigation operating exclusively on open-weight Apache-2.0 checkpoints (`Qwen/Qwen3.5-0.8B` and `Qwen/Qwen3.5-2B`). It does not perform knowledge distillation or develop models intended to compete with frontier model providers; automated editors operate strictly between pinned open-weight checkpoints.
 
 ---
 
@@ -89,6 +87,8 @@ To test weights-only retrieval feasibility without full shard downloads (`src/we
 
 ## 4. Experimental Setup
 
+**Harness Roles and Workflow Isolation.** Research coordination, evaluation infrastructure, baseline and control implementations (`C0`, `C2`, `C3`, `C4`, `C5`), and independent replay/statistical verification were executed in Google Antigravity (`Gemini 4 Neon`), while Stage 1 weight transplantation trials (`H002` and `H003`) and the independent M3 statistical review (`H004`) were performed by Codex (`GPT-6.2 Astra`) via self-contained researcher-mediated manual handoffs under frozen development-only visibility and separate track manifests.
+
 **Checkpoints, Hardware, and Runtime Stack.** Experiments ran locally on an Apple M4 Max (36 GiB unified memory, 14 CPU cores, macOS `27.2.1`) using a pinned Python `3.11.16` environment (`torch 2.15.0` MPS `bfloat16`, `transformers 5.24.1`, `safetensors 0.8.0`, `datasets 5.2.0`, `scipy`) consuming `18 GB` total local cache (`< 30 GB` cap). Checkpoints were pinned by exact Hugging Face revision: `Qwen/Qwen3.5-0.8B` (`2fc06364715b967f1860aea9cf38778875588b17`, primary shard SHA-256 `04b1c301...`) and `Qwen/Qwen3.5-2B` (`15852e8c16360a2fea060d615a32b45270f8a8fc`, primary shard SHA-256 `aa33250c...`). Both share `24` text layers (`3:1` Gated DeltaNet + Full Attention, `head_dim=256`, `vocab_size=248320`, tied embeddings), differing in `hidden_size` (`1024` vs `2048`) and `intermediate_size` (`3584` vs `6144`). Inspection revealed that serialized checkpoints contain `488` tensors (`873,438,784` entries), whereas `Transformers` instantiates `473` runtime parameters (`852,985,920` entries), omitting 15 multi-token-prediction (`mtp.*`, `20,452,864` entries) tensors; both counts were verified on patch save/reload.
 
 **Stage 0 Protocol Calibration (`D002`).** Evaluating `enable_thinking=True` (`max_new_tokens=2048`, `temp=0.6, top_p=0.95, top_k=20`, without vLLM `presence_penalty=1.5` or 32K context) reproduced severe `0.8B` looping (`95.0% -> 75.0%` with `C0_loopfixed`, `25.0% -> 30.0%` GSM8K `n=20`, `100%` truncated). By contrast, freezing `enable_thinking=False`, greedy decoding (`do_sample=False`), and `max_new_tokens=1024` reduced `C0_raw` GSM8K loops to `2.0%`, yielded `62.0%` GSM8K validation accuracy (outperforming `C0_loopfixed`'s `56.0%`), ran `~5x` faster (`109.4 tok/s`), and preserved large donor gaps (`+20.0 pp` GSM8K, `+38.0 pp` `carry_add_sub`). We therefore froze `nothink 1024` greedy on `C0_raw` in Pilot Protocol v1.0 (`docs/preregistration.md`).
@@ -132,6 +132,8 @@ Because Stage 1 showed zero held-out validation advantage, Stages 2 (`Qwen3.5-9B
 **Figure 1.** GSM8K and carry/borrow pass@1 across blinded validation (M2) and isolated confirmatory test (M3). Development GSM8K gains for `T1` and `T2` failed to transfer, and both frozen AWST checkpoints overlapped unedited `C0_raw` and shuffled-donor `C5` controls while `Qwen3.5-2B` maintained a `+21.5 pp` to `+44.0 pp` isolated lead.
 
 ### 5.3 Isolated Confirmatory Evaluation Scorecard (M3)
+
+In isolated confirmatory evaluation (**Table 2**, **Table 3**, **Figures 2–3**), the donor model (`Qwen3.5-2B`) maintained a decisive lead over `C0_raw` (`+21.5 pp` on `gsm8k_test`, `p < 1e-7`; `+44.0 pp` on `carry_add_sub`, `p = 2.74e-5`). Across the nine `0.8B`-architecture arms, neither `T1` (`54.5%` GSM8K, `28.0%` carry, `77.0%` OOD) nor `T2` (`51.5%` GSM8K, `30.0%` carry, `74.0%` OOD) outperformed donor-free `C1` (`53.0%` GSM8K), algorithmic baselines `C4_weights`/`C4_act` after Holm correction (`p = 0.080` and `p = 0.6635`), or shuffled-donor `C5` controls (`54.0%` and `55.0%` GSM8K). Dense algorithmic transfer slightly degraded both GSM8K (`47.0%` and `47.5%`) and prose perplexity (`73.86` and `66.50` vs. `62.63` baseline), whereas unaligned random donor copying (`C3`) suffered a sharp `-20.0 pp` OOD failure (`p = 3.59e-5`) and rose to `78.87` prose perplexity.
 
 | Arm | `gsm8k_test` (`n=200`) | `carry` (`n=50`) | `mult` (`n=50`) | `word` (`n=50`) | `synthetic_ood` (`n=100`) | `ret_ifeval` (`n=30`) | `prose_ppl` | `tok/s` (`gsm8k`) | Changed Params (`rel_frob`) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

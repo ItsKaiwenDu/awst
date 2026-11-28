@@ -1,6 +1,7 @@
 # Agentic Weight-Space Transplantation (AWST)
 
-**Title:** *Agentic Weight-Space Transplantation: An Empirical Feasibility Study on Training-Free Mathematical Transfer Between Language Models*  
+**Title:** *Agentic Weight-Space Transplantation on Language Models*  
+**Primary Investigator:** Kaiwen Du  
 **Status:** **Milestones M0–M4 Complete & Archived Privately** (researcher sign-off 2026-11-27; `D011` stop retained, repository remains private)  
 **Primary Domain:** Grade-school mathematical reasoning (multi-digit carry/borrow arithmetic + GSM8K)  
 **Spend to Date:** **\$0.00** direct API/cloud spend / \$200.00 hard ceiling (**\$14.2912** cumulative Codex shadow across `H001`–`H004` inside the authorized \$20.00 M2 pilot gate)
